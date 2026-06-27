@@ -1781,7 +1781,7 @@
 
             // ============================================================
             // 1) LOAD CERTIFICATIONS FROM SUPABASE TABLE "files"
-            //    Opens the PDF in a new tab for viewing
+            //    Opens the PDF in a new tab with inline display (?inline)
             // ============================================================
             async function loadCertifications() {
                 try {
@@ -1801,8 +1801,8 @@
                         const fileName = item.file_name || 'Unnamed';
                         const filePath = item.file_path || '';
 
-                        // Build public URL (without ?download so it opens in browser)
-                        const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/files/cert/${encodeURIComponent(filePath)}`;
+                        // Build public URL with ?inline to display in browser (not download)
+                        const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/files/cert/${encodeURIComponent(filePath)}?inline`;
 
                         const sizeInMB = (1.2).toFixed(1); // placeholder size
                         const itemDiv = document.createElement('div');
@@ -1923,7 +1923,7 @@
 
             checkHash();
 
-            console.log('✅ Supabase integration active. Certificates open in new tab for viewing.');
+            console.log('✅ Supabase integration active. Certificates open in new tab with inline view.');
         })();
     </script>
 </body>
