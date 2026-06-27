@@ -1716,7 +1716,7 @@
 
     </div>
 
-    <script>
+<script>
         (function() {
             // ============================================================
             // SUPABASE CONFIG
@@ -1752,7 +1752,7 @@
             const messageInput = document.getElementById('message');
 
             // ============================================================
-            // THEME TOGGLE (unchanged logic, kept exactly)
+            // THEME TOGGLE (unchanged)
             // ============================================================
             function getPreferredTheme() {
                 const stored = localStorage.getItem('theme');
@@ -1859,18 +1859,28 @@
             }
 
             // ============================================================
+            // DOWNLOAD HELPER: trigger PDF download via hidden anchor
+            // ============================================================
+            function downloadPDF(url) {
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = ''; // let the server filename take precedence
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+
+            // ============================================================
             // 1) LOAD CERTIFICATIONS FROM SUPABASE TABLE "files"
-            //    table: files (columns: file_name, file_path)
-            //    bucket: files, folder: cert/  -> full URL built below
+            //    Uses ?download to force download instead of inline view
             // ============================================================
             async function loadCertifications() {
                 try {
-                    // Query the "files" table
                     const data = await supabaseFetch(
                         `${SUPABASE_URL}/rest/v1/files?select=file_name,file_path`
                     );
 
-                    // Clear grid (preserve grid structure)
                     previewGrid.innerHTML = '';
 
                     if (!data || data.length === 0) {
@@ -1879,27 +1889,26 @@
                         return;
                     }
 
-                    // Build each certificate item
                     data.forEach(item => {
                         const fileName = item.file_name || 'Unnamed';
                         const filePath = item.file_path || '';
 
-                        // Construct public URL: bucket = "files", folder = "cert"
-                        // e.g. https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/cert/filename.pdf
-                        const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/files/certs/${encodeURIComponent(filePath)}`;
+                        // Build public URL with ?download parameter to force download
+                        const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/files/cert/${encodeURIComponent(filePath)}?download`;
 
-                        const sizeInMB = (1.2).toFixed(1); // fallback size (optional)
+                        const sizeInMB = (1.2).toFixed(1); // placeholder size
                         const itemDiv = document.createElement('div');
                         itemDiv.className = 'pdf-preview-item';
-                        itemDiv.setAttribute('onclick', `window.open('${publicUrl}','_blank')`);
+                        // Use the download helper on click
+                        itemDiv.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            downloadPDF(publicUrl);
+                        });
                         itemDiv.style.cursor = 'pointer';
-
-                        // Extract file extension or use generic
-                        const displayName = fileName;
 
                         itemDiv.innerHTML = `
                             <i class="fas fa-file-pdf"></i>
-                            <div class="file-name">${displayName}</div>
+                            <div class="file-name">${fileName}</div>
                             <div class="file-size">${sizeInMB} MB</div>
                         `;
                         previewGrid.appendChild(itemDiv);
@@ -1914,7 +1923,6 @@
 
             // ============================================================
             // 2) SEND MESSAGE → INSERT INTO "messages" TABLE
-            //    columns: sender_name, email, message
             // ============================================================
             async function sendMessage(senderName, email, message) {
                 const payload = {
@@ -1942,7 +1950,7 @@
             }
 
             // ============================================================
-            // CONTACT FORM HANDLER (with success alert)
+            // CONTACT FORM HANDLER
             // ============================================================
             contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
@@ -1959,10 +1967,6 @@
                 try {
                     await sendMessage(name, email, message);
                     alert('✅ Message sent successfully!');
-                    // Optionally reset fields (but keep demo values? we keep as-is)
-                    // nameInput.value = '';
-                    // emailInput.value = '';
-                    // messageInput.value = '';
                 } catch (error) {
                     console.error('Send message error:', error);
                     alert('❌ Failed to send message. Please check console for details.');
@@ -1970,38 +1974,10 @@
             });
 
             // ============================================================
-            // 3) PDF UPLOAD (keep original behavior for local previews)
-            //    but we do NOT override the grid from upload – we keep both
-            //    (original code replaced innerHTML, we preserve that logic)
-            //    However we want upload to also work alongside DB data.
-            //    We'll keep the upload listener but we call loadCertifications()
-            //    after upload to refresh from DB? Actually user expects uploaded
-            //    files to appear; but we already load from DB. To avoid conflict
-            //    we keep upload but it will replace grid with uploaded files.
-            //    That's the original behavior. We'll keep it unchanged.
-            //    But we also call loadCertifications() on page load.
+            // 3) PDF UPLOAD (local preview, unchanged)
             // ============================================================
             const pdfInput = document.getElementById('pdfUpload');
 
-            // Keep original upload behavior (it replaces grid with local files)
-            // We'll add a small tweak: after upload, if we want to show DB again
-            // we could but we respect original code. We'll keep as-is.
-            // However we need to make sure the upload listener doesn't break.
-            // We'll preserve the original listener but we also call loadCertifications()
-            // at startup.
-
-            // Replace the listener with one that also respects the grid.
-            // Actually we need to override the existing listener because it was
-            // defined in the original <script> but we are rewriting everything.
-            // So we attach a new listener, but we want to keep the same behavior:
-            // when user uploads PDFs, they appear in the grid (local preview).
-            // That is fine. But we also want to show DB data when the page loads.
-            // To avoid conflict, we'll keep both: load DB on init, and upload
-            // overrides the grid with local files (as original).
-            // We'll also allow a way to reload DB? Not needed.
-
-            // Remove any previous listener (but we are in a fresh IIFE)
-            // We'll just assign a new one.
             pdfInput.addEventListener('change', function(e) {
                 const files = e.target.files;
                 if (files.length === 0) return;
@@ -2015,7 +1991,11 @@
                     const item = document.createElement('div');
                     item.className = 'pdf-preview-item';
                     const url = URL.createObjectURL(file);
-                    item.setAttribute('onclick', `window.open('${url}','_blank')`);
+                    // For uploaded files, also trigger download (using the same helper)
+                    item.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        downloadPDF(url);
+                    });
                     item.style.cursor = 'pointer';
 
                     item.innerHTML = `
@@ -2033,32 +2013,21 @@
             });
 
             // ============================================================
-            // INIT: load certifications from Supabase, check hash
+            // INIT: load certifications, check hash, and enhance page switching
             // ============================================================
-            // Load certificates when page is ready
+            // Load certificates when page loads
             loadCertifications();
 
-            // Handle hash after loading
-            checkHash();
-
-            // Also reload certifications if user navigates to certifications tab?
-            // We'll add a small enhancement: when switching to certifications,
-            // we could reload, but not necessary. But we can add a listener.
-            // We'll just reload when the page loads.
-
-            // Optional: reload when certifications link is clicked
-            // We'll extend switchPage to reload certs if pageId === 'certifications'
+            // Re‑load certificates when switching to the certifications tab
             const originalSwitch = switchPage;
             switchPage = function(pageId) {
                 originalSwitch(pageId);
                 if (pageId === 'certifications') {
-                    loadCertifications(); // refresh when tab is opened
+                    loadCertifications();
                 }
             };
 
-            // Re-bind navLinks to use new switchPage (already bound, but we override)
-            // We need to re-bind because we replaced the function.
-            // Remove old listeners and add new ones.
+            // Re‑bind nav links with the new switchPage
             navLinks.forEach(link => {
                 link.removeEventListener('click', link._listener);
                 const handler = function(e) {
@@ -2070,7 +2039,6 @@
                 link._listener = handler;
             });
 
-            // Also re-bind allPageLinks
             allPageLinks.forEach(el => {
                 el.removeEventListener('click', el._listener);
                 const handler = function(e) {
@@ -2084,10 +2052,9 @@
                 el._listener = handler;
             });
 
-            // Re-run hash check after rebinding
             checkHash();
 
-            console.log('✅ Supabase integration active. Certificates loaded from "files" table, messages inserted into "messages".');
+            console.log('✅ Supabase integration active. Certificates load and download; messages inserted.');
         })();
     </script>
 </body>
