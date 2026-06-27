@@ -1859,21 +1859,8 @@
             }
 
             // ============================================================
-            // DOWNLOAD HELPER: trigger PDF download via hidden anchor
-            // ============================================================
-            function downloadPDF(url) {
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = ''; // let the server filename take precedence
-                link.style.display = 'none';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-
-            // ============================================================
             // 1) LOAD CERTIFICATIONS FROM SUPABASE TABLE "files"
-            //    Uses ?download to force download instead of inline view
+            //    Opens the PDF in a new tab for viewing (no download)
             // ============================================================
             async function loadCertifications() {
                 try {
@@ -1893,16 +1880,16 @@
                         const fileName = item.file_name || 'Unnamed';
                         const filePath = item.file_path || '';
 
-                        // Build public URL with ?download parameter to force download
-                        const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/files/cert/${encodeURIComponent(filePath)}?download`;
+                        // Build public URL (without ?download so it opens in browser)
+                        const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/files/cert/${encodeURIComponent(filePath)}`;
 
                         const sizeInMB = (1.2).toFixed(1); // placeholder size
                         const itemDiv = document.createElement('div');
                         itemDiv.className = 'pdf-preview-item';
-                        // Use the download helper on click
+                        // Open in new tab on click
                         itemDiv.addEventListener('click', function(e) {
                             e.preventDefault();
-                            downloadPDF(publicUrl);
+                            window.open(publicUrl, '_blank');
                         });
                         itemDiv.style.cursor = 'pointer';
 
@@ -1974,7 +1961,7 @@
             });
 
             // ============================================================
-            // 3) PDF UPLOAD (local preview, unchanged)
+            // 3) PDF UPLOAD (local preview – opens in new tab for viewing)
             // ============================================================
             const pdfInput = document.getElementById('pdfUpload');
 
@@ -1991,10 +1978,10 @@
                     const item = document.createElement('div');
                     item.className = 'pdf-preview-item';
                     const url = URL.createObjectURL(file);
-                    // For uploaded files, also trigger download (using the same helper)
+                    // Open in new tab for viewing
                     item.addEventListener('click', function(e) {
                         e.preventDefault();
-                        downloadPDF(url);
+                        window.open(url, '_blank');
                     });
                     item.style.cursor = 'pointer';
 
@@ -2054,7 +2041,7 @@
 
             checkHash();
 
-            console.log('✅ Supabase integration active. Certificates load and download; messages inserted.');
+            console.log('✅ Supabase integration active. Certificates open in new tab for viewing.');
         })();
     </script>
 </body>
