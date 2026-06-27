@@ -1886,7 +1886,7 @@
 
                         // Construct public URL: bucket = "files", folder = "cert"
                         // e.g. https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/cert/filename.pdf
-                        const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/files/cert/${encodeURIComponent(filePath)}`;
+                        const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/files/certs/${encodeURIComponent(filePath)}`;
 
                         const sizeInMB = (1.2).toFixed(1); // fallback size (optional)
                         const itemDiv = document.createElement('div');
