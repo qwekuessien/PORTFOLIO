@@ -958,66 +958,7 @@
             transition: color 0.4s ease;
         }
 
-        /* ----- PDF UPLOAD (responsive) ----- */
-        .pdf-upload-area {
-            background: var(--bg-upload);
-            border-radius: var(--radius-base);
-            padding: 1.5rem;
-            border: 2px dashed var(--border-light);
-            margin: 1.5rem 0 1.2rem;
-            transition: 0.3s ease;
-        }
-
-        .pdf-upload-area:hover {
-            border-color: var(--blue-primary);
-            background: var(--bg-offwhite);
-            transform: scale(1.003);
-        }
-
-        .pdf-upload-area label {
-            font-weight: 500;
-            color: var(--text-primary);
-            display: block;
-            margin-bottom: 0.2rem;
-            font-size: clamp(0.9rem, 1.2vw, 1rem);
-            transition: color 0.4s ease;
-        }
-
-        .pdf-upload-area input[type="file"] {
-            display: block;
-            margin: 0.4rem 0 0.8rem;
-            padding: 0.4rem;
-            background: var(--bg-input);
-            border-radius: var(--radius-round);
-            border: 1px solid var(--border-light);
-            width: 100%;
-            cursor: pointer;
-            transition: 0.3s ease;
-            font-size: clamp(0.75rem, 1vw, 0.85rem);
-            color: var(--text-primary);
-        }
-
-        .pdf-upload-area input[type="file"]:hover {
-            border-color: var(--blue-primary);
-        }
-
-        .pdf-upload-area input[type="file"]::file-selector-button {
-            background: var(--bg-btn);
-            color: var(--text-btn);
-            border: none;
-            padding: 0.3rem 1rem;
-            border-radius: var(--radius-round);
-            margin-right: 0.8rem;
-            cursor: pointer;
-            transition: 0.3s ease;
-            font-size: clamp(0.75rem, 1vw, 0.85rem);
-        }
-
-        .pdf-upload-area input[type="file"]::file-selector-button:hover {
-            background: var(--bg-btn-hover);
-            transform: scale(1.04);
-        }
-
+        /* ----- PDF PREVIEW GRID (no upload area) ----- */
         .pdf-preview-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(min(100%, 130px), 1fr));
@@ -1637,33 +1578,13 @@
                 </div>
             </div>
 
-            <!-- PDF upload & preview -->
-            <div class="pdf-upload-area">
-                <label for="pdfUpload"><i class="fas fa-cloud-upload-alt" style="margin-right:8px;color:var(--blue-primary);"></i> Upload PDF certificates</label>
-                <input type="file" id="pdfUpload" accept=".pdf" multiple />
-                <p style="font-size:clamp(0.75rem,1vw,0.85rem);color:var(--text-muted);"><i class="fas fa-info-circle"></i> Upload your certificate PDFs — they'll appear as preview cards below.</p>
-
-                <div id="pdfPreviewGrid" class="pdf-preview-grid">
-                    <div class="pdf-preview-item" onclick="window.open('#','_blank')">
-                        <i class="fas fa-file-pdf"></i>
-                        <div class="file-name">BTECH CERT.pdf</div>
-                        <div class="file-size">1.2 MB</div>
-                    </div>
-                    <div class="pdf-preview-item" onclick="window.open('#','_blank')">
-                        <i class="fas fa-file-pdf"></i>
-                        <div class="file-name">HND CERT.pdf</div>
-                        <div class="file-size">0.9 MB</div>
-                    </div>
-                    <div class="pdf-preview-item" onclick="window.open('#','_blank')">
-                        <i class="fas fa-file-pdf"></i>
-                        <div class="file-name">NSS GTP2536823.pdf</div>
-                        <div class="file-size">0.7 MB</div>
-                    </div>
-                </div>
+            <!-- PDF preview grid (no upload) -->
+            <div id="pdfPreviewGrid" class="pdf-preview-grid">
+                <!-- Will be dynamically populated from Supabase -->
             </div>
             <p style="margin-top: 0.2rem; color: var(--text-muted); font-size: clamp(0.8rem,1vw,0.9rem);">
                 <i class="fas fa-arrow-right" style="color:var(--blue-primary);"></i>
-                Click any PDF card to open it. Replace the placeholder files with your actual certificates.
+                Click any PDF card to view the certificate.
             </p>
         </div>
 
@@ -1860,7 +1781,7 @@
 
             // ============================================================
             // 1) LOAD CERTIFICATIONS FROM SUPABASE TABLE "files"
-            //    Opens the PDF in a new tab for viewing (no download)
+            //    Opens the PDF in a new tab for viewing
             // ============================================================
             async function loadCertifications() {
                 try {
@@ -1957,45 +1878,6 @@
                 } catch (error) {
                     console.error('Send message error:', error);
                     alert('❌ Failed to send message. Please check console for details.');
-                }
-            });
-
-            // ============================================================
-            // 3) PDF UPLOAD (local preview – opens in new tab for viewing)
-            // ============================================================
-            const pdfInput = document.getElementById('pdfUpload');
-
-            pdfInput.addEventListener('change', function(e) {
-                const files = e.target.files;
-                if (files.length === 0) return;
-
-                previewGrid.innerHTML = '';
-
-                for (let file of files) {
-                    if (file.type !== 'application/pdf') continue;
-
-                    const sizeInMB = (file.size / (1024 * 1024)).toFixed(1);
-                    const item = document.createElement('div');
-                    item.className = 'pdf-preview-item';
-                    const url = URL.createObjectURL(file);
-                    // Open in new tab for viewing
-                    item.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        window.open(url, '_blank');
-                    });
-                    item.style.cursor = 'pointer';
-
-                    item.innerHTML = `
-                        <i class="fas fa-file-pdf"></i>
-                        <div class="file-name">${file.name}</div>
-                        <div class="file-size">${sizeInMB} MB</div>
-                    `;
-                    previewGrid.appendChild(item);
-                }
-
-                if (previewGrid.children.length === 0) {
-                    previewGrid.innerHTML =
-                        `<p style="grid-column:1/-1; color:var(--text-muted); padding:0.5rem; font-size:clamp(0.8rem,1vw,0.9rem);">No PDF files selected. Please choose valid PDFs.</p>`;
                 }
             });
 
