@@ -958,10 +958,10 @@
             transition: color 0.4s ease;
         }
 
-        /* ----- PDF PREVIEW GRID (no upload area) ----- */
+        /* ----- PDF PREVIEW GRID (static certificates) ----- */
         .pdf-preview-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(100%, 130px), 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr));
             gap: 1rem;
             margin-top: 1rem;
         }
@@ -1249,7 +1249,7 @@
             }
 
             .pdf-preview-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
 
             .timeline-item {
@@ -1298,7 +1298,7 @@
             }
 
             .pdf-preview-grid {
-                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
                 gap: 0.6rem;
             }
 
@@ -1381,7 +1381,6 @@
         /* ----- PRINT STYLES (optional) ----- */
         @media print {
             .btn,
-            .pdf-upload-area input[type="file"],
             .theme-toggle {
                 display: none !important;
             }
@@ -1481,8 +1480,6 @@
             <div class="profile-section">
                 <div class="profile-pic">
                     <img src="https://res.cloudinary.com/dk10jtsv9/image/upload/f_auto,q_auto/t_edegrp" alt="Essien Bernard" />
-                    <!-- TO ADD YOUR PHOTO: Uncomment the line below and add your image -->
-                    <!-- <img src="your-photo.jpg" alt="Essien Bernard" /> -->
                     <i class="fas fa-user-circle fallback-icon"></i>
                 </div>
                 <div class="profile-text">
@@ -1578,13 +1575,32 @@
                 </div>
             </div>
 
-            <!-- PDF preview grid (no upload) -->
-            <div id="pdfPreviewGrid" class="pdf-preview-grid">
-                <!-- Will be dynamically populated from Supabase -->
+            <!-- Static PDF certificate links -->
+            <div class="pdf-preview-grid">
+                <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/BTECH%20CERT.pdf" target="_blank" class="pdf-preview-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="file-name">BTECH CERT</div>
+                    <div class="file-size">PDF</div>
+                </a>
+                <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/HND%20CERT.pdf" target="_blank" class="pdf-preview-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="file-name">HND CERT</div>
+                    <div class="file-size">PDF</div>
+                </a>
+                <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/NSS%20GTP2536823.pdf" target="_blank" class="pdf-preview-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="file-name">NSS GTP2536823</div>
+                    <div class="file-size">PDF</div>
+                </a>
+                <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/BERNARD%20ESSIEN..pdf" target="_blank" class="pdf-preview-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="file-name">BERNARD ESSIEN</div>
+                    <div class="file-size">PDF</div>
+                </a>
             </div>
             <p style="margin-top: 0.2rem; color: var(--text-muted); font-size: clamp(0.8rem,1vw,0.9rem);">
                 <i class="fas fa-arrow-right" style="color:var(--blue-primary);"></i>
-                Click any PDF card to view the certificate.
+                Click any PDF card to open the certificate in a new tab.
             </p>
         </div>
 
@@ -1637,7 +1653,7 @@
 
     </div>
 
-<script>
+    <script>
         (function() {
             // ============================================================
             // SUPABASE CONFIG
@@ -1663,9 +1679,6 @@
             const themeToggle = document.getElementById('themeToggle');
             const icon = themeToggle.querySelector('i');
 
-            // certification grid
-            const previewGrid = document.getElementById('pdfPreviewGrid');
-
             // contact form
             const contactForm = document.getElementById('contactForm');
             const nameInput = document.getElementById('name');
@@ -1673,7 +1686,7 @@
             const messageInput = document.getElementById('message');
 
             // ============================================================
-            // THEME TOGGLE (unchanged)
+            // THEME TOGGLE
             // ============================================================
             function getPreferredTheme() {
                 const stored = localStorage.getItem('theme');
@@ -1706,7 +1719,7 @@
             setTheme(getPreferredTheme());
 
             // ============================================================
-            // PAGE SWITCHING (unchanged)
+            // PAGE SWITCHING
             // ============================================================
             function switchPage(pageId) {
                 Object.values(pages).forEach(p => p.classList.remove('active-page'));
@@ -1760,77 +1773,7 @@
             window.addEventListener('hashchange', checkHash);
 
             // ============================================================
-            // SUPABASE HELPER (fetch + insert)
-            // ============================================================
-            async function supabaseFetch(url, options = {}) {
-                const response = await fetch(url, {
-                    ...options,
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'apikey': SUPABASE_ANON_KEY,
-                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                        ...(options.headers || {})
-                    }
-                });
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`Supabase error ${response.status}: ${errorText}`);
-                }
-                return response.json();
-            }
-
-            // ============================================================
-            // 1) LOAD CERTIFICATIONS FROM SUPABASE TABLE "files"
-            //    Opens the PDF in a new tab with inline display (?inline)
-            // ============================================================
-            async function loadCertifications() {
-                try {
-                    const data = await supabaseFetch(
-                        `${SUPABASE_URL}/rest/v1/files?select=file_name,file_path`
-                    );
-
-                    previewGrid.innerHTML = '';
-
-                    if (!data || data.length === 0) {
-                        previewGrid.innerHTML =
-                            `<p style="grid-column:1/-1; color:var(--text-muted); padding:0.5rem; font-size:clamp(0.8rem,1vw,0.9rem);">No certificates found.</p>`;
-                        return;
-                    }
-
-                    data.forEach(item => {
-                        const fileName = item.file_name || 'Unnamed';
-                        const filePath = item.file_path || '';
-
-                        // Build public URL with ?inline to display in browser (not download)
-                        const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/files/cert/${encodeURIComponent(filePath)}?inline`;
-
-                        const sizeInMB = (1.2).toFixed(1); // placeholder size
-                        const itemDiv = document.createElement('div');
-                        itemDiv.className = 'pdf-preview-item';
-                        // Open in new tab on click
-                        itemDiv.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            window.open(publicUrl, '_blank');
-                        });
-                        itemDiv.style.cursor = 'pointer';
-
-                        itemDiv.innerHTML = `
-                            <i class="fas fa-file-pdf"></i>
-                            <div class="file-name">${fileName}</div>
-                            <div class="file-size">${sizeInMB} MB</div>
-                        `;
-                        previewGrid.appendChild(itemDiv);
-                    });
-
-                } catch (error) {
-                    console.error('Error loading certifications:', error);
-                    previewGrid.innerHTML =
-                        `<p style="grid-column:1/-1; color:var(--text-muted); padding:0.5rem; font-size:clamp(0.8rem,1vw,0.9rem);">⚠️ Failed to load certificates. Please try again later.</p>`;
-                }
-            }
-
-            // ============================================================
-            // 2) SEND MESSAGE → INSERT INTO "messages" TABLE
+            // SEND MESSAGE → INSERT INTO "messages" TABLE
             // ============================================================
             async function sendMessage(senderName, email, message) {
                 const payload = {
@@ -1882,48 +1825,11 @@
             });
 
             // ============================================================
-            // INIT: load certifications, check hash, and enhance page switching
+            // INIT
             // ============================================================
-            // Load certificates when page loads
-            loadCertifications();
-
-            // Re‑load certificates when switching to the certifications tab
-            const originalSwitch = switchPage;
-            switchPage = function(pageId) {
-                originalSwitch(pageId);
-                if (pageId === 'certifications') {
-                    loadCertifications();
-                }
-            };
-
-            // Re‑bind nav links with the new switchPage
-            navLinks.forEach(link => {
-                link.removeEventListener('click', link._listener);
-                const handler = function(e) {
-                    e.preventDefault();
-                    const page = this.dataset.page;
-                    if (page) switchPage(page);
-                };
-                link.addEventListener('click', handler);
-                link._listener = handler;
-            });
-
-            allPageLinks.forEach(el => {
-                el.removeEventListener('click', el._listener);
-                const handler = function(e) {
-                    const page = this.dataset.page;
-                    if (page && pages[page]) {
-                        e.preventDefault();
-                        switchPage(page);
-                    }
-                };
-                el.addEventListener('click', handler);
-                el._listener = handler;
-            });
-
             checkHash();
 
-            console.log('✅ Supabase integration active. Certificates open in new tab with inline view.');
+            console.log('✅ Portfolio ready. Certificates are statically linked.');
         })();
     </script>
 </body>
