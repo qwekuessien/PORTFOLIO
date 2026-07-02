@@ -6,8 +6,8 @@
   <title>ESSIEN BERNARD · Portfolio</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Google Font: Montserrat (for header) & Brigther Moment (logo) -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Brigther+Moment&display=swap" rel="stylesheet" />
+  <!-- Google Font: Montserrat (for header) & Poppins (for logo - professional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     /* ----- RESET & BASE ----- */
     * {
@@ -191,12 +191,12 @@
       flex-wrap: wrap;
     }
 
-    /* ----- LOGO: "Bernard" now uses Montserrat (700 weight) ----- */
+    /* ----- LOGO: Professional font (Poppins) with clean weight ----- */
     .logo {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
       font-size: clamp(1.2rem, 4vw, 1.7rem);
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
       color: var(--logo-color);
       background: transparent;
       border: none;
@@ -207,7 +207,7 @@
 
     .logo i {
       color: var(--logo-icon-color);
-      margin-right: 6px;
+      margin-right: 8px;
       transition: color 0.35s ease;
     }
 
@@ -1422,7 +1422,7 @@
     <!-- navigation -->
     <nav>
       <div class="nav-left">
-        <!-- "Bernard" is now in Montserrat 700 via .logo -->
+        <!-- Logo with professional Poppins font -->
         <div class="logo"><i class="fas fa-network-wired"></i> Bernard</div>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
           <i class="fas fa-moon"></i>
@@ -1863,7 +1863,7 @@
       // ============================================================
       checkHash();
 
-      console.log('✅ Flat-design portfolio ready. Header font: Montserrat, "Bernard" uses Montserrat 700.');
+      console.log('✅ Portfolio ready. Logo uses professional Poppins font.');
     })();
   </script>
 </body>
