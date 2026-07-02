@@ -6,8 +6,7 @@
   <title>ESSIEN BERNARD · Portfolio</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Google Font: Montserrat (for header) & Poppins (for logo - professional) -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- All fonts changed to Helvetica (system) – fallback to Arial, sans-serif -->
   <style>
     /* ----- RESET & BASE ----- */
     * {
@@ -138,14 +137,16 @@
       --logo-icon-color: #4fc3f7;
     }
 
+    /* ---- GLOBAL FONT: Helvetica (system) ---- */
     body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background: var(--bg-body);
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--text-primary);
       line-height: 1.7;
       min-height: 100vh;
       overflow-x: hidden;
       transition: background 0.4s ease, color 0.4s ease;
+      font-weight: 400;
     }
 
     /* ----- CONTAINER ----- */
@@ -191,9 +192,9 @@
       flex-wrap: wrap;
     }
 
-    /* ----- LOGO: Professional font (Poppins) with clean weight — ALL BOLD ----- */
+    /* ----- LOGO: Helvetica now, all bold ----- */
     .logo {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-weight: 700;          /* bold */
       font-size: clamp(1.2rem, 4vw, 1.7rem);
       letter-spacing: 0.3px;
@@ -235,6 +236,7 @@
       position: relative;
       letter-spacing: 0.2px;
       white-space: nowrap;
+      font-family: inherit;
     }
 
     .nav-links a::after {
@@ -308,6 +310,7 @@
       margin-bottom: 1rem;
       animation: fadeIn 0.6s ease;
       transition: color 0.4s ease;
+      font-family: inherit;
     }
 
     .page-indicator span {
@@ -318,6 +321,7 @@
       display: inline-block;
       transition: background 0.4s ease, border-color 0.4s ease;
       box-shadow: var(--shadow);
+      font-family: inherit;
     }
 
     @media (max-width: 480px) {
@@ -367,6 +371,7 @@
       margin-bottom: 1.5rem;
       animation: fadeIn 0.5s ease;
       transition: color 0.4s ease, border-color 0.4s ease;
+      font-family: inherit;
     }
 
     .section-title i {
@@ -390,6 +395,7 @@
       border: 1px solid var(--border-light);
       box-shadow: var(--shadow);
       transition: var(--transition);
+      font-family: inherit;
     }
 
     .card:hover {
@@ -416,15 +422,17 @@
       color: var(--text-primary);
       margin-bottom: 0.2rem;
       transition: color 0.4s ease;
+      font-family: inherit;
     }
 
     .card p {
       color: var(--text-muted);
       font-size: clamp(0.85rem, 1.2vw, 0.95rem);
       transition: color 0.4s ease;
+      font-family: inherit;
     }
 
-    /* ----- HERO (font unified with body) ----- */
+    /* ----- HERO ----- */
     .hero {
       display: flex;
       flex-wrap: wrap;
@@ -439,9 +447,8 @@
       min-width: 200px;
     }
 
-    /* Homepage header: uses Montserrat (bold) for "ESSIEN BERNARD" */
     .hero-text h1 {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-weight: 700;
       font-size: clamp(2rem, 6vw, 3rem);
       letter-spacing: 0.3px;
@@ -498,6 +505,7 @@
       box-shadow: var(--shadow);
       transition: var(--transition);
       animation: float 6s infinite ease-in-out;
+      font-family: inherit;
     }
 
     .hero-image:hover {
@@ -616,6 +624,7 @@
       border: 1px solid var(--border-light);
       box-shadow: var(--shadow);
       transition: var(--transition);
+      font-family: inherit;
     }
 
     .about-card:hover {
@@ -675,6 +684,7 @@
       border-radius: 12px;
       transition: 0.3s ease;
       align-items: baseline;
+      font-family: inherit;
     }
 
     .timeline-item:hover {
@@ -717,6 +727,7 @@
       box-shadow: var(--shadow);
       margin-bottom: 1.8rem;
       transition: var(--transition);
+      font-family: inherit;
     }
 
     .profile-section:hover {
@@ -835,6 +846,7 @@
       align-items: center;
       gap: 0.8rem;
       width: 100%;
+      font-family: inherit;
     }
 
     .contact-form {
@@ -846,6 +858,7 @@
       border: 1px solid var(--border-light);
       box-shadow: var(--shadow);
       transition: var(--transition);
+      font-family: inherit;
     }
 
     .contact-form:hover {
@@ -948,6 +961,7 @@
       box-shadow: var(--shadow);
       text-align: center;
       transition: var(--transition);
+      font-family: inherit;
     }
 
     .cert-card:hover {
@@ -1012,6 +1026,7 @@
       cursor: pointer;
       text-decoration: none;
       color: var(--text-primary);
+      font-family: inherit;
     }
 
     .pdf-preview-item:hover {
@@ -1061,6 +1076,7 @@
       box-shadow: var(--shadow);
       transition: var(--transition);
       text-align: center;
+      font-family: inherit;
     }
 
     .stats-bar:hover {
@@ -1122,6 +1138,7 @@
       justify-content: center;
       text-decoration: none;
       border: 1px solid var(--border-light);
+      font-family: inherit;
     }
 
     .social a:hover {
@@ -1141,6 +1158,7 @@
       animation: fadeIn 0.6s ease;
       border: 1px solid var(--border-light);
       box-shadow: var(--shadow);
+      font-family: inherit;
     }
 
     .quote-block p {
@@ -1422,7 +1440,7 @@
     <!-- navigation -->
     <nav>
       <div class="nav-left">
-        <!-- Logo with professional Poppins font — ALL BOLD (weight 700) -->
+        <!-- Logo: Helvetica bold -->
         <div class="logo"><i class="fas fa-network-wired"></i> BERNARD</div>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
           <i class="fas fa-moon"></i>
@@ -1447,7 +1465,6 @@
     <div id="home" class="page active-page">
       <div class="hero">
         <div class="hero-text">
-          <!-- Header uses Montserrat (700) as per .hero-text h1 -->
           <h1><i class="fas fa-user-tie"></i> ESSIEN BERNARD</h1>
           <div class="tagline">Network Administrator · IT Support Specialist</div>
           <p>
@@ -1863,7 +1880,7 @@
       // ============================================================
       checkHash();
 
-      console.log('✅ Portfolio ready. Light mode is ultra white, dark mode is ultra black.');
+      console.log('✅ Portfolio ready. All fonts set to Helvetica. Dark mode ultra black.');
     })();
   </script>
 </body>
