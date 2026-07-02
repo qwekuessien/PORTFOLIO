@@ -1,1868 +1,1870 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-    <title>ESSIEN BERNARD · Portfolio</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- Google Font: Brigther Moment (for logo) -->
-    <link href="https://fonts.googleapis.com/css2?family=Brigther+Moment&display=swap" rel="stylesheet" />
-    <style>
-        /* ----- RESET & BASE ----- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            font-size: 16px;
-            -webkit-text-size-adjust: 100%;
-            scroll-behavior: smooth;
-        }
-
-        /* ===== CSS VARIABLES (Light mode – flat design) ===== */
-        :root {
-            --bg-body: #f5f7fb;
-            --bg-offwhite: #eef1f6;
-            --bg-card: #ffffff;
-            --bg-card-hover: #f8faff;
-            --bg-input: #ffffff;
-            --bg-tag: #eef1f6;
-            --bg-hero: #ffffff;
-            --bg-profile: #ffffff;
-            --bg-pdf: #ffffff;
-            --bg-cert: #ffffff;
-            --bg-upload: #ffffff;
-            --bg-stats: #ffffff;
-            --bg-quote: #ffffff;
-            --bg-pill: #eef1f6;
-            --bg-nav: #ffffff;
-            --bg-btn: #00b4d8;
-            --bg-btn-hover: #0098b8;
-
-            --text-primary: #1a2639;
-            --text-muted: #4a5a70;
-            --text-inverse: #ffffff;
-            --text-btn: #ffffff;
-
-            --border-light: #dce2ec;
-            --border-primary: #00b4d8;
-            --border-dark: #0098b8;
-            --border-input: #dce2ec;
-
-            --blue-primary: #00b4d8;
-            --blue-dark: #0098b8;
-            --blue-light: #c5f0fa;
-
-            /* Flat shadows – very subtle, just for elevation */
-            --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.10);
-            --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.04);
-
-            --radius-base: 16px;
-            --radius-round: 40px;
-
-            --transition: 0.25s ease;
-
-            --logo-border: #00b4d8;
-            --nav-border: #dce2ec;
-            --footer-border: #dce2ec;
-
-            --pdf-item-bg: #ffffff;
-            --pdf-item-border: #dce2ec;
-
-            --badge-bg: #00b4d8;
-            --badge-text: #ffffff;
-
-            --toggle-bg: #f5f7fb;
-            --toggle-icon: #1a2639;
-
-            --logo-color: #1a2639;
-            --logo-icon-color: #00b4d8;
-        }
-
-        /* ===== DARK MODE — flat & clean, darker background ===== */
-        body.dark-mode {
-            --bg-body: #080c14;
-            --bg-offwhite: #0e1522;
-            --bg-card: #0e1522;
-            --bg-card-hover: #141d2e;
-            --bg-input: #0e1522;
-            --bg-tag: #141d2e;
-            --bg-hero: #0e1522;
-            --bg-profile: #0e1522;
-            --bg-pdf: #0e1522;
-            --bg-cert: #0e1522;
-            --bg-upload: #0e1522;
-            --bg-stats: #0e1522;
-            --bg-quote: #0e1522;
-            --bg-pill: #141d2e;
-            --bg-nav: #0e1522;
-
-            --bg-btn: #4fc3f7;
-            --bg-btn-hover: #29b6f6;
-
-            --text-primary: #eaf0f8;
-            --text-muted: #8aa0c0;
-            --text-inverse: #080c14;
-            --text-btn: #080c14;
-
-            --border-light: #1e2a3a;
-            --border-primary: #4fc3f7;
-            --border-dark: #29b6f6;
-            --border-input: #1e2a3a;
-
-            --blue-primary: #4fc3f7;
-            --blue-dark: #29b6f6;
-            --blue-light: #132135;
-
-            --shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-            --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.35);
-            --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.15);
-
-            --logo-border: #4fc3f7;
-            --nav-border: #1e2a3a;
-            --footer-border: #1e2a3a;
-
-            --pdf-item-bg: #0e1522;
-            --pdf-item-border: #1e2a3a;
-
-            --badge-bg: #4fc3f7;
-            --badge-text: #080c14;
-
-            --toggle-bg: #0e1522;
-            --toggle-icon: #eaf0f8;
-
-            --logo-color: #eaf0f8;
-            --logo-icon-color: #4fc3f7;
-        }
-
-        body {
-            background: var(--bg-body);
-            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text-primary);
-            line-height: 1.7;
-            min-height: 100vh;
-            overflow-x: hidden;
-            transition: background 0.35s ease, color 0.35s ease;
-        }
-
-        /* ----- CONTAINER ----- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem clamp(1rem, 4vw, 2.5rem);
-            width: 100%;
-        }
-
-        /* ----- HEADER / NAV (flat card) ----- */
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.7rem 1.5rem;
-            border-radius: var(--radius-base);
-            background: var(--bg-nav);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow);
-            margin-bottom: 1.8rem;
-            gap: 0.8rem 1rem;
-            animation: slideDown 0.5s ease;
-            transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-        }
-
-        @keyframes slideDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-16px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        /* ----- LOGO ----- */
-        .logo {
-            font-family: 'Brigther Moment', cursive;
-            font-size: clamp(1.2rem, 4vw, 1.7rem);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: var(--logo-color);
-            background: transparent;
-            border: none;
-            padding: 0;
-            flex-shrink: 0;
-            transition: color 0.3s ease;
-        }
-
-        .logo i {
-            color: var(--logo-icon-color);
-            margin-right: 6px;
-            transition: color 0.35s ease;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: clamp(0.8rem, 2vw, 1.8rem);
-            flex-wrap: wrap;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: clamp(0.8rem, 2.5vw, 2.2rem);
-            font-weight: 500;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-size: clamp(0.85rem, 1.5vw, 1rem);
-            padding: 0.3rem 0;
-            border-bottom: 2px solid transparent;
-            transition: 0.25s ease;
-            position: relative;
-            letter-spacing: 0.2px;
-            white-space: nowrap;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--blue-primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--blue-dark);
-        }
-
-        .nav-links a.active {
-            color: var(--blue-dark);
-        }
-
-        /* ----- THEME TOGGLE BUTTON (flat) ----- */
-        .theme-toggle {
-            background: var(--toggle-bg);
-            border: 1px solid var(--border-light);
-            border-radius: 50%;
-            width: clamp(38px, 4vw, 44px);
-            height: clamp(38px, 4vw, 44px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.3s ease;
-            font-size: clamp(1rem, 1.4vw, 1.2rem);
-            color: var(--toggle-icon);
-            flex-shrink: 0;
-            box-shadow: var(--shadow);
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.06);
-            border-color: var(--blue-primary);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.94);
-        }
-
-        .theme-toggle i {
-            transition: transform 0.4s ease;
-            pointer-events: none;
-        }
-
-        .theme-toggle.rotated i {
-            transform: rotate(360deg);
-        }
-
-        /* ----- PAGE INDICATOR ----- */
-        .page-indicator {
-            text-align: right;
-            font-size: clamp(0.75rem, 1.2vw, 0.85rem);
-            color: var(--text-muted);
-            letter-spacing: 0.3px;
-            margin-top: -0.2rem;
-            margin-bottom: 1rem;
-            animation: fadeIn 0.6s ease;
-            transition: color 0.35s ease;
-        }
-
-        .page-indicator span {
-            background: var(--bg-card);
-            padding: 0.1rem 1rem;
-            border-radius: var(--radius-round);
-            border: 1px solid var(--border-light);
-            display: inline-block;
-            transition: background 0.35s ease, border-color 0.35s ease;
-            box-shadow: var(--shadow);
-        }
-
-        @media (max-width: 480px) {
-            .page-indicator {
-                text-align: left;
-            }
-        }
-
-        /* ----- PAGES ----- */
-        .page {
-            display: none;
-            animation: fadeSlide 0.35s ease;
-        }
-
-        .page.active-page {
-            display: block;
-        }
-
-        @keyframes fadeSlide {
-            0% {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        /* ----- SECTION TITLE ----- */
-        .section-title {
-            font-size: clamp(1.4rem, 4vw, 1.9rem);
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            color: var(--text-primary);
-            border-left: 5px solid var(--blue-primary);
-            padding-left: clamp(0.8rem, 2vw, 1.2rem);
-            margin-bottom: 1.5rem;
-            animation: fadeIn 0.5s ease;
-            transition: color 0.35s ease, border-color 0.35s ease;
-        }
-
-        .section-title i {
-            color: var(--blue-primary);
-            margin-right: 6px;
-            transition: color 0.35s ease;
-        }
-
-        /* ----- CARD GRID ----- */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-            gap: 1.8rem;
-            margin: 1.2rem 0 1.8rem;
-        }
-
-        .card {
-            background: var(--bg-card);
-            padding: 1.8rem 1.2rem;
-            border-radius: var(--radius-base);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--blue-primary);
-            background: var(--bg-card-hover);
-        }
-
-        .card i {
-            font-size: clamp(1.8rem, 4vw, 2.2rem);
-            color: var(--blue-primary);
-            margin-bottom: 0.4rem;
-            transition: 0.3s ease;
-        }
-
-        .card:hover i {
-            color: var(--blue-dark);
-        }
-
-        .card h3 {
-            font-weight: 600;
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: var(--text-primary);
-            margin-bottom: 0.2rem;
-            transition: color 0.35s ease;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-            transition: color 0.35s ease;
-        }
-
-        /* ----- HERO (font unified with body) ----- */
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: clamp(1.5rem, 4vw, 2.5rem);
-            margin: 0.5rem 0 1.8rem;
-            animation: fadeSlide 0.6s ease;
-        }
-
-        .hero-text {
-            flex: 2 1 280px;
-            min-width: 200px;
-        }
-
-        .hero-text h1 {
-            font-size: clamp(2rem, 6vw, 3rem);
-            font-weight: 400;
-            letter-spacing: 0.3px;
-            color: var(--text-primary);
-            line-height: 1.2;
-            word-break: break-word;
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .hero-text h1 i {
-            color: var(--blue-primary);
-            margin-right: 6px;
-            animation: pulseIcon 4s infinite ease-in-out;
-            transition: color 0.35s ease;
-        }
-
-        @keyframes pulseIcon {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-                color: var(--blue-dark);
-            }
-        }
-
-        .hero-text .tagline {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            color: var(--text-muted);
-            margin: 0.3rem 0 1rem;
-            border-left: 4px solid var(--blue-primary);
-            padding-left: 0.8rem;
-            transition: color 0.35s ease, border-color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .hero-text p {
-            font-size: clamp(0.9rem, 1.3vw, 1rem);
-            color: var(--text-muted);
-            max-width: 520px;
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .hero-image {
-            flex: 1 1 200px;
-            background: var(--bg-hero);
-            border-radius: var(--radius-base);
-            padding: 1.8rem 1.2rem;
-            text-align: center;
-            min-width: 160px;
-            border: 1px solid var(--border-primary);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            animation: float 6s infinite ease-in-out;
-        }
-
-        .hero-image:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-hover);
-        }
-
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-
-        .hero-image i {
-            font-size: clamp(3rem, 8vw, 4.8rem);
-            color: var(--blue-primary);
-            opacity: 0.85;
-            transition: color 0.35s ease;
-        }
-
-        .hero-image p {
-            margin-top: 0.3rem;
-            font-weight: 400;
-            color: var(--text-muted);
-            font-size: clamp(0.8rem, 1.2vw, 0.95rem);
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .hero-image span {
-            background: var(--badge-bg);
-            color: var(--badge-text) !important;
-            font-size: clamp(0.7rem, 1.2vw, 0.8rem);
-            padding: 0.1rem 1rem;
-            border-radius: 30px;
-            display: inline-block;
-            margin-top: 0.2rem;
-            transition: background 0.35s ease, color 0.35s ease;
-            font-family: inherit;
-        }
-
-        /* ----- BUTTONS (flat) ----- */
-        .btn {
-            display: inline-block;
-            background: var(--bg-btn);
-            color: var(--text-btn);
-            padding: 0.6rem 1.8rem;
-            border-radius: var(--radius-round);
-            text-decoration: none;
-            font-weight: 500;
-            letter-spacing: 0.2px;
-            border: 1px solid var(--border-dark);
-            transition: var(--transition);
-            margin-top: 0.3rem;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            font-size: clamp(0.85rem, 1.2vw, 1rem);
-            text-align: center;
-            font-family: inherit;
-        }
-
-        .btn i {
-            margin-right: 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover {
-            background: var(--bg-btn-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--border-dark);
-            color: var(--text-btn);
-        }
-
-        .btn:hover i {
-            transform: translateX(4px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1.5px solid var(--blue-primary);
-            box-shadow: var(--shadow);
-        }
-
-        .btn-outline:hover {
-            background: var(--bg-offwhite);
-            border-color: var(--blue-dark);
-            color: var(--text-primary);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1.2rem;
-        }
-
-        /* ----- ABOUT PAGE ----- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-            gap: 1.8rem;
-            margin: 1.2rem 0;
-        }
-
-        .about-card {
-            background: var(--bg-card);
-            padding: 1.8rem 1.5rem;
-            border-radius: var(--radius-base);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .about-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--blue-primary);
-            background: var(--bg-card-hover);
-        }
-
-        .about-card h3 {
-            font-weight: 600;
-            color: var(--text-primary);
-            border-bottom: 2px solid var(--border-light);
-            padding-bottom: 0.4rem;
-            margin-bottom: 0.8rem;
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            transition: color 0.35s ease, border-color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .about-card h3 i {
-            color: var(--blue-primary);
-            margin-right: 6px;
-            transition: color 0.35s ease;
-        }
-
-        /* ----- SKILL TAGS (flat pills) ----- */
-        .skill-tag {
-            display: inline-block;
-            background: var(--bg-tag);
-            padding: 0.2rem 1rem;
-            border-radius: var(--radius-round);
-            margin: 0.15rem 0.15rem 0.15rem 0;
-            font-size: clamp(0.75rem, 1.2vw, 0.85rem);
-            color: var(--text-primary);
-            border: 1px solid var(--border-light);
-            transition: 0.25s ease;
-            box-shadow: var(--shadow);
-            font-family: inherit;
-        }
-
-        .skill-tag:hover {
-            background: var(--blue-primary);
-            color: var(--text-btn);
-            border-color: var(--blue-primary);
-            transform: scale(1.04) translateY(-2px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        /* ----- TIMELINE ----- */
-        .timeline-item {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem 0.6rem;
-            margin-bottom: 0.7rem;
-            padding: 0.2rem 0.4rem;
-            border-radius: 12px;
-            transition: 0.3s ease;
-            align-items: baseline;
-        }
-
-        .timeline-item:hover {
-            background: var(--border-light);
-            transform: translateX(4px);
-        }
-
-        .timeline-year {
-            font-weight: 600;
-            color: var(--blue-dark);
-            min-width: 80px;
-            font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-            flex-shrink: 0;
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .timeline-detail {
-            font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-            flex: 1;
-            color: var(--text-primary);
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .timeline-detail strong {
-            color: var(--text-primary);
-        }
-
-        /* ----- PROFILE SECTION ----- */
-        .profile-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            align-items: center;
-            background: var(--bg-profile);
-            padding: 1.8rem;
-            border-radius: var(--radius-base);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow);
-            margin-bottom: 1.8rem;
-            transition: var(--transition);
-        }
-
-        .profile-section:hover {
-            box-shadow: var(--shadow-hover);
-            border-color: var(--blue-primary);
-        }
-
-        .profile-pic {
-            flex: 0 0 clamp(100px, 20vw, 160px);
-            width: clamp(100px, 20vw, 160px);
-            height: clamp(100px, 20vw, 160px);
-            border-radius: 50%;
-            background: var(--bg-body);
-            border: 4px solid var(--blue-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: 0.3s ease;
-        }
-
-        .profile-pic:hover {
-            transform: scale(1.03);
-            border-color: var(--blue-dark);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .profile-pic img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .profile-pic .fallback-icon {
-            font-size: clamp(3rem, 8vw, 5rem);
-            color: var(--blue-primary);
-            opacity: 0.6;
-            transition: color 0.35s ease;
-        }
-
-        .profile-pic img:not([src=""])+.fallback-icon {
-            display: none;
-        }
-
-        .profile-text {
-            flex: 1;
-            min-width: 160px;
-        }
-
-        .profile-text p {
-            font-size: clamp(0.9rem, 1.3vw, 1.05rem);
-            color: var(--text-muted);
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .profile-text strong {
-            color: var(--text-primary);
-        }
-
-        /* ----- CONTACT ----- */
-        .contact-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.8rem;
-            margin: 1.2rem 0;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .contact-info {
-            flex: 1 1 240px;
-            min-width: 200px;
-        }
-
-        .contact-info .info-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: var(--bg-card);
-            padding: 0.7rem 1.2rem;
-            border-radius: var(--radius-round);
-            margin-bottom: 0.7rem;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-            color: var(--text-primary);
-            font-family: inherit;
-        }
-
-        .contact-info .info-item:hover {
-            transform: translateX(4px);
-            border-color: var(--blue-primary);
-            box-shadow: var(--shadow-hover);
-            background: var(--bg-card-hover);
-        }
-
-        .contact-info .info-item i {
-            width: 1.6rem;
-            color: var(--blue-primary);
-            font-size: clamp(1rem, 1.5vw, 1.2rem);
-            transition: 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .contact-info .info-item:hover i {
-            color: var(--blue-dark);
-        }
-
-        .contact-info .info-item a {
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            width: 100%;
-        }
-
-        .contact-form {
-            flex: 1.5 1 280px;
-            min-width: 220px;
-            background: var(--bg-card);
-            padding: 1.8rem;
-            border-radius: var(--radius-base);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .contact-form:hover {
-            box-shadow: var(--shadow-hover);
-            border-color: var(--blue-primary);
-        }
-
-        .contact-form label {
-            display: block;
-            margin: 0.6rem 0 0.2rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .contact-form select {
-            width: 100%;
-            padding: 0.6rem 1rem;
-            border: 1px solid var(--border-input);
-            border-radius: var(--radius-round);
-            background: var(--bg-input);
-            color: var(--text-primary);
-            font-size: clamp(0.85rem, 1.2vw, 1rem);
-            outline: none;
-            transition: 0.3s ease;
-            box-shadow: var(--shadow-inset);
-            appearance: auto;
-            cursor: pointer;
-            font-family: inherit;
-        }
-
-        .contact-form select:focus {
-            border-color: var(--blue-primary);
-            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.6rem 1rem;
-            border: 1px solid var(--border-input);
-            border-radius: var(--radius-round);
-            background: var(--bg-input);
-            color: var(--text-primary);
-            font-size: clamp(0.85rem, 1.2vw, 1rem);
-            outline: none;
-            transition: 0.3s ease;
-            box-shadow: var(--shadow-inset);
-            font-family: inherit;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--blue-primary);
-            box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
-        }
-
-        .contact-form textarea {
-            border-radius: var(--radius-base);
-            min-height: 90px;
-            resize: vertical;
-        }
-
-        .contact-form .btn {
-            width: 100%;
-            margin-top: 0.8rem;
-            border: none;
-            font-size: clamp(0.9rem, 1.2vw, 1rem);
-        }
-
-        .availability-badge {
-            margin-top: 1.2rem;
-            background: var(--bg-card);
-            padding: 0.8rem 1.2rem;
-            border-radius: var(--radius-round);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow);
-            font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-            text-align: center;
-            color: var(--text-primary);
-            transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease;
-            font-family: inherit;
-        }
-
-        /* ----- CERTIFICATIONS ----- */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-            gap: 1.8rem;
-            margin: 1.2rem 0;
-        }
-
-        .cert-card {
-            background: var(--bg-cert);
-            border-radius: var(--radius-base);
-            padding: 1.8rem 1.2rem;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .cert-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--blue-primary);
-            background: var(--bg-card-hover);
-        }
-
-        .cert-card i {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            color: var(--blue-primary);
-            margin-bottom: 0.3rem;
-            transition: 0.3s ease;
-        }
-
-        .cert-card:hover i {
-            color: var(--blue-dark);
-        }
-
-        .cert-card h4 {
-            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.1rem;
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .cert-card .issuer {
-            color: var(--text-muted);
-            font-size: clamp(0.75rem, 1.2vw, 0.85rem);
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .cert-card .highlight {
-            font-size: 0.8rem;
-            color: var(--blue-dark);
-            margin-top: 0.2rem;
-            font-weight: 500;
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        /* ----- PDF PREVIEW GRID ----- */
-        .pdf-preview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr));
-            gap: 1.2rem;
-            margin-top: 1rem;
-        }
-
-        .pdf-preview-item {
-            background: var(--pdf-item-bg);
-            border-radius: var(--radius-base);
-            padding: 0.8rem 0.6rem;
-            text-align: center;
-            border: 1px solid var(--pdf-item-border);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            cursor: pointer;
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-
-        .pdf-preview-item:hover {
-            border-color: var(--blue-primary);
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-3px);
-            background: var(--bg-card-hover);
-        }
-
-        .pdf-preview-item i {
-            font-size: clamp(2rem, 5vw, 3rem);
-            color: var(--blue-primary);
-            display: block;
-            margin-bottom: 0.1rem;
-            transition: 0.3s ease;
-        }
-
-        .pdf-preview-item:hover i {
-            color: var(--blue-dark);
-        }
-
-        .pdf-preview-item .file-name {
-            font-weight: 500;
-            font-size: clamp(0.7rem, 1.2vw, 0.85rem);
-            word-break: break-word;
-            color: var(--text-primary);
-            font-family: inherit;
-        }
-
-        .pdf-preview-item .file-size {
-            font-size: clamp(0.6rem, 1vw, 0.7rem);
-            color: var(--text-muted);
-            font-family: inherit;
-        }
-
-        /* ----- STATS BAR ----- */
-        .stats-bar {
-            background: var(--bg-stats);
-            padding: 0.8rem 1rem;
-            border-radius: var(--radius-base);
-            border: 1px solid var(--border-light);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem 2rem;
-            justify-content: space-around;
-            margin: 1rem 0;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .stats-bar:hover {
-            border-color: var(--blue-primary);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .stats-bar strong {
-            color: var(--text-primary);
-            font-size: clamp(1.3rem, 3vw, 1.6rem);
-            display: block;
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .stats-bar span {
-            color: var(--text-muted);
-            font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        /* ----- FOOTER ----- */
-        footer {
-            margin-top: 3rem;
-            border-top: 2px solid var(--footer-border);
-            padding: 1.5rem 0 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0.8rem 1.5rem;
-            color: var(--text-muted);
-            font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-            animation: fadeIn 0.6s ease;
-            transition: border-color 0.35s ease, color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .social {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-        }
-
-        .social a {
-            color: var(--text-muted);
-            font-size: clamp(1rem, 1.5vw, 1.1rem);
-            transition: var(--transition);
-            display: inline-block;
-            padding: 0.2rem 0.5rem;
-            border-radius: 50%;
-            background: var(--bg-card);
-            box-shadow: var(--shadow);
-            width: 2.4rem;
-            height: 2.4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            border: 1px solid var(--border-light);
-        }
-
-        .social a:hover {
-            color: var(--blue-primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--blue-primary);
-        }
-
-        /* ----- QUOTE BLOCK ----- */
-        .quote-block {
-            background: var(--bg-quote);
-            padding: 1.8rem;
-            border-radius: 40px 12px 40px 12px;
-            margin: 1.2rem 0;
-            transition: 0.3s ease;
-            animation: fadeIn 0.6s ease;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow);
-        }
-
-        .quote-block p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            font-style: italic;
-            color: var(--text-primary);
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        .quote-block .attribution {
-            margin-top: 0.3rem;
-            color: var(--text-muted);
-            font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-            transition: color 0.35s ease;
-            font-family: inherit;
-        }
-
-        /* ----- VALUE PILLS ----- */
-        .value-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin: 1rem 0;
-            justify-content: center;
-        }
-
-        .value-pill {
-            background: var(--bg-pill);
-            border-radius: 40px;
-            padding: 0.4rem 1.5rem;
-            border: 1px solid var(--border-light);
-            transition: 0.3s ease;
-            font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-            color: var(--text-primary);
-            box-shadow: var(--shadow);
-            font-family: inherit;
-        }
-
-        .value-pill:hover {
-            border-color: var(--blue-primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-            background: var(--bg-card-hover);
-        }
-
-        .value-pill i {
-            color: var(--blue-primary);
-            margin-right: 4px;
-            transition: color 0.35s ease;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0.8rem 1rem;
-            }
-            nav {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0.5rem;
-            }
-            .nav-left {
-                justify-content: space-between;
-                width: 100%;
-            }
-            .nav-right {
-                justify-content: center;
-                width: 100%;
-            }
-            .nav-links {
-                justify-content: center;
-                gap: 0.8rem 1.2rem;
-            }
-            .nav-links a {
-                font-size: 0.9rem;
-                white-space: normal;
-            }
-            .theme-toggle {
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
-            }
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
-            .hero-text .tagline {
-                border-left: none;
-                padding-left: 0;
-                border-top: 3px solid var(--blue-primary);
-                padding-top: 0.5rem;
-            }
-            .hero-text p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .btn-group {
-                justify-content: center;
-            }
-            .profile-section {
-                flex-direction: column;
-                text-align: center;
-                padding: 1.2rem;
-            }
-            .profile-pic {
-                flex: 0 0 120px;
-                width: 120px;
-                height: 120px;
-            }
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-wrap {
-                flex-direction: column;
-            }
-            .contact-info .info-item {
-                padding: 0.6rem 1rem;
-            }
-            .section-title {
-                border-left-width: 4px;
-                padding-left: 0.8rem;
-            }
-            .stats-bar {
-                flex-direction: row;
-                gap: 0.8rem;
-            }
-            footer {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-            .social {
-                justify-content: center;
-            }
-            .page-indicator {
-                text-align: center;
-            }
-            .cert-grid {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            }
-            .pdf-preview-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-            .timeline-item {
-                flex-direction: column;
-                gap: 0.1rem;
-                padding: 0.3rem 0.4rem;
-            }
-            .timeline-year {
-                min-width: auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0.5rem 0.8rem;
-            }
-            .logo {
-                font-size: 1.1rem;
-            }
-            .nav-links {
-                gap: 0.5rem 0.8rem;
-            }
-            .nav-links a {
-                font-size: 0.8rem;
-                padding: 0.15rem 0;
-            }
-            .hero-text h1 {
-                font-size: 1.8rem;
-            }
-            .card-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .cert-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.8rem;
-            }
-            .pdf-preview-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-                gap: 0.6rem;
-            }
-            .pdf-preview-item {
-                padding: 0.5rem 0.3rem;
-            }
-            .pdf-preview-item i {
-                font-size: 1.8rem;
-            }
-            .contact-form {
-                padding: 1rem;
-            }
-            .profile-pic {
-                flex: 0 0 100px;
-                width: 100px;
-                height: 100px;
-            }
-            .profile-pic .fallback-icon {
-                font-size: 2.8rem;
-            }
-            .section-title {
-                font-size: 1.2rem;
-                padding-left: 0.6rem;
-            }
-            .btn {
-                padding: 0.5rem 1.2rem;
-                font-size: 0.85rem;
-            }
-            .stats-bar {
-                flex-direction: column;
-                gap: 0.4rem;
-                padding: 0.6rem;
-            }
-            .value-pills {
-                gap: 0.4rem;
-            }
-            .value-pill {
-                padding: 0.3rem 0.8rem;
-                font-size: 0.75rem;
-            }
-            .theme-toggle {
-                width: 32px;
-                height: 32px;
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .cert-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-links {
-                gap: 0.3rem 0.5rem;
-            }
-            .nav-links a {
-                font-size: 0.7rem;
-            }
-            .hero-text h1 {
-                font-size: 1.5rem;
-            }
-            .pdf-preview-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* ----- PRINT ----- */
-        @media print {
-            .btn,
-            .theme-toggle {
-                display: none !important;
-            }
-            .page {
-                display: block !important;
-            }
-            .page:not(.active-page) {
-                display: none !important;
-            }
-            body {
-                background: #fff !important;
-                color: #000 !important;
-            }
-            .card,
-            .about-card,
-            .cert-card,
-            .profile-section,
-            .contact-form,
-            .stats-bar,
-            .hero-image {
-                border-color: #ccc !important;
-                box-shadow: none !important;
-                background: #fff !important;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>ESSIEN BERNARD · Portfolio</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Font: Montserrat (for header) & Brigther Moment (logo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Brigther+Moment&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- RESET & BASE ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    /* ===== CSS VARIABLES (Light mode – flat design) ===== */
+    :root {
+      --bg-body: #f5f7fb;
+      --bg-offwhite: #eef1f6;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8faff;
+      --bg-input: #ffffff;
+      --bg-tag: #eef1f6;
+      --bg-hero: #ffffff;
+      --bg-profile: #ffffff;
+      --bg-pdf: #ffffff;
+      --bg-cert: #ffffff;
+      --bg-upload: #ffffff;
+      --bg-stats: #ffffff;
+      --bg-quote: #ffffff;
+      --bg-pill: #eef1f6;
+      --bg-nav: #ffffff;
+      --bg-btn: #00b4d8;
+      --bg-btn-hover: #0098b8;
+
+      --text-primary: #1a2639;
+      --text-muted: #4a5a70;
+      --text-inverse: #ffffff;
+      --text-btn: #ffffff;
+
+      --border-light: #dce2ec;
+      --border-primary: #00b4d8;
+      --border-dark: #0098b8;
+      --border-input: #dce2ec;
+
+      --blue-primary: #00b4d8;
+      --blue-dark: #0098b8;
+      --blue-light: #c5f0fa;
+
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.10);
+      --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+
+      --radius-base: 16px;
+      --radius-round: 40px;
+
+      --transition: 0.25s ease;
+
+      --logo-border: #00b4d8;
+      --nav-border: #dce2ec;
+      --footer-border: #dce2ec;
+
+      --pdf-item-bg: #ffffff;
+      --pdf-item-border: #dce2ec;
+
+      --badge-bg: #00b4d8;
+      --badge-text: #ffffff;
+
+      --toggle-bg: #f5f7fb;
+      --toggle-icon: #1a2639;
+
+      --logo-color: #1a2639;
+      --logo-icon-color: #00b4d8;
+    }
+
+    /* ===== DARK MODE — flat & clean, darker background ===== */
+    body.dark-mode {
+      --bg-body: #080c14;
+      --bg-offwhite: #0e1522;
+      --bg-card: #0e1522;
+      --bg-card-hover: #141d2e;
+      --bg-input: #0e1522;
+      --bg-tag: #141d2e;
+      --bg-hero: #0e1522;
+      --bg-profile: #0e1522;
+      --bg-pdf: #0e1522;
+      --bg-cert: #0e1522;
+      --bg-upload: #0e1522;
+      --bg-stats: #0e1522;
+      --bg-quote: #0e1522;
+      --bg-pill: #141d2e;
+      --bg-nav: #0e1522;
+
+      --bg-btn: #4fc3f7;
+      --bg-btn-hover: #29b6f6;
+
+      --text-primary: #eaf0f8;
+      --text-muted: #8aa0c0;
+      --text-inverse: #080c14;
+      --text-btn: #080c14;
+
+      --border-light: #1e2a3a;
+      --border-primary: #4fc3f7;
+      --border-dark: #29b6f6;
+      --border-input: #1e2a3a;
+
+      --blue-primary: #4fc3f7;
+      --blue-dark: #29b6f6;
+      --blue-light: #132135;
+
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.35);
+      --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.15);
+
+      --logo-border: #4fc3f7;
+      --nav-border: #1e2a3a;
+      --footer-border: #1e2a3a;
+
+      --pdf-item-bg: #0e1522;
+      --pdf-item-border: #1e2a3a;
+
+      --badge-bg: #4fc3f7;
+      --badge-text: #080c14;
+
+      --toggle-bg: #0e1522;
+      --toggle-icon: #eaf0f8;
+
+      --logo-color: #eaf0f8;
+      --logo-icon-color: #4fc3f7;
+    }
+
+    body {
+      background: var(--bg-body);
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background 0.35s ease, color 0.35s ease;
+    }
+
+    /* ----- CONTAINER ----- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem clamp(1rem, 4vw, 2.5rem);
+      width: 100%;
+    }
+
+    /* ----- HEADER / NAV (flat card) ----- */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 1.5rem;
+      border-radius: var(--radius-base);
+      background: var(--bg-nav);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      margin-bottom: 1.8rem;
+      gap: 0.8rem 1rem;
+      animation: slideDown 0.5s ease;
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    @keyframes slideDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ----- LOGO: "Bernard" now uses Montserrat (700 weight) ----- */
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 4vw, 1.7rem);
+      letter-spacing: 0.5px;
+      color: var(--logo-color);
+      background: transparent;
+      border: none;
+      padding: 0;
+      flex-shrink: 0;
+      transition: color 0.3s ease;
+    }
+
+    .logo i {
+      color: var(--logo-icon-color);
+      margin-right: 6px;
+      transition: color 0.35s ease;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.8rem, 2vw, 1.8rem);
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: clamp(0.8rem, 2.5vw, 2.2rem);
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.25s ease;
+      position: relative;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--blue-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-dark);
+    }
+
+    .nav-links a.active {
+      color: var(--blue-dark);
+    }
+
+    /* ----- THEME TOGGLE BUTTON (flat) ----- */
+    .theme-toggle {
+      background: var(--toggle-bg);
+      border: 1px solid var(--border-light);
+      border-radius: 50%;
+      width: clamp(38px, 4vw, 44px);
+      height: clamp(38px, 4vw, 44px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      color: var(--toggle-icon);
+      flex-shrink: 0;
+      box-shadow: var(--shadow);
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.06);
+      border-color: var(--blue-primary);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .theme-toggle:active {
+      transform: scale(0.94);
+    }
+
+    .theme-toggle i {
+      transition: transform 0.4s ease;
+      pointer-events: none;
+    }
+
+    .theme-toggle.rotated i {
+      transform: rotate(360deg);
+    }
+
+    /* ----- PAGE INDICATOR ----- */
+    .page-indicator {
+      text-align: right;
+      font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+      margin-top: -0.2rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 0.6s ease;
+      transition: color 0.35s ease;
+    }
+
+    .page-indicator span {
+      background: var(--bg-card);
+      padding: 0.1rem 1rem;
+      border-radius: var(--radius-round);
+      border: 1px solid var(--border-light);
+      display: inline-block;
+      transition: background 0.35s ease, border-color 0.35s ease;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 480px) {
+      .page-indicator {
+        text-align: left;
+      }
+    }
+
+    /* ----- PAGES ----- */
+    .page {
+      display: none;
+      animation: fadeSlide 0.35s ease;
+    }
+
+    .page.active-page {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* ----- SECTION TITLE ----- */
+    .section-title {
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      color: var(--text-primary);
+      border-left: 5px solid var(--blue-primary);
+      padding-left: clamp(0.8rem, 2vw, 1.2rem);
+      margin-bottom: 1.5rem;
+      animation: fadeIn 0.5s ease;
+      transition: color 0.35s ease, border-color 0.35s ease;
+    }
+
+    .section-title i {
+      color: var(--blue-primary);
+      margin-right: 6px;
+      transition: color 0.35s ease;
+    }
+
+    /* ----- CARD GRID ----- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 1.8rem;
+      margin: 1.2rem 0 1.8rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      padding: 1.8rem 1.2rem;
+      border-radius: var(--radius-base);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--blue-primary);
+      background: var(--bg-card-hover);
+    }
+
+    .card i {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      color: var(--blue-primary);
+      margin-bottom: 0.4rem;
+      transition: 0.3s ease;
+    }
+
+    .card:hover i {
+      color: var(--blue-dark);
+    }
+
+    .card h3 {
+      font-weight: 600;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+      transition: color 0.35s ease;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+      transition: color 0.35s ease;
+    }
+
+    /* ----- HERO (font unified with body) ----- */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+      margin: 0.5rem 0 1.8rem;
+      animation: fadeSlide 0.6s ease;
+    }
+
+    .hero-text {
+      flex: 2 1 280px;
+      min-width: 200px;
+    }
+
+    /* Homepage header: uses Montserrat (bold) for "ESSIEN BERNARD" */
+    .hero-text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 6vw, 3rem);
+      letter-spacing: 0.3px;
+      color: var(--text-primary);
+      line-height: 1.2;
+      word-break: break-word;
+      transition: color 0.35s ease;
+    }
+
+    .hero-text h1 i {
+      color: var(--blue-primary);
+      margin-right: 6px;
+      animation: pulseIcon 4s infinite ease-in-out;
+      transition: color 0.35s ease;
+    }
+
+    @keyframes pulseIcon {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+        color: var(--blue-dark);
+      }
+    }
+
+    .hero-text .tagline {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--text-muted);
+      margin: 0.3rem 0 1rem;
+      border-left: 4px solid var(--blue-primary);
+      padding-left: 0.8rem;
+      transition: color 0.35s ease, border-color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .hero-text p {
+      font-size: clamp(0.9rem, 1.3vw, 1rem);
+      color: var(--text-muted);
+      max-width: 520px;
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .hero-image {
+      flex: 1 1 200px;
+      background: var(--bg-hero);
+      border-radius: var(--radius-base);
+      padding: 1.8rem 1.2rem;
+      text-align: center;
+      min-width: 160px;
+      border: 1px solid var(--border-primary);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .hero-image:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-hover);
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .hero-image i {
+      font-size: clamp(3rem, 8vw, 4.8rem);
+      color: var(--blue-primary);
+      opacity: 0.85;
+      transition: color 0.35s ease;
+    }
+
+    .hero-image p {
+      margin-top: 0.3rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .hero-image span {
+      background: var(--badge-bg);
+      color: var(--badge-text) !important;
+      font-size: clamp(0.7rem, 1.2vw, 0.8rem);
+      padding: 0.1rem 1rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 0.2rem;
+      transition: background 0.35s ease, color 0.35s ease;
+      font-family: inherit;
+    }
+
+    /* ----- BUTTONS (flat) ----- */
+    .btn {
+      display: inline-block;
+      background: var(--bg-btn);
+      color: var(--text-btn);
+      padding: 0.6rem 1.8rem;
+      border-radius: var(--radius-round);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      border: 1px solid var(--border-dark);
+      transition: var(--transition);
+      margin-top: 0.3rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      text-align: center;
+      font-family: inherit;
+    }
+
+    .btn i {
+      margin-right: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover {
+      background: var(--bg-btn-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border-dark);
+      color: var(--text-btn);
+    }
+
+    .btn:hover i {
+      transform: translateX(4px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1.5px solid var(--blue-primary);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-offwhite);
+      border-color: var(--blue-dark);
+      color: var(--text-primary);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+    }
+
+    /* ----- ABOUT PAGE ----- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 1.8rem;
+      margin: 1.2rem 0;
+    }
+
+    .about-card {
+      background: var(--bg-card);
+      padding: 1.8rem 1.5rem;
+      border-radius: var(--radius-base);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .about-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--blue-primary);
+      background: var(--bg-card-hover);
+    }
+
+    .about-card h3 {
+      font-weight: 600;
+      color: var(--text-primary);
+      border-bottom: 2px solid var(--border-light);
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.8rem;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      transition: color 0.35s ease, border-color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .about-card h3 i {
+      color: var(--blue-primary);
+      margin-right: 6px;
+      transition: color 0.35s ease;
+    }
+
+    /* ----- SKILL TAGS (flat pills) ----- */
+    .skill-tag {
+      display: inline-block;
+      background: var(--bg-tag);
+      padding: 0.2rem 1rem;
+      border-radius: var(--radius-round);
+      margin: 0.15rem 0.15rem 0.15rem 0;
+      font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+      transition: 0.25s ease;
+      box-shadow: var(--shadow);
+      font-family: inherit;
+    }
+
+    .skill-tag:hover {
+      background: var(--blue-primary);
+      color: var(--text-btn);
+      border-color: var(--blue-primary);
+      transform: scale(1.04) translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* ----- TIMELINE ----- */
+    .timeline-item {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.6rem;
+      margin-bottom: 0.7rem;
+      padding: 0.2rem 0.4rem;
+      border-radius: 12px;
+      transition: 0.3s ease;
+      align-items: baseline;
+    }
+
+    .timeline-item:hover {
+      background: var(--border-light);
+      transform: translateX(4px);
+    }
+
+    .timeline-year {
+      font-weight: 600;
+      color: var(--blue-dark);
+      min-width: 80px;
+      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+      flex-shrink: 0;
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .timeline-detail {
+      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+      flex: 1;
+      color: var(--text-primary);
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .timeline-detail strong {
+      color: var(--text-primary);
+    }
+
+    /* ----- PROFILE SECTION ----- */
+    .profile-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      background: var(--bg-profile);
+      padding: 1.8rem;
+      border-radius: var(--radius-base);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      margin-bottom: 1.8rem;
+      transition: var(--transition);
+    }
+
+    .profile-section:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--blue-primary);
+    }
+
+    .profile-pic {
+      flex: 0 0 clamp(100px, 20vw, 160px);
+      width: clamp(100px, 20vw, 160px);
+      height: clamp(100px, 20vw, 160px);
+      border-radius: 50%;
+      background: var(--bg-body);
+      border: 4px solid var(--blue-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.03);
+      border-color: var(--blue-dark);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-pic .fallback-icon {
+      font-size: clamp(3rem, 8vw, 5rem);
+      color: var(--blue-primary);
+      opacity: 0.6;
+      transition: color 0.35s ease;
+    }
+
+    .profile-pic img:not([src=""])+.fallback-icon {
+      display: none;
+    }
+
+    .profile-text {
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .profile-text p {
+      font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+      color: var(--text-muted);
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .profile-text strong {
+      color: var(--text-primary);
+    }
+
+    /* ----- CONTACT ----- */
+    .contact-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 1.2rem 0;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .contact-info {
+      flex: 1 1 240px;
+      min-width: 200px;
+    }
+
+    .contact-info .info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--bg-card);
+      padding: 0.7rem 1.2rem;
+      border-radius: var(--radius-round);
+      margin-bottom: 0.7rem;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+      color: var(--text-primary);
+      font-family: inherit;
+    }
+
+    .contact-info .info-item:hover {
+      transform: translateX(4px);
+      border-color: var(--blue-primary);
+      box-shadow: var(--shadow-hover);
+      background: var(--bg-card-hover);
+    }
+
+    .contact-info .info-item i {
+      width: 1.6rem;
+      color: var(--blue-primary);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      transition: 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .contact-info .info-item:hover i {
+      color: var(--blue-dark);
+    }
+
+    .contact-info .info-item a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      width: 100%;
+    }
+
+    .contact-form {
+      flex: 1.5 1 280px;
+      min-width: 220px;
+      background: var(--bg-card);
+      padding: 1.8rem;
+      border-radius: var(--radius-base);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .contact-form:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--blue-primary);
+    }
+
+    .contact-form label {
+      display: block;
+      margin: 0.6rem 0 0.2rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .contact-form select {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--border-input);
+      border-radius: var(--radius-round);
+      background: var(--bg-input);
+      color: var(--text-primary);
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      outline: none;
+      transition: 0.3s ease;
+      box-shadow: var(--shadow-inset);
+      appearance: auto;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .contact-form select:focus {
+      border-color: var(--blue-primary);
+      box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--border-input);
+      border-radius: var(--radius-round);
+      background: var(--bg-input);
+      color: var(--text-primary);
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      outline: none;
+      transition: 0.3s ease;
+      box-shadow: var(--shadow-inset);
+      font-family: inherit;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--blue-primary);
+      box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
+    }
+
+    .contact-form textarea {
+      border-radius: var(--radius-base);
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      margin-top: 0.8rem;
+      border: none;
+      font-size: clamp(0.9rem, 1.2vw, 1rem);
+    }
+
+    .availability-badge {
+      margin-top: 1.2rem;
+      background: var(--bg-card);
+      padding: 0.8rem 1.2rem;
+      border-radius: var(--radius-round);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+      text-align: center;
+      color: var(--text-primary);
+      transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+      font-family: inherit;
+    }
+
+    /* ----- CERTIFICATIONS ----- */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+      gap: 1.8rem;
+      margin: 1.2rem 0;
+    }
+
+    .cert-card {
+      background: var(--bg-cert);
+      border-radius: var(--radius-base);
+      padding: 1.8rem 1.2rem;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--blue-primary);
+      background: var(--bg-card-hover);
+    }
+
+    .cert-card i {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      color: var(--blue-primary);
+      margin-bottom: 0.3rem;
+      transition: 0.3s ease;
+    }
+
+    .cert-card:hover i {
+      color: var(--blue-dark);
+    }
+
+    .cert-card h4 {
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.1rem;
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .cert-card .issuer {
+      color: var(--text-muted);
+      font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .cert-card .highlight {
+      font-size: 0.8rem;
+      color: var(--blue-dark);
+      margin-top: 0.2rem;
+      font-weight: 500;
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    /* ----- PDF PREVIEW GRID ----- */
+    .pdf-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .pdf-preview-item {
+      background: var(--pdf-item-bg);
+      border-radius: var(--radius-base);
+      padding: 0.8rem 0.6rem;
+      text-align: center;
+      border: 1px solid var(--pdf-item-border);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .pdf-preview-item:hover {
+      border-color: var(--blue-primary);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+      background: var(--bg-card-hover);
+    }
+
+    .pdf-preview-item i {
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--blue-primary);
+      display: block;
+      margin-bottom: 0.1rem;
+      transition: 0.3s ease;
+    }
+
+    .pdf-preview-item:hover i {
+      color: var(--blue-dark);
+    }
+
+    .pdf-preview-item .file-name {
+      font-weight: 500;
+      font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+      word-break: break-word;
+      color: var(--text-primary);
+      font-family: inherit;
+    }
+
+    .pdf-preview-item .file-size {
+      font-size: clamp(0.6rem, 1vw, 0.7rem);
+      color: var(--text-muted);
+      font-family: inherit;
+    }
+
+    /* ----- STATS BAR ----- */
+    .stats-bar {
+      background: var(--bg-stats);
+      padding: 0.8rem 1rem;
+      border-radius: var(--radius-base);
+      border: 1px solid var(--border-light);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      justify-content: space-around;
+      margin: 1rem 0;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .stats-bar:hover {
+      border-color: var(--blue-primary);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .stats-bar strong {
+      color: var(--text-primary);
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      display: block;
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .stats-bar span {
+      color: var(--text-muted);
+      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    /* ----- FOOTER ----- */
+    footer {
+      margin-top: 3rem;
+      border-top: 2px solid var(--footer-border);
+      padding: 1.5rem 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem 1.5rem;
+      color: var(--text-muted);
+      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+      animation: fadeIn 0.6s ease;
+      transition: border-color 0.35s ease, color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .social a {
+      color: var(--text-muted);
+      font-size: clamp(1rem, 1.5vw, 1.1rem);
+      transition: var(--transition);
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 50%;
+      background: var(--bg-card);
+      box-shadow: var(--shadow);
+      width: 2.4rem;
+      height: 2.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: 1px solid var(--border-light);
+    }
+
+    .social a:hover {
+      color: var(--blue-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--blue-primary);
+    }
+
+    /* ----- QUOTE BLOCK ----- */
+    .quote-block {
+      background: var(--bg-quote);
+      padding: 1.8rem;
+      border-radius: 40px 12px 40px 12px;
+      margin: 1.2rem 0;
+      transition: 0.3s ease;
+      animation: fadeIn 0.6s ease;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow);
+    }
+
+    .quote-block p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-style: italic;
+      color: var(--text-primary);
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    .quote-block .attribution {
+      margin-top: 0.3rem;
+      color: var(--text-muted);
+      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+      transition: color 0.35s ease;
+      font-family: inherit;
+    }
+
+    /* ----- VALUE PILLS ----- */
+    .value-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 1rem 0;
+      justify-content: center;
+    }
+
+    .value-pill {
+      background: var(--bg-pill);
+      border-radius: 40px;
+      padding: 0.4rem 1.5rem;
+      border: 1px solid var(--border-light);
+      transition: 0.3s ease;
+      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+      color: var(--text-primary);
+      box-shadow: var(--shadow);
+      font-family: inherit;
+    }
+
+    .value-pill:hover {
+      border-color: var(--blue-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      background: var(--bg-card-hover);
+    }
+
+    .value-pill i {
+      color: var(--blue-primary);
+      margin-right: 4px;
+      transition: color 0.35s ease;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0.8rem 1rem;
+      }
+      nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+      }
+      .nav-left {
+        justify-content: space-between;
+        width: 100%;
+      }
+      .nav-right {
+        justify-content: center;
+        width: 100%;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 0.8rem 1.2rem;
+      }
+      .nav-links a {
+        font-size: 0.9rem;
+        white-space: normal;
+      }
+      .theme-toggle {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-text .tagline {
+        border-left: none;
+        padding-left: 0;
+        border-top: 3px solid var(--blue-primary);
+        padding-top: 0.5rem;
+      }
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .profile-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.2rem;
+      }
+      .profile-pic {
+        flex: 0 0 120px;
+        width: 120px;
+        height: 120px;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-wrap {
+        flex-direction: column;
+      }
+      .contact-info .info-item {
+        padding: 0.6rem 1rem;
+      }
+      .section-title {
+        border-left-width: 4px;
+        padding-left: 0.8rem;
+      }
+      .stats-bar {
+        flex-direction: row;
+        gap: 0.8rem;
+      }
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+      .social {
+        justify-content: center;
+      }
+      .page-indicator {
+        text-align: center;
+      }
+      .cert-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      }
+      .pdf-preview-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
+      .timeline-item {
+        flex-direction: column;
+        gap: 0.1rem;
+        padding: 0.3rem 0.4rem;
+      }
+      .timeline-year {
+        min-width: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0.5rem 0.8rem;
+      }
+      .logo {
+        font-size: 1.1rem;
+      }
+      .nav-links {
+        gap: 0.5rem 0.8rem;
+      }
+      .nav-links a {
+        font-size: 0.8rem;
+        padding: 0.15rem 0;
+      }
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .cert-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+      }
+      .pdf-preview-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 0.6rem;
+      }
+      .pdf-preview-item {
+        padding: 0.5rem 0.3rem;
+      }
+      .pdf-preview-item i {
+        font-size: 1.8rem;
+      }
+      .contact-form {
+        padding: 1rem;
+      }
+      .profile-pic {
+        flex: 0 0 100px;
+        width: 100px;
+        height: 100px;
+      }
+      .profile-pic .fallback-icon {
+        font-size: 2.8rem;
+      }
+      .section-title {
+        font-size: 1.2rem;
+        padding-left: 0.6rem;
+      }
+      .btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+      }
+      .stats-bar {
+        flex-direction: column;
+        gap: 0.4rem;
+        padding: 0.6rem;
+      }
+      .value-pills {
+        gap: 0.4rem;
+      }
+      .value-pill {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.75rem;
+      }
+      .theme-toggle {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links {
+        gap: 0.3rem 0.5rem;
+      }
+      .nav-links a {
+        font-size: 0.7rem;
+      }
+      .hero-text h1 {
+        font-size: 1.5rem;
+      }
+      .pdf-preview-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ----- PRINT ----- */
+    @media print {
+      .btn,
+      .theme-toggle {
+        display: none !important;
+      }
+      .page {
+        display: block !important;
+      }
+      .page:not(.active-page) {
+        display: none !important;
+      }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+      }
+      .card,
+      .about-card,
+      .cert-card,
+      .profile-section,
+      .contact-form,
+      .stats-bar,
+      .hero-image {
+        border-color: #ccc !important;
+        box-shadow: none !important;
+        background: #fff !important;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
+  <div class="container">
 
-        <!-- navigation -->
-        <nav>
-            <div class="nav-left">
-                <div class="logo"><i class="fas fa-network-wired"></i> Bernard</div>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
-            <div class="nav-right">
-                <div class="nav-links">
-                    <a href="#" class="active" data-page="home">Home</a>
-                    <a href="#" data-page="about">About</a>
-                    <a href="#" data-page="certifications">Certifications</a>
-                    <a href="#" data-page="contact">Contact</a>
-                </div>
-            </div>
-        </nav>
-
-        <!-- page indicator -->
-        <div class="page-indicator">
-            <span id="pageLabel"><i class="fas fa-circle" style="color:var(--blue-primary);font-size:0.5rem;vertical-align:middle;"></i> Home</span>
+    <!-- navigation -->
+    <nav>
+      <div class="nav-left">
+        <!-- "Bernard" is now in Montserrat 700 via .logo -->
+        <div class="logo"><i class="fas fa-network-wired"></i> Bernard</div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#" class="active" data-page="home">Home</a>
+          <a href="#" data-page="about">About</a>
+          <a href="#" data-page="certifications">Certifications</a>
+          <a href="#" data-page="contact">Contact</a>
         </div>
+      </div>
+    </nav>
 
-        <!-- ========== HOME ========== -->
-        <div id="home" class="page active-page">
-            <div class="hero">
-                <div class="hero-text">
-                    <h1><i class="fas fa-user-tie"></i> ESSIEN BERNARD</h1>
-                    <div class="tagline">Network Administrator · IT Support Specialist</div>
-                    <p>
-                        Networking Engineer with 5+ years of hands-on experience managing network infrastructure,
-                        troubleshooting complex connectivity issues, and supporting enterprise IT operations.
-                    </p>
-                    <div class="btn-group">
-                        <a href="#" class="btn" data-page="contact"><i class="fas fa-envelope"></i> Get in touch</a>
-                        <a href="#" class="btn btn-outline" data-page="about"><i class="fas fa-user"></i> About me</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <i class="fas fa-server"></i>
-                    <p>Network Infrastructure</p>
-                    <span>99.9% uptime</span>
-                </div>
-            </div>
-
-            <!-- expertise -->
-            <div class="section-title"><i class="fas fa-cogs"></i> Areas of Expertise</div>
-            <div class="card-grid">
-                <div class="card"><i class="fas fa-network-wired"></i><h3>Network Management</h3><p>Router/firewall configuration, server administration, and network security fundamentals.</p></div>
-                <div class="card"><i class="fas fa-server"></i><h3>Server Administration</h3><p>Physical and virtual server maintenance, backup & data recovery, and ERP deployment.</p></div>
-                <div class="card"><i class="fas fa-tools"></i><h3>IT Support</h3><p>Hardware/software troubleshooting, end-user support, and IT service management.</p></div>
-            </div>
-
-            <!-- quick stat -->
-            <div class="stats-bar">
-                <div><strong>5+</strong> <span>Years Experience</span></div>
-                <div><strong>20+</strong> <span>Branch Deployments</span></div>
-                <div><strong>99.9%</strong> <span>Server Uptime</span></div>
-            </div>
-        </div>
-
-        <!-- ========== ABOUT ========== -->
-        <div id="about" class="page">
-            <div class="section-title"><i class="fas fa-user"></i> About Me</div>
-
-            <!-- Profile Picture Section -->
-            <div class="profile-section">
-                <div class="profile-pic">
-                    <img src="https://res.cloudinary.com/dk10jtsv9/image/upload/f_auto,q_auto/t_edegrp" alt="Essien Bernard" />
-                    <i class="fas fa-user-circle fallback-icon"></i>
-                </div>
-                <div class="profile-text">
-                    <p>I'm <strong>Essien Bernard</strong>, a Network Administrator and IT Support Specialist based in Accra, Ghana.
-                        I hold a <strong>Bachelor of Technology in Networking</strong> from Takoradi Technical University and have hands-on experience
-                        managing network infrastructure, deploying ERP systems across 20+ branches, and maintaining 99.9% server uptime.
-                        I'm passionate about delivering secure, high-performance networks that drive business productivity.</p>
-                </div>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-card">
-                    <h3><i class="fas fa-cog"></i> Skills & Tools</h3>
-                    <div>
-                        <span class="skill-tag">Network Management</span>
-                        <span class="skill-tag">Server Administration</span>
-                        <span class="skill-tag">Firewall Configuration</span>
-                        <span class="skill-tag">Backup & Recovery</span>
-                        <span class="skill-tag">Microsoft 365</span>
-                        <span class="skill-tag">ERP Deployment</span>
-                        <span class="skill-tag">Hardware Troubleshooting</span>
-                        <span class="skill-tag">IT Service Management</span>
-                        <span class="skill-tag">Web Development</span>
-                        <span class="skill-tag">Graphic Design</span>
-                        <span class="skill-tag">Advanced Excel</span>
-                        <span class="skill-tag">Root Cause Analysis</span>
-                    </div>
-                </div>
-                <div class="about-card">
-                    <h3><i class="fas fa-briefcase"></i> Experience</h3>
-                    <div class="timeline-item">
-                        <span class="timeline-year">May 2025 – Present</span>
-                        <span class="timeline-detail"><strong>Network Administrator</strong> · Melcom Group of Companies</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-year">Jun 2024 – Nov 2024</span>
-                        <span class="timeline-detail"><strong>Network Admin (Intern)</strong> · Takoradi Technical University</span>
-                    </div>
-                    <div class="timeline-item">
-                        <span class="timeline-year">Aug 2022 – Nov 2022</span>
-                        <span class="timeline-detail"><strong>IT Support Specialist</strong> · Cocoa Clinic</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Education -->
-            <div class="about-card" style="margin-top:0.5rem;">
-                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
-                <div class="timeline-item">
-                    <span class="timeline-year">2023 – 2025</span>
-                    <span class="timeline-detail"><strong>B.Tech in Networking</strong> · Takoradi Technical University <span style="color:var(--blue-dark);font-weight:500;">(Second Class Upper)</span></span>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-year">2019 – 2023</span>
-                    <span class="timeline-detail"><strong>HND in Information Technology</strong> · Takoradi Technical University <span style="color:var(--blue-dark);font-weight:500;">(Second Class Upper)</span></span>
-                </div>
-                <div class="timeline-item">
-                    <span class="timeline-year">2023/2024</span>
-                    <span class="timeline-detail"><strong>National Service</strong> · Takoradi Technical University <span style="color:var(--text-muted);font-size:0.85rem;">(NSSGTP2536823)</span></span>
-                </div>
-            </div>
-
-            <!-- Values -->
-            <div class="value-pills">
-                <span class="value-pill"><i class="fas fa-water"></i> sustainability</span>
-                <span class="value-pill"><i class="fas fa-hand-holding-heart"></i> empathy</span>
-                <span class="value-pill"><i class="fas fa-feather"></i> craft</span>
-            </div>
-        </div>
-
-        <!-- ========== CERTIFICATIONS ========== -->
-        <div id="certifications" class="page">
-            <div class="section-title"><i class="fas fa-certificate"></i> Certifications & Credentials</div>
-
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h4>B.Tech in Networking</h4>
-                    <div class="issuer">Takoradi Technical University · 2025</div>
-                    <div class="highlight">Second Class Upper</div>
-                </div>
-                <div class="cert-card">
-                    <i class="fas fa-diploma"></i>
-                    <h4>Higher National Diploma</h4>
-                    <div class="issuer">Takoradi Technical University · 2023</div>
-                    <div class="highlight">Second Class Upper</div>
-                </div>
-                <div class="cert-card">
-                    <i class="fas fa-id-card"></i>
-                    <h4>National Service Certificate</h4>
-                    <div class="issuer">NSS · 2023/2024</div>
-                    <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">NSSGTP2536823</div>
-                </div>
-            </div>
-
-            <!-- Static PDF certificate links -->
-            <div class="pdf-preview-grid">
-                <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/BTECH%20CERT.pdf" target="_blank" class="pdf-preview-item">
-                    <i class="fas fa-file-pdf"></i>
-                    <div class="file-name">BTECH CERT</div>
-                    <div class="file-size">PDF</div>
-                </a>
-                <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/HND%20CERT.pdf" target="_blank" class="pdf-preview-item">
-                    <i class="fas fa-file-pdf"></i>
-                    <div class="file-name">HND CERT</div>
-                    <div class="file-size">PDF</div>
-                </a>
-                <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/NSS%20GTP2536823.pdf" target="_blank" class="pdf-preview-item">
-                    <i class="fas fa-file-pdf"></i>
-                    <div class="file-name">NSS CERT</div>
-                    <div class="file-size">PDF</div>
-                </a>
-                <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/BERNARD%20ESSIEN..pdf" target="_blank" class="pdf-preview-item">
-                    <i class="fas fa-file-pdf"></i>
-                    <div class="file-name">RESUME.pdf</div>
-                    <div class="file-size">PDF</div>
-                </a>
-            </div>
-            <p style="margin-top: 0.2rem; color: var(--text-muted); font-size: clamp(0.8rem,1vw,0.9rem);">
-                <i class="fas fa-arrow-right" style="color:var(--blue-primary);"></i>
-                Click any PDF card to open the certificate in a new tab.
-            </p>
-        </div>
-
-        <!-- ========== CONTACT ========== -->
-        <div id="contact" class="page">
-            <div class="section-title"><i class="fas fa-paper-plane"></i> Get in Touch</div>
-            <div class="contact-wrap">
-                <div class="contact-info">
-                    <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span>North Kaneshie, Accra, Ghana</span></div>
-                    <div class="info-item"><i class="fas fa-phone"></i> <span>+233 24 939 0949</span></div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i> 
-                        <a href="mailto:essienbernard8@gmail.com">essienbernard8@gmail.com</a>
-                    </div>
-                    <div class="info-item">
-                        <a href="https://www.linkedin.com/in/bernardessien2799" target="_blank">
-                            <i class="fab fa-linkedin-in"></i> <span>linkedin.com/in/bernardessien2799</span>
-                        </a>
-                    </div>
-                    <div class="info-item">
-                        <a href="https://wa.link/tz54vw" target="_blank">
-                            <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
-                        </a>
-                    </div>
-                    <div class="availability-badge">
-                        <i class="fas fa-clock" style="color:var(--blue-primary);margin-right:6px;"></i> Available for freelance & full-time
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <label for="title"><i class="fas fa-user-tag"></i> Title</label>
-                        <select id="title" name="title">
-                            <option value="">Select Title</option>
-                            <option value="Mr">Mr</option>
-                            <option value="Mrs">Mrs</option>
-                            <option value="Miss">Miss</option>
-                        </select>
-
-                        <label for="name"><i class="far fa-user"></i> Full Name</label>
-                        <input type="text" id="name" placeholder="Your name" value="" />
-
-                        <label for="email"><i class="far fa-envelope"></i> Email</label>
-                        <input type="email" id="email" placeholder="you@example.com" value="" />
-
-                        <label for="message"><i class="far fa-comment"></i> Message</label>
-                        <textarea id="message" placeholder="Tell me about your project..."></textarea>
-
-                        <button type="submit" class="btn"><i class="fas fa-feather-alt"></i> Send Message</button>
-                        <p style="margin-top:0.4rem; font-size:clamp(0.7rem,1vw,0.8rem); color:var(--text-muted);"></p>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- footer -->
-        <footer>
-            <div><i class="fas fa-network-wired" style="color:var(--blue-primary);margin-right:6px;"></i> ESSIEN BERNARD · Professional Portfolio</div>
-            <div class="social">
-                <a href="https://www.linkedin.com/in/bernardessien2799" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-        </footer>
-
+    <!-- page indicator -->
+    <div class="page-indicator">
+      <span id="pageLabel"><i class="fas fa-circle" style="color:var(--blue-primary);font-size:0.5rem;vertical-align:middle;"></i> Home</span>
     </div>
 
-    <script>
-        (function() {
-            // ============================================================
-            // SUPABASE CONFIG
-            // ============================================================
-            const SUPABASE_URL = 'https://jgygufwgethdhbphpogg.supabase.co';
-            const SUPABASE_ANON_KEY =
-                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpneWd1ZndnZXRoZGhicGhwb2dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTA5NjcsImV4cCI6MjA5ODEyNjk2N30.1wU98I2axqPfDiSovrads9thSXlwyhmmMqq6sRl4jKU';
+    <!-- ========== HOME ========== -->
+    <div id="home" class="page active-page">
+      <div class="hero">
+        <div class="hero-text">
+          <!-- Header uses Montserrat (700) as per .hero-text h1 -->
+          <h1><i class="fas fa-user-tie"></i> ESSIEN BERNARD</h1>
+          <div class="tagline">Network Administrator · IT Support Specialist</div>
+          <p>
+            Networking Engineer with 5+ years of hands-on experience managing network infrastructure,
+            troubleshooting complex connectivity issues, and supporting enterprise IT operations.
+          </p>
+          <div class="btn-group">
+            <a href="#" class="btn" data-page="contact"><i class="fas fa-envelope"></i> Get in touch</a>
+            <a href="#" class="btn btn-outline" data-page="about"><i class="fas fa-user"></i> About me</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <i class="fas fa-server"></i>
+          <p>Network Infrastructure</p>
+          <span>99.9% uptime</span>
+        </div>
+      </div>
 
-            // ============================================================
-            // DOM REFS
-            // ============================================================
-            const pages = {
-                home: document.getElementById('home'),
-                about: document.getElementById('about'),
-                certifications: document.getElementById('certifications'),
-                contact: document.getElementById('contact')
-            };
+      <!-- expertise -->
+      <div class="section-title"><i class="fas fa-cogs"></i> Areas of Expertise</div>
+      <div class="card-grid">
+        <div class="card"><i class="fas fa-network-wired"></i><h3>Network Management</h3><p>Router/firewall configuration, server administration, and network security fundamentals.</p></div>
+        <div class="card"><i class="fas fa-server"></i><h3>Server Administration</h3><p>Physical and virtual server maintenance, backup & data recovery, and ERP deployment.</p></div>
+        <div class="card"><i class="fas fa-tools"></i><h3>IT Support</h3><p>Hardware/software troubleshooting, end-user support, and IT service management.</p></div>
+      </div>
 
-            const navLinks = document.querySelectorAll('.nav-links a');
-            const pageLabel = document.getElementById('pageLabel');
-            const allPageLinks = document.querySelectorAll('[data-page]');
+      <!-- quick stat -->
+      <div class="stats-bar">
+        <div><strong>5+</strong> <span>Years Experience</span></div>
+        <div><strong>20+</strong> <span>Branch Deployments</span></div>
+        <div><strong>99.9%</strong> <span>Server Uptime</span></div>
+      </div>
+    </div>
 
-            const themeToggle = document.getElementById('themeToggle');
-            const icon = themeToggle.querySelector('i');
+    <!-- ========== ABOUT ========== -->
+    <div id="about" class="page">
+      <div class="section-title"><i class="fas fa-user"></i> About Me</div>
 
-            const contactForm = document.getElementById('contactForm');
-            const titleSelect = document.getElementById('title');
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const messageInput = document.getElementById('message');
+      <!-- Profile Picture Section -->
+      <div class="profile-section">
+        <div class="profile-pic">
+          <img src="https://res.cloudinary.com/dk10jtsv9/image/upload/f_auto,q_auto/t_edegrp" alt="Essien Bernard" />
+          <i class="fas fa-user-circle fallback-icon"></i>
+        </div>
+        <div class="profile-text">
+          <p>I'm <strong>Essien Bernard</strong>, a Network Administrator and IT Support Specialist based in Accra, Ghana.
+            I hold a <strong>Bachelor of Technology in Networking</strong> from Takoradi Technical University and have hands-on experience
+            managing network infrastructure, deploying ERP systems across 20+ branches, and maintaining 99.9% server uptime.
+            I'm passionate about delivering secure, high-performance networks that drive business productivity.</p>
+        </div>
+      </div>
 
-            // ============================================================
-            // THEME TOGGLE
-            // ============================================================
-            function getPreferredTheme() {
-                const stored = localStorage.getItem('theme');
-                if (stored === 'dark' || stored === 'light') return stored;
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
+      <div class="about-grid">
+        <div class="about-card">
+          <h3><i class="fas fa-cog"></i> Skills & Tools</h3>
+          <div>
+            <span class="skill-tag">Network Management</span>
+            <span class="skill-tag">Server Administration</span>
+            <span class="skill-tag">Firewall Configuration</span>
+            <span class="skill-tag">Backup & Recovery</span>
+            <span class="skill-tag">Microsoft 365</span>
+            <span class="skill-tag">ERP Deployment</span>
+            <span class="skill-tag">Hardware Troubleshooting</span>
+            <span class="skill-tag">IT Service Management</span>
+            <span class="skill-tag">Web Development</span>
+            <span class="skill-tag">Graphic Design</span>
+            <span class="skill-tag">Advanced Excel</span>
+            <span class="skill-tag">Root Cause Analysis</span>
+          </div>
+        </div>
+        <div class="about-card">
+          <h3><i class="fas fa-briefcase"></i> Experience</h3>
+          <div class="timeline-item">
+            <span class="timeline-year">May 2025 – Present</span>
+            <span class="timeline-detail"><strong>Network Administrator</strong> · Melcom Group of Companies</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">Jun 2024 – Nov 2024</span>
+            <span class="timeline-detail"><strong>Network Admin (Intern)</strong> · Takoradi Technical University</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">Aug 2022 – Nov 2022</span>
+            <span class="timeline-detail"><strong>IT Support Specialist</strong> · Cocoa Clinic</span>
+          </div>
+        </div>
+      </div>
 
-            function setTheme(theme) {
-                if (theme === 'dark') {
-                    document.body.classList.add('dark-mode');
-                    icon.className = 'fas fa-sun';
-                    themeToggle.setAttribute('aria-label', 'Switch to light mode');
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    document.body.classList.remove('dark-mode');
-                    icon.className = 'fas fa-moon';
-                    themeToggle.setAttribute('aria-label', 'Switch to dark mode');
-                    localStorage.setItem('theme', 'light');
-                }
-            }
+      <!-- Education -->
+      <div class="about-card" style="margin-top:0.5rem;">
+        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+        <div class="timeline-item">
+          <span class="timeline-year">2023 – 2025</span>
+          <span class="timeline-detail"><strong>B.Tech in Networking</strong> · Takoradi Technical University <span style="color:var(--blue-dark);font-weight:500;">(Second Class Upper)</span></span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2019 – 2023</span>
+          <span class="timeline-detail"><strong>HND in Information Technology</strong> · Takoradi Technical University <span style="color:var(--blue-dark);font-weight:500;">(Second Class Upper)</span></span>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-year">2023/2024</span>
+          <span class="timeline-detail"><strong>National Service</strong> · Takoradi Technical University <span style="color:var(--text-muted);font-size:0.85rem;">(NSSGTP2536823)</span></span>
+        </div>
+      </div>
 
-            function toggleTheme() {
-                const isDark = document.body.classList.contains('dark-mode');
-                setTheme(isDark ? 'light' : 'dark');
-                themeToggle.classList.add('rotated');
-                setTimeout(() => themeToggle.classList.remove('rotated'), 500);
-            }
+      <!-- Values -->
+      <div class="value-pills">
+        <span class="value-pill"><i class="fas fa-water"></i> sustainability</span>
+        <span class="value-pill"><i class="fas fa-hand-holding-heart"></i> empathy</span>
+        <span class="value-pill"><i class="fas fa-feather"></i> craft</span>
+      </div>
+    </div>
 
-            themeToggle.addEventListener('click', toggleTheme);
-            setTheme(getPreferredTheme());
+    <!-- ========== CERTIFICATIONS ========== -->
+    <div id="certifications" class="page">
+      <div class="section-title"><i class="fas fa-certificate"></i> Certifications & Credentials</div>
 
-            // ============================================================
-            // PAGE SWITCHING
-            // ============================================================
-            function switchPage(pageId) {
-                Object.values(pages).forEach(p => p.classList.remove('active-page'));
-                if (pages[pageId]) {
-                    pages[pageId].classList.add('active-page');
-                }
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.dataset.page === pageId) {
-                        link.classList.add('active');
-                    }
-                });
-                const names = { home: 'Home', about: 'About', certifications: 'Certifications', contact: 'Contact' };
-                pageLabel.innerHTML =
-                    `<i class="fas fa-circle" style="color:var(--blue-primary);font-size:0.5rem;vertical-align:middle;"></i> ${names[pageId] || 'Home'}`;
-                window.location.hash = pageId;
-            }
+      <div class="cert-grid">
+        <div class="cert-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h4>B.Tech in Networking</h4>
+          <div class="issuer">Takoradi Technical University · 2025</div>
+          <div class="highlight">Second Class Upper</div>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-diploma"></i>
+          <h4>Higher National Diploma</h4>
+          <div class="issuer">Takoradi Technical University · 2023</div>
+          <div class="highlight">Second Class Upper</div>
+        </div>
+        <div class="cert-card">
+          <i class="fas fa-id-card"></i>
+          <h4>National Service Certificate</h4>
+          <div class="issuer">NSS · 2023/2024</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">NSSGTP2536823</div>
+        </div>
+      </div>
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const page = this.dataset.page;
-                    if (page) switchPage(page);
-                });
-            });
+      <!-- Static PDF certificate links -->
+      <div class="pdf-preview-grid">
+        <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/BTECH%20CERT.pdf" target="_blank" class="pdf-preview-item">
+          <i class="fas fa-file-pdf"></i>
+          <div class="file-name">BTECH CERT</div>
+          <div class="file-size">PDF</div>
+        </a>
+        <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/HND%20CERT.pdf" target="_blank" class="pdf-preview-item">
+          <i class="fas fa-file-pdf"></i>
+          <div class="file-name">HND CERT</div>
+          <div class="file-size">PDF</div>
+        </a>
+        <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/NSS%20GTP2536823.pdf" target="_blank" class="pdf-preview-item">
+          <i class="fas fa-file-pdf"></i>
+          <div class="file-name">NSS CERT</div>
+          <div class="file-size">PDF</div>
+        </a>
+        <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/BERNARD%20ESSIEN..pdf" target="_blank" class="pdf-preview-item">
+          <i class="fas fa-file-pdf"></i>
+          <div class="file-name">RESUME.pdf</div>
+          <div class="file-size">PDF</div>
+        </a>
+      </div>
+      <p style="margin-top: 0.2rem; color: var(--text-muted); font-size: clamp(0.8rem,1vw,0.9rem);">
+        <i class="fas fa-arrow-right" style="color:var(--blue-primary);"></i>
+        Click any PDF card to open the certificate in a new tab.
+      </p>
+    </div>
 
-            allPageLinks.forEach(el => {
-                el.addEventListener('click', function(e) {
-                    const page = this.dataset.page;
-                    if (page && pages[page]) {
-                        e.preventDefault();
-                        switchPage(page);
-                    }
-                });
-            });
+    <!-- ========== CONTACT ========== -->
+    <div id="contact" class="page">
+      <div class="section-title"><i class="fas fa-paper-plane"></i> Get in Touch</div>
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span>North Kaneshie, Accra, Ghana</span></div>
+          <div class="info-item"><i class="fas fa-phone"></i> <span>+233 24 939 0949</span></div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i> 
+            <a href="mailto:essienbernard8@gmail.com">essienbernard8@gmail.com</a>
+          </div>
+          <div class="info-item">
+            <a href="https://www.linkedin.com/in/bernardessien2799" target="_blank">
+              <i class="fab fa-linkedin-in"></i> <span>linkedin.com/in/bernardessien2799</span>
+            </a>
+          </div>
+          <div class="info-item">
+            <a href="https://wa.link/tz54vw" target="_blank">
+              <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
+            </a>
+          </div>
+          <div class="availability-badge">
+            <i class="fas fa-clock" style="color:var(--blue-primary);margin-right:6px;"></i> Available for freelance & full-time
+          </div>
+        </div>
 
-            function checkHash() {
-                const hash = window.location.hash.replace('#', '');
-                if (hash && pages[hash]) {
-                    switchPage(hash);
-                } else {
-                    switchPage('home');
-                }
-            }
+        <div class="contact-form">
+          <form id="contactForm">
+            <label for="title"><i class="fas fa-user-tag"></i> Title</label>
+            <select id="title" name="title">
+              <option value="">Select Title</option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+            </select>
 
-            window.addEventListener('hashchange', checkHash);
+            <label for="name"><i class="far fa-user"></i> Full Name</label>
+            <input type="text" id="name" placeholder="Your name" value="" />
 
-            // ============================================================
-            // SEND MESSAGE → INSERT INTO "messages" TABLE
-            // ============================================================
-            async function sendMessage(senderName, email, message, title) {
-                const fullName = title ? `${title} ${senderName}` : senderName;
-                const payload = {
-                    sender_name: fullName,
-                    email: email,
-                    message: message
-                };
+            <label for="email"><i class="far fa-envelope"></i> Email</label>
+            <input type="email" id="email" placeholder="you@example.com" value="" />
 
-                const response = await fetch(`${SUPABASE_URL}/rest/v1/messages`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'apikey': SUPABASE_ANON_KEY,
-                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                        'Prefer': 'return=minimal'
-                    },
-                    body: JSON.stringify(payload)
-                });
+            <label for="message"><i class="far fa-comment"></i> Message</label>
+            <textarea id="message" placeholder="Tell me about your project..."></textarea>
 
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`Insert failed: ${response.status} ${errorText}`);
-                }
-                return true;
-            }
+            <button type="submit" class="btn"><i class="fas fa-feather-alt"></i> Send Message</button>
+            <p style="margin-top:0.4rem; font-size:clamp(0.7rem,1vw,0.8rem); color:var(--text-muted);"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <footer>
+      <div><i class="fas fa-network-wired" style="color:var(--blue-primary);margin-right:6px;"></i> ESSIEN BERNARD · Professional Portfolio</div>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/bernardessien2799" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </footer>
 
-            // ============================================================
-            // CONTACT FORM HANDLER
-            // ============================================================
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
+  </div>
 
-                const title = titleSelect.value;
-                const name = nameInput.value.trim();
-                const email = emailInput.value.trim();
-                const message = messageInput.value.trim();
+  <script>
+    (function() {
+      // ============================================================
+      // SUPABASE CONFIG
+      // ============================================================
+      const SUPABASE_URL = 'https://jgygufwgethdhbphpogg.supabase.co';
+      const SUPABASE_ANON_KEY =
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpneWd1ZndnZXRoZGhicGhwb2dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTA5NjcsImV4cCI6MjA5ODEyNjk2N30.1wU98I2axqPfDiSovrads9thSXlwyhmmMqq6sRl4jKU';
 
-                if (!title) {
-                    alert('⚠️ Please select a title.');
-                    return;
-                }
-                if (!name) {
-                    alert('⚠️ Please enter your full name.');
-                    return;
-                }
-                if (!email) {
-                    alert('⚠️ Please enter your email.');
-                    return;
-                }
-                if (!message) {
-                    alert('⚠️ Please enter a message.');
-                    return;
-                }
+      // ============================================================
+      // DOM REFS
+      // ============================================================
+      const pages = {
+        home: document.getElementById('home'),
+        about: document.getElementById('about'),
+        certifications: document.getElementById('certifications'),
+        contact: document.getElementById('contact')
+      };
 
-                try {
-                    await sendMessage(name, email, message, title);
-                    alert('✅ Message sent successfully!');
-                } catch (error) {
-                    console.error('Send message error:', error);
-                    alert('❌ Failed to send message. Please check console for details.');
-                }
-            });
+      const navLinks = document.querySelectorAll('.nav-links a');
+      const pageLabel = document.getElementById('pageLabel');
+      const allPageLinks = document.querySelectorAll('[data-page]');
 
-            // ============================================================
-            // INIT
-            // ============================================================
-            checkHash();
+      const themeToggle = document.getElementById('themeToggle');
+      const icon = themeToggle.querySelector('i');
 
-            console.log('✅ Flat-design portfolio ready. Contact form with title dropdown.');
-        })();
-    </script>
+      const contactForm = document.getElementById('contactForm');
+      const titleSelect = document.getElementById('title');
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
+
+      // ============================================================
+      // THEME TOGGLE
+      // ============================================================
+      function getPreferredTheme() {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'dark' || stored === 'light') return stored;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      function setTheme(theme) {
+        if (theme === 'dark') {
+          document.body.classList.add('dark-mode');
+          icon.className = 'fas fa-sun';
+          themeToggle.setAttribute('aria-label', 'Switch to light mode');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.body.classList.remove('dark-mode');
+          icon.className = 'fas fa-moon';
+          themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+          localStorage.setItem('theme', 'light');
+        }
+      }
+
+      function toggleTheme() {
+        const isDark = document.body.classList.contains('dark-mode');
+        setTheme(isDark ? 'light' : 'dark');
+        themeToggle.classList.add('rotated');
+        setTimeout(() => themeToggle.classList.remove('rotated'), 500);
+      }
+
+      themeToggle.addEventListener('click', toggleTheme);
+      setTheme(getPreferredTheme());
+
+      // ============================================================
+      // PAGE SWITCHING
+      // ============================================================
+      function switchPage(pageId) {
+        Object.values(pages).forEach(p => p.classList.remove('active-page'));
+        if (pages[pageId]) {
+          pages[pageId].classList.add('active-page');
+        }
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.dataset.page === pageId) {
+            link.classList.add('active');
+          }
+        });
+        const names = { home: 'Home', about: 'About', certifications: 'Certifications', contact: 'Contact' };
+        pageLabel.innerHTML =
+          `<i class="fas fa-circle" style="color:var(--blue-primary);font-size:0.5rem;vertical-align:middle;"></i> ${names[pageId] || 'Home'}`;
+        window.location.hash = pageId;
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const page = this.dataset.page;
+          if (page) switchPage(page);
+        });
+      });
+
+      allPageLinks.forEach(el => {
+        el.addEventListener('click', function(e) {
+          const page = this.dataset.page;
+          if (page && pages[page]) {
+            e.preventDefault();
+            switchPage(page);
+          }
+        });
+      });
+
+      function checkHash() {
+        const hash = window.location.hash.replace('#', '');
+        if (hash && pages[hash]) {
+          switchPage(hash);
+        } else {
+          switchPage('home');
+        }
+      }
+
+      window.addEventListener('hashchange', checkHash);
+
+      // ============================================================
+      // SEND MESSAGE → INSERT INTO "messages" TABLE
+      // ============================================================
+      async function sendMessage(senderName, email, message, title) {
+        const fullName = title ? `${title} ${senderName}` : senderName;
+        const payload = {
+          sender_name: fullName,
+          email: email,
+          message: message
+        };
+
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/messages`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`Insert failed: ${response.status} ${errorText}`);
+        }
+        return true;
+      }
+
+      // ============================================================
+      // CONTACT FORM HANDLER
+      // ============================================================
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const title = titleSelect.value;
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
+
+        if (!title) {
+          alert('⚠️ Please select a title.');
+          return;
+        }
+        if (!name) {
+          alert('⚠️ Please enter your full name.');
+          return;
+        }
+        if (!email) {
+          alert('⚠️ Please enter your email.');
+          return;
+        }
+        if (!message) {
+          alert('⚠️ Please enter a message.');
+          return;
+        }
+
+        try {
+          await sendMessage(name, email, message, title);
+          alert('✅ Message sent successfully!');
+        } catch (error) {
+          console.error('Send message error:', error);
+          alert('❌ Failed to send message. Please check console for details.');
+        }
+      });
+
+      // ============================================================
+      // INIT
+      // ============================================================
+      checkHash();
+
+      console.log('✅ Flat-design portfolio ready. Header font: Montserrat, "Bernard" uses Montserrat 700.');
+    })();
+  </script>
 </body>
 </html>
