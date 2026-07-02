@@ -6,7 +6,7 @@
   <title>ESSIEN BERNARD · Portfolio</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- All fonts changed to Helvetica (system) – fallback to Arial, sans-serif -->
+  <!-- All fonts: Helvetica (system) – fallback Arial, sans-serif -->
   <style>
     /* ----- RESET & BASE ----- */
     * {
@@ -74,8 +74,9 @@
       --badge-bg: #00b4d8;
       --badge-text: #ffffff;
 
-      --toggle-bg: #f0f2f7;
-      --toggle-icon: #0a1628;
+      --toggle-bg: #e0e4ed;
+      --toggle-thumb: #ffffff;
+      --toggle-icon-color: #0a1628;
 
       --logo-color: #0a1628;
       --logo-icon-color: #00b4d8;
@@ -83,7 +84,7 @@
 
     /* ===== DARK MODE — ultra black (more darker) ===== */
     body.dark-mode {
-      --bg-body: #020408;        /*更深黑 */
+      --bg-body: #020408;
       --bg-offwhite: #060a12;
       --bg-card: #060a12;
       --bg-card-hover: #0b111f;
@@ -130,8 +131,9 @@
       --badge-bg: #4fc3f7;
       --badge-text: #020408;
 
-      --toggle-bg: #0b1320;
-      --toggle-icon: #eef3fc;
+      --toggle-bg: #1a2640;
+      --toggle-thumb: #4fc3f7;
+      --toggle-icon-color: #eef3fc;
 
       --logo-color: #eef3fc;
       --logo-icon-color: #4fc3f7;
@@ -192,10 +194,10 @@
       flex-wrap: wrap;
     }
 
-    /* ----- LOGO: Helvetica now, all bold ----- */
+    /* ----- LOGO: Helvetica, bold ----- */
     .logo {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      font-weight: 700;          /* bold */
+      font-weight: 700;
       font-size: clamp(1.2rem, 4vw, 1.7rem);
       letter-spacing: 0.3px;
       color: var(--logo-color);
@@ -263,41 +265,63 @@
       color: var(--blue-dark);
     }
 
-    /* ----- THEME TOGGLE BUTTON (flat) ----- */
-    .theme-toggle {
+    /* ===== SLIDER TOGGLE (custom) ===== */
+    .theme-slider {
+      position: relative;
+      width: 56px;
+      height: 30px;
       background: var(--toggle-bg);
+      border-radius: 40px;
       border: 1px solid var(--border-light);
+      cursor: pointer;
+      transition: background 0.3s ease, border-color 0.3s ease;
+      box-shadow: var(--shadow-inset);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      padding: 3px;
+    }
+
+    .theme-slider .slider-thumb {
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      width: 22px;
+      height: 22px;
+      background: var(--toggle-thumb);
       border-radius: 50%;
-      width: clamp(38px, 4vw, 44px);
-      height: clamp(38px, 4vw, 44px);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      transition: 0.3s ease;
-      font-size: clamp(1rem, 1.4vw, 1.2rem);
-      color: var(--toggle-icon);
-      flex-shrink: 0;
-      box-shadow: var(--shadow);
-    }
-
-    .theme-toggle:hover {
-      transform: scale(1.06);
-      border-color: var(--blue-primary);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .theme-toggle:active {
-      transform: scale(0.94);
-    }
-
-    .theme-toggle i {
-      transition: transform 0.4s ease;
+      font-size: 12px;
+      color: var(--toggle-icon-color);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.15);
       pointer-events: none;
     }
 
-    .theme-toggle.rotated i {
-      transform: rotate(360deg);
+    .theme-slider .slider-thumb i {
+      transition: transform 0.3s ease;
+    }
+
+    /* Dark mode: thumb moves right + icon changes via JS, but we also style */
+    body.dark-mode .theme-slider .slider-thumb {
+      transform: translateX(26px);
+      background: #4fc3f7;
+      color: #020408;
+    }
+
+    .theme-slider .slider-thumb .fa-sun {
+      display: inline;
+    }
+    .theme-slider .slider-thumb .fa-moon {
+      display: none;
+    }
+    body.dark-mode .theme-slider .slider-thumb .fa-sun {
+      display: none;
+    }
+    body.dark-mode .theme-slider .slider-thumb .fa-moon {
+      display: inline;
     }
 
     /* ----- PAGE INDICATOR ----- */
@@ -466,14 +490,8 @@
     }
 
     @keyframes pulseIcon {
-      0%,
-      100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-        color: var(--blue-dark);
-      }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); color: var(--blue-dark); }
     }
 
     .hero-text .tagline {
@@ -514,13 +532,8 @@
     }
 
     @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-5px);
-      }
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
     }
 
     .hero-image i {
@@ -770,7 +783,7 @@
       transition: color 0.4s ease;
     }
 
-    .profile-pic img:not([src=""])+.fallback-icon {
+    .profile-pic img:not([src=""]) + .fallback-icon {
       display: none;
     }
 
@@ -1148,35 +1161,6 @@
       border-color: var(--blue-primary);
     }
 
-    /* ----- QUOTE BLOCK ----- */
-    .quote-block {
-      background: var(--bg-quote);
-      padding: 1.8rem;
-      border-radius: 40px 12px 40px 12px;
-      margin: 1.2rem 0;
-      transition: 0.3s ease;
-      animation: fadeIn 0.6s ease;
-      border: 1px solid var(--border-light);
-      box-shadow: var(--shadow);
-      font-family: inherit;
-    }
-
-    .quote-block p {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      font-style: italic;
-      color: var(--text-primary);
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    .quote-block .attribution {
-      margin-top: 0.3rem;
-      color: var(--text-muted);
-      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
     /* ----- VALUE PILLS ----- */
     .value-pills {
       display: flex;
@@ -1237,10 +1221,19 @@
         font-size: 0.9rem;
         white-space: normal;
       }
-      .theme-toggle {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
+      .theme-slider {
+        width: 48px;
+        height: 26px;
+      }
+      .theme-slider .slider-thumb {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+        left: 2px;
+        top: 2px;
+      }
+      body.dark-mode .theme-slider .slider-thumb {
+        transform: translateX(22px);
       }
       .hero {
         flex-direction: column-reverse;
@@ -1379,10 +1372,19 @@
         padding: 0.3rem 0.8rem;
         font-size: 0.75rem;
       }
-      .theme-toggle {
-        width: 32px;
-        height: 32px;
-        font-size: 0.85rem;
+      .theme-slider {
+        width: 42px;
+        height: 22px;
+      }
+      .theme-slider .slider-thumb {
+        width: 16px;
+        height: 16px;
+        font-size: 8px;
+        left: 2px;
+        top: 2px;
+      }
+      body.dark-mode .theme-slider .slider-thumb {
+        transform: translateX(19px);
       }
     }
 
@@ -1407,7 +1409,7 @@
     /* ----- PRINT ----- */
     @media print {
       .btn,
-      .theme-toggle {
+      .theme-slider {
         display: none !important;
       }
       .page {
@@ -1442,9 +1444,13 @@
       <div class="nav-left">
         <!-- Logo: Helvetica bold -->
         <div class="logo"><i class="fas fa-network-wired"></i> BERNARD</div>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-          <i class="fas fa-moon"></i>
-        </button>
+        <!-- SLIDER TOGGLE -->
+        <div class="theme-slider" id="themeSlider" role="button" tabindex="0" aria-label="Toggle dark mode">
+          <div class="slider-thumb" id="sliderThumb">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+          </div>
+        </div>
       </div>
       <div class="nav-right">
         <div class="nav-links">
@@ -1698,7 +1704,7 @@
   <script>
     (function() {
       // ============================================================
-      // SUPABASE CONFIG
+      // SUPABASE CONFIG (kept for contact form)
       // ============================================================
       const SUPABASE_URL = 'https://jgygufwgethdhbphpogg.supabase.co';
       const SUPABASE_ANON_KEY =
@@ -1718,8 +1724,9 @@
       const pageLabel = document.getElementById('pageLabel');
       const allPageLinks = document.querySelectorAll('[data-page]');
 
-      const themeToggle = document.getElementById('themeToggle');
-      const icon = themeToggle.querySelector('i');
+      // Slider elements
+      const themeSlider = document.getElementById('themeSlider');
+      const sliderThumb = document.getElementById('sliderThumb');
 
       const contactForm = document.getElementById('contactForm');
       const titleSelect = document.getElementById('title');
@@ -1728,7 +1735,7 @@
       const messageInput = document.getElementById('message');
 
       // ============================================================
-      // THEME TOGGLE
+      // THEME TOGGLE (slider)
       // ============================================================
       function getPreferredTheme() {
         const stored = localStorage.getItem('theme');
@@ -1739,25 +1746,35 @@
       function setTheme(theme) {
         if (theme === 'dark') {
           document.body.classList.add('dark-mode');
-          icon.className = 'fas fa-sun';
-          themeToggle.setAttribute('aria-label', 'Switch to light mode');
+          // icon inside thumb is handled by CSS, but we ensure sun/moon visibility
           localStorage.setItem('theme', 'dark');
         } else {
           document.body.classList.remove('dark-mode');
-          icon.className = 'fas fa-moon';
-          themeToggle.setAttribute('aria-label', 'Switch to dark mode');
           localStorage.setItem('theme', 'light');
         }
+        // Slider position and icons are purely CSS-driven via .dark-mode
+        // but we also update aria-label
+        themeSlider.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
       }
 
       function toggleTheme() {
         const isDark = document.body.classList.contains('dark-mode');
         setTheme(isDark ? 'light' : 'dark');
-        themeToggle.classList.add('rotated');
-        setTimeout(() => themeToggle.classList.remove('rotated'), 500);
+        // subtle animation feedback
+        sliderThumb.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease';
       }
 
-      themeToggle.addEventListener('click', toggleTheme);
+      // Click on slider toggles
+      themeSlider.addEventListener('click', toggleTheme);
+      // Keyboard support
+      themeSlider.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleTheme();
+        }
+      });
+
+      // Init theme
       setTheme(getPreferredTheme());
 
       // ============================================================
@@ -1879,8 +1896,7 @@
       // INIT
       // ============================================================
       checkHash();
-
-      console.log('✅ Portfolio ready. All fonts set to Helvetica. Dark mode ultra black.');
+      console.log('✅ Portfolio ready. Slider dark mode with sun/moon icons.');
     })();
   </script>
 </body>
