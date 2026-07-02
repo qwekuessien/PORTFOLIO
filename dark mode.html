@@ -83,36 +83,36 @@
             --logo-icon-color: #00b4d8;
         }
 
-        /* ===== DARK MODE — flat & clean ===== */
+        /* ===== DARK MODE — flat & clean, darker background ===== */
         body.dark-mode {
-            --bg-body: #0f141f;
-            --bg-offwhite: #161e2d;
-            --bg-card: #161e2d;
-            --bg-card-hover: #1c2638;
-            --bg-input: #161e2d;
-            --bg-tag: #1c2638;
-            --bg-hero: #161e2d;
-            --bg-profile: #161e2d;
-            --bg-pdf: #161e2d;
-            --bg-cert: #161e2d;
-            --bg-upload: #161e2d;
-            --bg-stats: #161e2d;
-            --bg-quote: #161e2d;
-            --bg-pill: #1c2638;
-            --bg-nav: #161e2d;
+            --bg-body: #080c14;
+            --bg-offwhite: #0e1522;
+            --bg-card: #0e1522;
+            --bg-card-hover: #141d2e;
+            --bg-input: #0e1522;
+            --bg-tag: #141d2e;
+            --bg-hero: #0e1522;
+            --bg-profile: #0e1522;
+            --bg-pdf: #0e1522;
+            --bg-cert: #0e1522;
+            --bg-upload: #0e1522;
+            --bg-stats: #0e1522;
+            --bg-quote: #0e1522;
+            --bg-pill: #141d2e;
+            --bg-nav: #0e1522;
 
             --bg-btn: #4fc3f7;
             --bg-btn-hover: #29b6f6;
 
             --text-primary: #eaf0f8;
             --text-muted: #8aa0c0;
-            --text-inverse: #0f141f;
-            --text-btn: #0f141f;
+            --text-inverse: #080c14;
+            --text-btn: #080c14;
 
-            --border-light: #253040;
+            --border-light: #1e2a3a;
             --border-primary: #4fc3f7;
             --border-dark: #29b6f6;
-            --border-input: #253040;
+            --border-input: #1e2a3a;
 
             --blue-primary: #4fc3f7;
             --blue-dark: #29b6f6;
@@ -123,16 +123,16 @@
             --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.15);
 
             --logo-border: #4fc3f7;
-            --nav-border: #253040;
-            --footer-border: #253040;
+            --nav-border: #1e2a3a;
+            --footer-border: #1e2a3a;
 
-            --pdf-item-bg: #161e2d;
-            --pdf-item-border: #253040;
+            --pdf-item-bg: #0e1522;
+            --pdf-item-border: #1e2a3a;
 
             --badge-bg: #4fc3f7;
-            --badge-text: #0f141f;
+            --badge-text: #080c14;
 
-            --toggle-bg: #161e2d;
+            --toggle-bg: #0e1522;
             --toggle-icon: #eaf0f8;
 
             --logo-color: #eaf0f8;
@@ -425,7 +425,7 @@
             transition: color 0.35s ease;
         }
 
-        /* ----- HERO ----- */
+        /* ----- HERO (font unified with body) ----- */
         .hero {
             display: flex;
             flex-wrap: wrap;
@@ -448,6 +448,7 @@
             line-height: 1.2;
             word-break: break-word;
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         .hero-text h1 i {
@@ -475,6 +476,7 @@
             border-left: 4px solid var(--blue-primary);
             padding-left: 0.8rem;
             transition: color 0.35s ease, border-color 0.35s ease;
+            font-family: inherit;
         }
 
         .hero-text p {
@@ -482,6 +484,7 @@
             color: var(--text-muted);
             max-width: 520px;
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         .hero-image {
@@ -525,6 +528,7 @@
             color: var(--text-muted);
             font-size: clamp(0.8rem, 1.2vw, 0.95rem);
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         .hero-image span {
@@ -536,6 +540,7 @@
             display: inline-block;
             margin-top: 0.2rem;
             transition: background 0.35s ease, color 0.35s ease;
+            font-family: inherit;
         }
 
         /* ----- BUTTONS (flat) ----- */
@@ -555,6 +560,7 @@
             box-shadow: var(--shadow);
             font-size: clamp(0.85rem, 1.2vw, 1rem);
             text-align: center;
+            font-family: inherit;
         }
 
         .btn i {
@@ -627,6 +633,7 @@
             margin-bottom: 0.8rem;
             font-size: clamp(1rem, 2vw, 1.2rem);
             transition: color 0.35s ease, border-color 0.35s ease;
+            font-family: inherit;
         }
 
         .about-card h3 i {
@@ -647,6 +654,7 @@
             border: 1px solid var(--border-light);
             transition: 0.25s ease;
             box-shadow: var(--shadow);
+            font-family: inherit;
         }
 
         .skill-tag:hover {
@@ -681,6 +689,7 @@
             font-size: clamp(0.8rem, 1.2vw, 0.9rem);
             flex-shrink: 0;
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         .timeline-detail {
@@ -688,6 +697,7 @@
             flex: 1;
             color: var(--text-primary);
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         .timeline-detail strong {
@@ -762,6 +772,7 @@
             font-size: clamp(0.9rem, 1.3vw, 1.05rem);
             color: var(--text-muted);
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         .profile-text strong {
@@ -795,6 +806,7 @@
             transition: var(--transition);
             font-size: clamp(0.85rem, 1.2vw, 0.95rem);
             color: var(--text-primary);
+            font-family: inherit;
         }
 
         .contact-info .info-item:hover {
@@ -848,6 +860,7 @@
             color: var(--text-primary);
             font-size: clamp(0.85rem, 1.2vw, 0.95rem);
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         .contact-form select {
@@ -863,6 +876,7 @@
             box-shadow: var(--shadow-inset);
             appearance: auto;
             cursor: pointer;
+            font-family: inherit;
         }
 
         .contact-form select:focus {
@@ -882,6 +896,7 @@
             outline: none;
             transition: 0.3s ease;
             box-shadow: var(--shadow-inset);
+            font-family: inherit;
         }
 
         .contact-form input:focus,
@@ -914,6 +929,7 @@
             text-align: center;
             color: var(--text-primary);
             transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+            font-family: inherit;
         }
 
         /* ----- CERTIFICATIONS ----- */
@@ -958,12 +974,14 @@
             color: var(--text-primary);
             margin-bottom: 0.1rem;
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         .cert-card .issuer {
             color: var(--text-muted);
             font-size: clamp(0.75rem, 1.2vw, 0.85rem);
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         .cert-card .highlight {
@@ -972,6 +990,7 @@
             margin-top: 0.2rem;
             font-weight: 500;
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         /* ----- PDF PREVIEW GRID ----- */
@@ -1019,11 +1038,13 @@
             font-size: clamp(0.7rem, 1.2vw, 0.85rem);
             word-break: break-word;
             color: var(--text-primary);
+            font-family: inherit;
         }
 
         .pdf-preview-item .file-size {
             font-size: clamp(0.6rem, 1vw, 0.7rem);
             color: var(--text-muted);
+            font-family: inherit;
         }
 
         /* ----- STATS BAR ----- */
@@ -1052,12 +1073,14 @@
             font-size: clamp(1.3rem, 3vw, 1.6rem);
             display: block;
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         .stats-bar span {
             color: var(--text-muted);
             font-size: clamp(0.8rem, 1.2vw, 0.9rem);
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         /* ----- FOOTER ----- */
@@ -1074,6 +1097,7 @@
             font-size: clamp(0.8rem, 1.2vw, 0.9rem);
             animation: fadeIn 0.6s ease;
             transition: border-color 0.35s ease, color 0.35s ease;
+            font-family: inherit;
         }
 
         .social {
@@ -1124,6 +1148,7 @@
             font-style: italic;
             color: var(--text-primary);
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         .quote-block .attribution {
@@ -1131,6 +1156,7 @@
             color: var(--text-muted);
             font-size: clamp(0.85rem, 1.2vw, 0.95rem);
             transition: color 0.35s ease;
+            font-family: inherit;
         }
 
         /* ----- VALUE PILLS ----- */
@@ -1151,6 +1177,7 @@
             font-size: clamp(0.8rem, 1.2vw, 0.9rem);
             color: var(--text-primary);
             box-shadow: var(--shadow);
+            font-family: inherit;
         }
 
         .value-pill:hover {
