@@ -6,22 +6,17 @@
   <title>ESSIEN BERNARD · Portfolio</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- All fonts: Helvetica (system) – fallback Arial, sans-serif -->
   <style>
-    /* ----- RESET & BASE ----- */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     html {
       font-size: 16px;
       -webkit-text-size-adjust: 100%;
       scroll-behavior: smooth;
     }
-
-    /* ===== CSS VARIABLES (Light mode – ultra white, now blue) ===== */
     :root {
       --bg-body: #ffffff;
       --bg-offwhite: #f8f9fc;
@@ -40,50 +35,36 @@
       --bg-nav: #ffffff;
       --bg-btn: #2196F3;
       --bg-btn-hover: #1976D2;
-
       --text-primary: #0a1628;
       --text-muted: #4a5a70;
       --text-inverse: #ffffff;
       --text-btn: #ffffff;
-
       --border-light: #e8ecf3;
       --border-primary: #2196F3;
       --border-dark: #1976D2;
       --border-input: #dce2ec;
-
-      /* Blue palette */
       --blue-primary: #2196F3;
       --blue-dark: #1976D2;
       --blue-light: #BBDEFB;
-
       --shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
       --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.08);
       --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.04);
-
       --radius-base: 16px;
       --radius-round: 40px;
-
       --transition: 0.25s ease;
-
       --logo-border: #2196F3;
       --nav-border: #e8ecf3;
       --footer-border: #e8ecf3;
-
       --pdf-item-bg: #ffffff;
       --pdf-item-border: #e8ecf3;
-
       --badge-bg: #2196F3;
       --badge-text: #ffffff;
-
       --toggle-bg: #e0e4ed;
       --toggle-thumb: #ffffff;
       --toggle-icon-color: #0a1628;
-
       --logo-color: #0a1628;
       --logo-icon-color: #2196F3;
     }
-
-    /* ===== DARK MODE — ultra black, blue accents ===== */
     body.dark-mode {
       --bg-body: #020408;
       --bg-offwhite: #060a12;
@@ -100,47 +81,35 @@
       --bg-quote: #060a12;
       --bg-pill: #0b1320;
       --bg-nav: #060a12;
-
       --bg-btn: #64B5F6;
       --bg-btn-hover: #42A5F5;
-
       --text-primary: #eef3fc;
       --text-muted: #8aa0c0;
       --text-inverse: #020408;
       --text-btn: #020408;
-
       --border-light: #121c2e;
       --border-primary: #64B5F6;
       --border-dark: #42A5F5;
       --border-input: #121c2e;
-
       --blue-primary: #64B5F6;
       --blue-dark: #42A5F5;
       --blue-light: #1e3a5f;
-
       --shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
       --shadow-hover: 0 4px 24px rgba(0, 0, 0, 0.7);
       --shadow-inset: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-
       --logo-border: #64B5F6;
       --nav-border: #121c2e;
       --footer-border: #121c2e;
-
       --pdf-item-bg: #060a12;
       --pdf-item-border: #121c2e;
-
       --badge-bg: #64B5F6;
       --badge-text: #020408;
-
       --toggle-bg: #1a2640;
       --toggle-thumb: #64B5F6;
       --toggle-icon-color: #eef3fc;
-
       --logo-color: #eef3fc;
       --logo-icon-color: #64B5F6;
     }
-
-    /* ---- GLOBAL FONT: Helvetica (system) ---- */
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background: var(--bg-body);
@@ -151,16 +120,12 @@
       transition: background 0.4s ease, color 0.4s ease;
       font-weight: 400;
     }
-
-    /* ----- CONTAINER ----- */
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 1rem clamp(1rem, 4vw, 2.5rem);
       width: 100%;
     }
-
-    /* ----- HEADER / NAV (flat card) ----- */
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -176,20 +141,16 @@
       animation: slideDown 0.5s ease;
       transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
     }
-
     @keyframes slideDown {
       0% { opacity: 0; transform: translateY(-16px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
     .nav-left {
       display: flex;
       align-items: center;
       gap: 1rem;
       flex-wrap: wrap;
     }
-
-    /* ----- LOGO ----- */
     .logo {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-weight: 700;
@@ -202,27 +163,23 @@
       flex-shrink: 0;
       transition: color 0.4s ease;
     }
-
     .logo i {
       color: var(--logo-icon-color);
       margin-right: 8px;
       transition: color 0.4s ease;
     }
-
     .nav-right {
       display: flex;
       align-items: center;
       gap: clamp(0.8rem, 2vw, 1.8rem);
       flex-wrap: wrap;
     }
-
     .nav-links {
       display: flex;
       gap: clamp(0.8rem, 2.5vw, 2.2rem);
       font-weight: 500;
       flex-wrap: wrap;
     }
-
     .nav-links a {
       text-decoration: none;
       color: var(--text-primary);
@@ -235,7 +192,6 @@
       white-space: nowrap;
       font-family: inherit;
     }
-
     .nav-links a::after {
       content: '';
       position: absolute;
@@ -246,21 +202,16 @@
       background: var(--blue-primary);
       transition: width 0.3s ease;
     }
-
     .nav-links a:hover::after,
     .nav-links a.active::after {
       width: 100%;
     }
-
     .nav-links a:hover {
       color: var(--blue-dark);
     }
-
     .nav-links a.active {
       color: var(--blue-dark);
     }
-
-    /* ===== SLIDER TOGGLE (custom) ===== */
     .theme-slider {
       position: relative;
       width: 56px;
@@ -276,7 +227,6 @@
       align-items: center;
       padding: 3px;
     }
-
     .theme-slider .slider-thumb {
       position: absolute;
       left: 3px;
@@ -294,32 +244,67 @@
       box-shadow: 0 1px 6px rgba(0,0,0,0.15);
       pointer-events: none;
     }
-
     .theme-slider .slider-thumb i {
       transition: transform 0.3s ease;
     }
-
-    /* Dark mode: thumb moves right + icon changes via CSS */
     body.dark-mode .theme-slider .slider-thumb {
       transform: translateX(26px);
       background: #64B5F6;
       color: #020408;
     }
-
-    .theme-slider .slider-thumb .fa-sun {
-      display: inline;
+    .theme-slider .slider-thumb .fa-sun { display: inline; }
+    .theme-slider .slider-thumb .fa-moon { display: none; }
+    body.dark-mode .theme-slider .slider-thumb .fa-sun { display: none; }
+    body.dark-mode .theme-slider .slider-thumb .fa-moon { display: inline; }
+    .language-selector {
+      position: relative;
     }
-    .theme-slider .slider-thumb .fa-moon {
+    .lang-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-round);
+      padding: 0.4rem 1rem;
+      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .lang-btn:hover {
+      border-color: var(--blue-primary);
+      box-shadow: var(--shadow-hover);
+    }
+    .lang-dropdown {
       display: none;
+      position: absolute;
+      right: 0;
+      top: 110%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-base);
+      box-shadow: var(--shadow-hover);
+      list-style: none;
+      padding: 0.4rem 0;
+      z-index: 100;
+      min-width: 130px;
     }
-    body.dark-mode .theme-slider .slider-thumb .fa-sun {
-      display: none;
+    .lang-dropdown.show {
+      display: block;
     }
-    body.dark-mode .theme-slider .slider-thumb .fa-moon {
-      display: inline;
+    .lang-dropdown li {
+      padding: 0.4rem 1.2rem;
+      cursor: pointer;
+      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+      color: var(--text-primary);
+      transition: background 0.2s;
     }
-
-    /* ----- PAGE INDICATOR ----- */
+    .lang-dropdown li:hover {
+      background: var(--bg-offwhite);
+      color: var(--blue-dark);
+    }
     .page-indicator {
       text-align: right;
       font-size: clamp(0.75rem, 1.2vw, 0.85rem);
@@ -329,9 +314,7 @@
       margin-bottom: 1rem;
       animation: fadeIn 0.6s ease;
       transition: color 0.4s ease;
-      font-family: inherit;
     }
-
     .page-indicator span {
       background: var(--bg-card);
       padding: 0.1rem 1rem;
@@ -340,36 +323,15 @@
       display: inline-block;
       transition: background 0.4s ease, border-color 0.4s ease;
       box-shadow: var(--shadow);
-      font-family: inherit;
     }
-
-    @media (max-width: 480px) {
-      .page-indicator {
-        text-align: left;
-      }
-    }
-
-    /* ----- PAGES ----- */
-    .page {
-      display: none;
-      animation: fadeSlide 0.35s ease;
-    }
-
-    .page.active-page {
-      display: block;
-    }
-
+    @media (max-width: 480px) { .page-indicator { text-align: left; } }
+    .page { display: none; animation: fadeSlide 0.35s ease; }
+    .page.active-page { display: block; }
     @keyframes fadeSlide {
       0% { opacity: 0; transform: translateY(8px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    /* ----- SECTION TITLE ----- */
+    @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
     .section-title {
       font-size: clamp(1.4rem, 4vw, 1.9rem);
       font-weight: 500;
@@ -380,23 +342,14 @@
       margin-bottom: 1.5rem;
       animation: fadeIn 0.5s ease;
       transition: color 0.4s ease, border-color 0.4s ease;
-      font-family: inherit;
     }
-
-    .section-title i {
-      color: var(--blue-primary);
-      margin-right: 6px;
-      transition: color 0.4s ease;
-    }
-
-    /* ----- CARD GRID ----- */
+    .section-title i { color: var(--blue-primary); margin-right: 6px; transition: color 0.4s ease; }
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
       gap: 1.8rem;
       margin: 1.2rem 0 1.8rem;
     }
-
     .card {
       background: var(--bg-card);
       padding: 1.8rem 1.2rem;
@@ -404,44 +357,17 @@
       border: 1px solid var(--border-light);
       box-shadow: var(--shadow);
       transition: var(--transition);
-      font-family: inherit;
     }
-
     .card:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow-hover);
       border-color: var(--blue-primary);
       background: var(--bg-card-hover);
     }
-
-    .card i {
-      font-size: clamp(1.8rem, 4vw, 2.2rem);
-      color: var(--blue-primary);
-      margin-bottom: 0.4rem;
-      transition: 0.3s ease;
-    }
-
-    .card:hover i {
-      color: var(--blue-dark);
-    }
-
-    .card h3 {
-      font-weight: 600;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--text-primary);
-      margin-bottom: 0.2rem;
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    /* ----- HERO ----- */
+    .card i { font-size: clamp(1.8rem, 4vw, 2.2rem); color: var(--blue-primary); margin-bottom: 0.4rem; transition: 0.3s ease; }
+    .card:hover i { color: var(--blue-dark); }
+    .card h3 { font-weight: 600; font-size: clamp(1rem, 2vw, 1.2rem); color: var(--text-primary); margin-bottom: 0.2rem; transition: color 0.4s ease; }
+    .card p { color: var(--text-muted); font-size: clamp(0.85rem, 1.2vw, 0.95rem); transition: color 0.4s ease; }
     .hero {
       display: flex;
       flex-wrap: wrap;
@@ -450,12 +376,7 @@
       margin: 0.5rem 0 1.8rem;
       animation: fadeSlide 0.6s ease;
     }
-
-    .hero-text {
-      flex: 2 1 280px;
-      min-width: 200px;
-    }
-
+    .hero-text { flex: 2 1 280px; min-width: 200px; }
     .hero-text h1 {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-weight: 700;
@@ -466,19 +387,11 @@
       word-break: break-word;
       transition: color 0.4s ease;
     }
-
-    .hero-text h1 i {
-      color: var(--blue-primary);
-      margin-right: 6px;
-      animation: pulseIcon 4s infinite ease-in-out;
-      transition: color 0.4s ease;
-    }
-
+    .hero-text h1 i { color: var(--blue-primary); margin-right: 6px; animation: pulseIcon 4s infinite ease-in-out; transition: color 0.4s ease; }
     @keyframes pulseIcon {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); color: var(--blue-dark); }
     }
-
     .hero-text .tagline {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
       color: var(--text-muted);
@@ -486,17 +399,8 @@
       border-left: 4px solid var(--blue-primary);
       padding-left: 0.8rem;
       transition: color 0.4s ease, border-color 0.4s ease;
-      font-family: inherit;
     }
-
-    .hero-text p {
-      font-size: clamp(0.9rem, 1.3vw, 1rem);
-      color: var(--text-muted);
-      max-width: 520px;
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
+    .hero-text p { font-size: clamp(0.9rem, 1.3vw, 1rem); color: var(--text-muted); max-width: 520px; transition: color 0.4s ease; }
     .hero-image {
       flex: 1 1 200px;
       background: var(--bg-hero);
@@ -508,42 +412,19 @@
       box-shadow: var(--shadow);
       transition: var(--transition);
       animation: float 6s infinite ease-in-out;
-      font-family: inherit;
     }
-
-    .hero-image:hover {
-      transform: scale(1.02);
-      box-shadow: var(--shadow-hover);
-    }
-
+    .hero-image:hover { transform: scale(1.02); box-shadow: var(--shadow-hover); }
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-5px); }
     }
-
-    /* Rotate the server/switch icon continuously */
     .hero-image i {
       font-size: clamp(3rem, 8vw, 4.8rem);
       color: var(--blue-primary);
       opacity: 0.85;
       transition: color 0.4s ease;
-      animation: rotateIcon 6s linear infinite;
     }
-
-    @keyframes rotateIcon {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .hero-image p {
-      margin-top: 0.3rem;
-      font-weight: 400;
-      color: var(--text-muted);
-      font-size: clamp(0.8rem, 1.2vw, 0.95rem);
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
+    .hero-image p { margin-top: 0.3rem; font-weight: 400; color: var(--text-muted); font-size: clamp(0.8rem, 1.2vw, 0.95rem); transition: color 0.4s ease; }
     .hero-image span {
       background: var(--badge-bg);
       color: var(--badge-text) !important;
@@ -553,10 +434,7 @@
       display: inline-block;
       margin-top: 0.2rem;
       transition: background 0.4s ease, color 0.4s ease;
-      font-family: inherit;
     }
-
-    /* ----- BUTTONS (flat) ----- */
     .btn {
       display: inline-block;
       background: var(--bg-btn);
@@ -573,14 +451,8 @@
       box-shadow: var(--shadow);
       font-size: clamp(0.85rem, 1.2vw, 1rem);
       text-align: center;
-      font-family: inherit;
     }
-
-    .btn i {
-      margin-right: 5px;
-      transition: transform 0.3s ease;
-    }
-
+    .btn i { margin-right: 5px; transition: transform 0.3s ease; }
     .btn:hover {
       background: var(--bg-btn-hover);
       transform: translateY(-2px);
@@ -588,40 +460,16 @@
       border-color: var(--border-dark);
       color: var(--text-btn);
     }
-
-    .btn:hover i {
-      transform: translateX(4px);
-    }
-
+    .btn:hover i { transform: translateX(4px); }
     .btn-outline {
       background: transparent;
       color: var(--text-primary);
       border: 1.5px solid var(--blue-primary);
       box-shadow: var(--shadow);
     }
-
-    .btn-outline:hover {
-      background: var(--bg-offwhite);
-      border-color: var(--blue-dark);
-      color: var(--text-primary);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.2rem;
-    }
-
-    /* ----- ABOUT PAGE ----- */
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-      gap: 1.8rem;
-      margin: 1.2rem 0;
-    }
-
+    .btn-outline:hover { background: var(--bg-offwhite); border-color: var(--blue-dark); color: var(--text-primary); box-shadow: var(--shadow-hover); }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.2rem; }
+    .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.8rem; margin: 1.2rem 0; }
     .about-card {
       background: var(--bg-card);
       padding: 1.8rem 1.5rem;
@@ -629,16 +477,8 @@
       border: 1px solid var(--border-light);
       box-shadow: var(--shadow);
       transition: var(--transition);
-      font-family: inherit;
     }
-
-    .about-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--blue-primary);
-      background: var(--bg-card-hover);
-    }
-
+    .about-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--blue-primary); background: var(--bg-card-hover); }
     .about-card h3 {
       font-weight: 600;
       color: var(--text-primary);
@@ -647,16 +487,8 @@
       margin-bottom: 0.8rem;
       font-size: clamp(1rem, 2vw, 1.2rem);
       transition: color 0.4s ease, border-color 0.4s ease;
-      font-family: inherit;
     }
-
-    .about-card h3 i {
-      color: var(--blue-primary);
-      margin-right: 6px;
-      transition: color 0.4s ease;
-    }
-
-    /* ----- SKILL TAGS (flat pills) ----- */
+    .about-card h3 i { color: var(--blue-primary); margin-right: 6px; transition: color 0.4s ease; }
     .skill-tag {
       display: inline-block;
       background: var(--bg-tag);
@@ -668,18 +500,8 @@
       border: 1px solid var(--border-light);
       transition: 0.25s ease;
       box-shadow: var(--shadow);
-      font-family: inherit;
     }
-
-    .skill-tag:hover {
-      background: var(--blue-primary);
-      color: var(--text-btn);
-      border-color: var(--blue-primary);
-      transform: scale(1.04) translateY(-2px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    /* ----- TIMELINE ----- */
+    .skill-tag:hover { background: var(--blue-primary); color: var(--text-btn); border-color: var(--blue-primary); transform: scale(1.04) translateY(-2px); box-shadow: var(--shadow-hover); }
     .timeline-item {
       display: flex;
       flex-wrap: wrap;
@@ -689,37 +511,10 @@
       border-radius: 12px;
       transition: 0.3s ease;
       align-items: baseline;
-      font-family: inherit;
     }
-
-    .timeline-item:hover {
-      background: var(--border-light);
-      transform: translateX(4px);
-    }
-
-    .timeline-year {
-      font-weight: 600;
-      color: var(--blue-dark);
-      min-width: 80px;
-      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-      flex-shrink: 0;
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    .timeline-detail {
-      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-      flex: 1;
-      color: var(--text-primary);
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    .timeline-detail strong {
-      color: var(--text-primary);
-    }
-
-    /* ----- PROFILE SECTION ----- */
+    .timeline-item:hover { background: var(--border-light); transform: translateX(4px); }
+    .timeline-year { font-weight: 600; color: var(--blue-dark); min-width: 80px; font-size: clamp(0.8rem, 1.2vw, 0.9rem); flex-shrink: 0; transition: color 0.4s ease; }
+    .timeline-detail { font-size: clamp(0.85rem, 1.2vw, 0.95rem); flex: 1; color: var(--text-primary); transition: color 0.4s ease; }
     .profile-section {
       display: flex;
       flex-wrap: wrap;
@@ -732,14 +527,8 @@
       box-shadow: var(--shadow);
       margin-bottom: 1.8rem;
       transition: var(--transition);
-      font-family: inherit;
     }
-
-    .profile-section:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: var(--blue-primary);
-    }
-
+    .profile-section:hover { box-shadow: var(--shadow-hover); border-color: var(--blue-primary); }
     .profile-pic {
       flex: 0 0 clamp(100px, 20vw, 160px);
       width: clamp(100px, 20vw, 160px);
@@ -754,61 +543,14 @@
       box-shadow: var(--shadow);
       transition: 0.3s ease;
     }
-
-    .profile-pic:hover {
-      transform: scale(1.03);
-      border-color: var(--blue-dark);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .profile-pic img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .profile-pic .fallback-icon {
-      font-size: clamp(3rem, 8vw, 5rem);
-      color: var(--blue-primary);
-      opacity: 0.6;
-      transition: color 0.4s ease;
-    }
-
-    .profile-pic img:not([src=""]) + .fallback-icon {
-      display: none;
-    }
-
-    .profile-text {
-      flex: 1;
-      min-width: 160px;
-    }
-
-    .profile-text p {
-      font-size: clamp(0.9rem, 1.3vw, 1.05rem);
-      color: var(--text-muted);
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    .profile-text strong {
-      color: var(--text-primary);
-    }
-
-    /* ----- CONTACT ----- */
-    .contact-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.8rem;
-      margin: 1.2rem 0;
-      animation: fadeIn 0.5s ease;
-    }
-
-    .contact-info {
-      flex: 1 1 240px;
-      min-width: 200px;
-    }
-
+    .profile-pic:hover { transform: scale(1.03); border-color: var(--blue-dark); box-shadow: var(--shadow-hover); }
+    .profile-pic img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .profile-pic .fallback-icon { font-size: clamp(3rem, 8vw, 5rem); color: var(--blue-primary); opacity: 0.6; transition: color 0.4s ease; }
+    .profile-pic img:not([src=""]) + .fallback-icon { display: none; }
+    .profile-text { flex: 1; min-width: 160px; }
+    .profile-text p { font-size: clamp(0.9rem, 1.3vw, 1.05rem); color: var(--text-muted); transition: color 0.4s ease; }
+    .contact-wrap { display: flex; flex-wrap: wrap; gap: 1.8rem; margin: 1.2rem 0; animation: fadeIn 0.5s ease; }
+    .contact-info { flex: 1 1 240px; min-width: 200px; }
     .contact-info .info-item {
       display: flex;
       align-items: center;
@@ -822,38 +564,11 @@
       transition: var(--transition);
       font-size: clamp(0.85rem, 1.2vw, 0.95rem);
       color: var(--text-primary);
-      font-family: inherit;
     }
-
-    .contact-info .info-item:hover {
-      transform: translateX(4px);
-      border-color: var(--blue-primary);
-      box-shadow: var(--shadow-hover);
-      background: var(--bg-card-hover);
-    }
-
-    .contact-info .info-item i {
-      width: 1.6rem;
-      color: var(--blue-primary);
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
-      transition: 0.3s ease;
-      flex-shrink: 0;
-    }
-
-    .contact-info .info-item:hover i {
-      color: var(--blue-dark);
-    }
-
-    .contact-info .info-item a {
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      width: 100%;
-      font-family: inherit;
-    }
-
+    .contact-info .info-item:hover { transform: translateX(4px); border-color: var(--blue-primary); box-shadow: var(--shadow-hover); background: var(--bg-card-hover); }
+    .contact-info .info-item i { width: 1.6rem; color: var(--blue-primary); font-size: clamp(1rem, 1.5vw, 1.2rem); transition: 0.3s ease; flex-shrink: 0; }
+    .contact-info .info-item:hover i { color: var(--blue-dark); }
+    .contact-info .info-item a { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.8rem; width: 100%; }
     .contact-form {
       flex: 1.5 1 280px;
       min-width: 220px;
@@ -863,45 +578,10 @@
       border: 1px solid var(--border-light);
       box-shadow: var(--shadow);
       transition: var(--transition);
-      font-family: inherit;
     }
-
-    .contact-form:hover {
-      box-shadow: var(--shadow-hover);
-      border-color: var(--blue-primary);
-    }
-
-    .contact-form label {
-      display: block;
-      margin: 0.6rem 0 0.2rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    .contact-form select {
-      width: 100%;
-      padding: 0.6rem 1rem;
-      border: 1px solid var(--border-input);
-      border-radius: var(--radius-round);
-      background: var(--bg-input);
-      color: var(--text-primary);
-      font-size: clamp(0.85rem, 1.2vw, 1rem);
-      outline: none;
-      transition: 0.3s ease;
-      box-shadow: var(--shadow-inset);
-      appearance: auto;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    .contact-form select:focus {
-      border-color: var(--blue-primary);
-      box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
-    }
-
+    .contact-form:hover { box-shadow: var(--shadow-hover); border-color: var(--blue-primary); }
+    .contact-form label { display: block; margin: 0.6rem 0 0.2rem; font-weight: 500; color: var(--text-primary); font-size: clamp(0.85rem, 1.2vw, 0.95rem); transition: color 0.4s ease; }
+    .contact-form select,
     .contact-form input,
     .contact-form textarea {
       width: 100%;
@@ -914,28 +594,12 @@
       outline: none;
       transition: 0.3s ease;
       box-shadow: var(--shadow-inset);
-      font-family: inherit;
     }
-
+    .contact-form select:focus,
     .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: var(--blue-primary);
-      box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2);
-    }
-
-    .contact-form textarea {
-      border-radius: var(--radius-base);
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    .contact-form .btn {
-      width: 100%;
-      margin-top: 0.8rem;
-      border: none;
-      font-size: clamp(0.9rem, 1.2vw, 1rem);
-    }
-
+    .contact-form textarea:focus { border-color: var(--blue-primary); box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.2); }
+    .contact-form textarea { border-radius: var(--radius-base); min-height: 90px; resize: vertical; }
+    .contact-form .btn { width: 100%; margin-top: 0.8rem; border: none; font-size: clamp(0.9rem, 1.2vw, 1rem); }
     .availability-badge {
       margin-top: 1.2rem;
       background: var(--bg-card);
@@ -947,17 +611,8 @@
       text-align: center;
       color: var(--text-primary);
       transition: background 0.4s ease, border-color 0.4s ease, color 0.4s ease;
-      font-family: inherit;
     }
-
-    /* ----- CERTIFICATIONS ----- */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-      gap: 1.8rem;
-      margin: 1.2rem 0;
-    }
-
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 1.8rem; margin: 1.2rem 0; }
     .cert-card {
       background: var(--bg-cert);
       border-radius: var(--radius-base);
@@ -966,60 +621,14 @@
       box-shadow: var(--shadow);
       text-align: center;
       transition: var(--transition);
-      font-family: inherit;
     }
-
-    .cert-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--blue-primary);
-      background: var(--bg-card-hover);
-    }
-
-    .cert-card i {
-      font-size: clamp(2rem, 4vw, 2.5rem);
-      color: var(--blue-primary);
-      margin-bottom: 0.3rem;
-      transition: 0.3s ease;
-    }
-
-    .cert-card:hover i {
-      color: var(--blue-dark);
-    }
-
-    .cert-card h4 {
-      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 0.1rem;
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    .cert-card .issuer {
-      color: var(--text-muted);
-      font-size: clamp(0.75rem, 1.2vw, 0.85rem);
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    .cert-card .highlight {
-      font-size: 0.8rem;
-      color: var(--blue-dark);
-      margin-top: 0.2rem;
-      font-weight: 500;
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    /* ----- PDF PREVIEW GRID ----- */
-    .pdf-preview-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr));
-      gap: 1.2rem;
-      margin-top: 1rem;
-    }
-
+    .cert-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--blue-primary); background: var(--bg-card-hover); }
+    .cert-card i { font-size: clamp(2rem, 4vw, 2.5rem); color: var(--blue-primary); margin-bottom: 0.3rem; transition: 0.3s ease; }
+    .cert-card:hover i { color: var(--blue-dark); }
+    .cert-card h4 { font-size: clamp(0.95rem, 1.5vw, 1.1rem); font-weight: 600; color: var(--text-primary); margin-bottom: 0.1rem; transition: color 0.4s ease; }
+    .cert-card .issuer { color: var(--text-muted); font-size: clamp(0.75rem, 1.2vw, 0.85rem); transition: color 0.4s ease; }
+    .cert-card .highlight { font-size: 0.8rem; color: var(--blue-dark); margin-top: 0.2rem; font-weight: 500; transition: color 0.4s ease; }
+    .pdf-preview-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 1.2rem; margin-top: 1rem; }
     .pdf-preview-item {
       background: var(--pdf-item-bg);
       border-radius: var(--radius-base);
@@ -1031,43 +640,12 @@
       cursor: pointer;
       text-decoration: none;
       color: var(--text-primary);
-      font-family: inherit;
     }
-
-    .pdf-preview-item:hover {
-      border-color: var(--blue-primary);
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-3px);
-      background: var(--bg-card-hover);
-    }
-
-    .pdf-preview-item i {
-      font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--blue-primary);
-      display: block;
-      margin-bottom: 0.1rem;
-      transition: 0.3s ease;
-    }
-
-    .pdf-preview-item:hover i {
-      color: var(--blue-dark);
-    }
-
-    .pdf-preview-item .file-name {
-      font-weight: 500;
-      font-size: clamp(0.7rem, 1.2vw, 0.85rem);
-      word-break: break-word;
-      color: var(--text-primary);
-      font-family: inherit;
-    }
-
-    .pdf-preview-item .file-size {
-      font-size: clamp(0.6rem, 1vw, 0.7rem);
-      color: var(--text-muted);
-      font-family: inherit;
-    }
-
-    /* ----- STATS BAR ----- */
+    .pdf-preview-item:hover { border-color: var(--blue-primary); box-shadow: var(--shadow-hover); transform: translateY(-3px); background: var(--bg-card-hover); }
+    .pdf-preview-item i { font-size: clamp(2rem, 5vw, 3rem); color: var(--blue-primary); display: block; margin-bottom: 0.1rem; transition: 0.3s ease; }
+    .pdf-preview-item:hover i { color: var(--blue-dark); }
+    .pdf-preview-item .file-name { font-weight: 500; font-size: clamp(0.7rem, 1.2vw, 0.85rem); word-break: break-word; color: var(--text-primary); }
+    .pdf-preview-item .file-size { font-size: clamp(0.6rem, 1vw, 0.7rem); color: var(--text-muted); }
     .stats-bar {
       background: var(--bg-stats);
       padding: 0.8rem 1rem;
@@ -1081,30 +659,10 @@
       box-shadow: var(--shadow);
       transition: var(--transition);
       text-align: center;
-      font-family: inherit;
     }
-
-    .stats-bar:hover {
-      border-color: var(--blue-primary);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .stats-bar strong {
-      color: var(--text-primary);
-      font-size: clamp(1.3rem, 3vw, 1.6rem);
-      display: block;
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    .stats-bar span {
-      color: var(--text-muted);
-      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-      transition: color 0.4s ease;
-      font-family: inherit;
-    }
-
-    /* ----- FOOTER ----- */
+    .stats-bar:hover { border-color: var(--blue-primary); box-shadow: var(--shadow-hover); }
+    .stats-bar strong { color: var(--text-primary); font-size: clamp(1.3rem, 3vw, 1.6rem); display: block; transition: color 0.4s ease; }
+    .stats-bar span { color: var(--text-muted); font-size: clamp(0.8rem, 1.2vw, 0.9rem); transition: color 0.4s ease; }
     footer {
       margin-top: 3rem;
       border-top: 2px solid var(--footer-border);
@@ -1118,24 +676,12 @@
       font-size: clamp(0.8rem, 1.2vw, 0.9rem);
       animation: fadeIn 0.6s ease;
       transition: border-color 0.4s ease, color 0.4s ease;
-      font-family: inherit;
     }
-
-    .social {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-    }
-
+    .social { display: flex; flex-wrap: wrap; gap: 0.3rem; }
     .social a {
       color: var(--text-muted);
       font-size: clamp(1rem, 1.5vw, 1.1rem);
       transition: var(--transition);
-      display: inline-block;
-      padding: 0.2rem 0.5rem;
-      border-radius: 50%;
-      background: var(--bg-card);
-      box-shadow: var(--shadow);
       width: 2.4rem;
       height: 2.4rem;
       display: flex;
@@ -1143,25 +689,12 @@
       justify-content: center;
       text-decoration: none;
       border: 1px solid var(--border-light);
-      font-family: inherit;
+      border-radius: 50%;
+      background: var(--bg-card);
+      box-shadow: var(--shadow);
     }
-
-    .social a:hover {
-      color: var(--blue-primary);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--blue-primary);
-    }
-
-    /* ----- VALUE PILLS ----- */
-    .value-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin: 1rem 0;
-      justify-content: center;
-    }
-
+    .social a:hover { color: var(--blue-primary); transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: var(--blue-primary); }
+    .value-pills { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1rem 0; justify-content: center; }
     .value-pill {
       background: var(--bg-pill);
       border-radius: 40px;
@@ -1171,272 +704,55 @@
       font-size: clamp(0.8rem, 1.2vw, 0.9rem);
       color: var(--text-primary);
       box-shadow: var(--shadow);
-      font-family: inherit;
     }
-
-    .value-pill:hover {
-      border-color: var(--blue-primary);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-      background: var(--bg-card-hover);
-    }
-
-    .value-pill i {
-      color: var(--blue-primary);
-      margin-right: 4px;
-      transition: color 0.4s ease;
-    }
-
-    /* ===== RESPONSIVE ===== */
+    .value-pill:hover { border-color: var(--blue-primary); transform: translateY(-2px); box-shadow: var(--shadow-hover); background: var(--bg-card-hover); }
+    .value-pill i { color: var(--blue-primary); margin-right: 4px; transition: color 0.4s ease; }
     @media (max-width: 768px) {
-      .container {
-        padding: 0.8rem 1rem;
-      }
-      nav {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.5rem;
-      }
-      .nav-left {
-        justify-content: space-between;
-        width: 100%;
-      }
-      .nav-right {
-        justify-content: center;
-        width: 100%;
-      }
-      .nav-links {
-        justify-content: center;
-        gap: 0.8rem 1.2rem;
-      }
-      .nav-links a {
-        font-size: 0.9rem;
-        white-space: normal;
-      }
-      .theme-slider {
-        width: 48px;
-        height: 26px;
-      }
-      .theme-slider .slider-thumb {
-        width: 18px;
-        height: 18px;
-        font-size: 10px;
-        left: 2px;
-        top: 2px;
-      }
-      body.dark-mode .theme-slider .slider-thumb {
-        transform: translateX(22px);
-      }
-      .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-      }
-      .hero-text .tagline {
-        border-left: none;
-        padding-left: 0;
-        border-top: 3px solid var(--blue-primary);
-        padding-top: 0.5rem;
-      }
-      .hero-text p {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .btn-group {
-        justify-content: center;
-      }
-      .profile-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.2rem;
-      }
-      .profile-pic {
-        flex: 0 0 120px;
-        width: 120px;
-        height: 120px;
-      }
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-      .contact-wrap {
-        flex-direction: column;
-      }
-      .contact-info .info-item {
-        padding: 0.6rem 1rem;
-      }
-      .section-title {
-        border-left-width: 4px;
-        padding-left: 0.8rem;
-      }
-      .stats-bar {
-        flex-direction: row;
-        gap: 0.8rem;
-      }
-      footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
-      }
-      .social {
-        justify-content: center;
-      }
-      .page-indicator {
-        text-align: center;
-      }
-      .cert-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      }
-      .pdf-preview-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      }
-      .timeline-item {
-        flex-direction: column;
-        gap: 0.1rem;
-        padding: 0.3rem 0.4rem;
-      }
-      .timeline-year {
-        min-width: auto;
-      }
+      .container { padding: 0.8rem 1rem; }
+      nav { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+      .nav-left { justify-content: space-between; width: 100%; }
+      .nav-right { justify-content: center; width: 100%; }
+      .nav-links { justify-content: center; gap: 0.8rem 1.2rem; }
+      .theme-slider { width: 48px; height: 26px; }
+      .theme-slider .slider-thumb { width: 18px; height: 18px; font-size: 10px; left: 2px; top: 2px; }
+      body.dark-mode .theme-slider .slider-thumb { transform: translateX(22px); }
+      .hero { flex-direction: column-reverse; text-align: center; }
+      .hero-text .tagline { border-left: none; padding-left: 0; border-top: 3px solid var(--blue-primary); padding-top: 0.5rem; }
+      .hero-text p { margin-left: auto; margin-right: auto; }
+      .btn-group { justify-content: center; }
+      .profile-section { flex-direction: column; text-align: center; padding: 1.2rem; }
+      .profile-pic { flex: 0 0 120px; width: 120px; height: 120px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-wrap { flex-direction: column; }
+      .section-title { border-left-width: 4px; padding-left: 0.8rem; }
+      footer { flex-direction: column; text-align: center; gap: 0.5rem; }
+      .social { justify-content: center; }
+      .page-indicator { text-align: center; }
     }
-
     @media (max-width: 480px) {
-      .container {
-        padding: 0.5rem 0.8rem;
-      }
-      .logo {
-        font-size: 1.1rem;
-      }
-      .nav-links {
-        gap: 0.5rem 0.8rem;
-      }
-      .nav-links a {
-        font-size: 0.8rem;
-        padding: 0.15rem 0;
-      }
-      .hero-text h1 {
-        font-size: 1.8rem;
-      }
-      .card-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      .cert-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.8rem;
-      }
-      .pdf-preview-grid {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-        gap: 0.6rem;
-      }
-      .pdf-preview-item {
-        padding: 0.5rem 0.3rem;
-      }
-      .pdf-preview-item i {
-        font-size: 1.8rem;
-      }
-      .contact-form {
-        padding: 1rem;
-      }
-      .profile-pic {
-        flex: 0 0 100px;
-        width: 100px;
-        height: 100px;
-      }
-      .profile-pic .fallback-icon {
-        font-size: 2.8rem;
-      }
-      .section-title {
-        font-size: 1.2rem;
-        padding-left: 0.6rem;
-      }
-      .btn {
-        padding: 0.5rem 1.2rem;
-        font-size: 0.85rem;
-      }
-      .stats-bar {
-        flex-direction: column;
-        gap: 0.4rem;
-        padding: 0.6rem;
-      }
-      .value-pills {
-        gap: 0.4rem;
-      }
-      .value-pill {
-        padding: 0.3rem 0.8rem;
-        font-size: 0.75rem;
-      }
-      .theme-slider {
-        width: 42px;
-        height: 22px;
-      }
-      .theme-slider .slider-thumb {
-        width: 16px;
-        height: 16px;
-        font-size: 8px;
-        left: 2px;
-        top: 2px;
-      }
-      body.dark-mode .theme-slider .slider-thumb {
-        transform: translateX(19px);
-      }
+      .container { padding: 0.5rem 0.8rem; }
+      .hero-text h1 { font-size: 1.8rem; }
+      .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .cert-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+      .pdf-preview-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 0.6rem; }
+      .profile-pic { flex: 0 0 100px; width: 100px; height: 100px; }
+      .theme-slider { width: 42px; height: 22px; }
+      .theme-slider .slider-thumb { width: 16px; height: 16px; font-size: 8px; left: 2px; top: 2px; }
+      body.dark-mode .theme-slider .slider-thumb { transform: translateX(19px); }
     }
-
-    @media (max-width: 360px) {
-      .cert-grid {
-        grid-template-columns: 1fr;
-      }
-      .nav-links {
-        gap: 0.3rem 0.5rem;
-      }
-      .nav-links a {
-        font-size: 0.7rem;
-      }
-      .hero-text h1 {
-        font-size: 1.5rem;
-      }
-      .pdf-preview-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    /* ----- PRINT ----- */
     @media print {
-      .btn,
-      .theme-slider {
-        display: none !important;
-      }
-      .page {
-        display: block !important;
-      }
-      .page:not(.active-page) {
-        display: none !important;
-      }
-      body {
-        background: #fff !important;
-        color: #000 !important;
-      }
-      .card,
-      .about-card,
-      .cert-card,
-      .profile-section,
-      .contact-form,
-      .stats-bar,
-      .hero-image {
-        border-color: #ccc !important;
-        box-shadow: none !important;
-        background: #fff !important;
-      }
+      .btn, .theme-slider, .language-selector { display: none !important; }
+      .page { display: block !important; }
+      .page:not(.active-page) { display: none !important; }
+      body { background: #fff !important; color: #000 !important; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-
-    <!-- navigation -->
     <nav>
       <div class="nav-left">
-        <!-- Logo: Helvetica bold -->
-        <div class="logo"><i class="fas fa-network-wired"></i> BERNARD</div>
-        <!-- SLIDER TOGGLE -->
+        <div class="logo"><i class="fas fa-network-wired"></i> <span data-translate-key="logo">BERNARD</span></div>
         <div class="theme-slider" id="themeSlider" role="button" tabindex="0" aria-label="Toggle dark mode">
           <div class="slider-thumb" id="sliderThumb">
             <i class="fas fa-sun"></i>
@@ -1446,161 +762,153 @@
       </div>
       <div class="nav-right">
         <div class="nav-links">
-          <a href="#" class="active" data-page="home">Home</a>
-          <a href="#" data-page="about">About</a>
-          <a href="#" data-page="certifications">Certifications</a>
-          <a href="#" data-page="contact">Contact</a>
+          <a href="#" class="active" data-page="home"><span data-translate-key="navHome">Home</span></a>
+          <a href="#" data-page="about"><span data-translate-key="navAbout">About</span></a>
+          <a href="#" data-page="certifications"><span data-translate-key="navCertifications">Certifications</span></a>
+          <a href="#" data-page="contact"><span data-translate-key="navContact">Contact</span></a>
+        </div>
+        <div class="language-selector" id="langSelector">
+          <button class="lang-btn" id="langBtn"><i class="fas fa-globe"></i> <span id="currentLangCode">EN</span></button>
+          <ul class="lang-dropdown" id="langDropdown">
+            <li data-lang="en">English</li>
+            <li data-lang="fr">Français</li>
+            <li data-lang="es">Español</li>
+            <li data-lang="de">Deutsch</li>
+            <li data-lang="zh">中文</li>
+          </ul>
         </div>
       </div>
     </nav>
 
-    <!-- page indicator -->
     <div class="page-indicator">
-      <span id="pageLabel"><i class="fas fa-circle" style="color:var(--blue-primary);font-size:0.5rem;vertical-align:middle;"></i> Home</span>
+      <span id="pageLabel"><i class="fas fa-circle" style="color:var(--blue-primary);font-size:0.5rem;vertical-align:middle;"></i> <span data-translate-key="pageLabelHome">Home</span></span>
     </div>
 
-    <!-- ========== HOME ========== -->
     <div id="home" class="page active-page">
       <div class="hero">
         <div class="hero-text">
-          <h1><i class="fas fa-user-tie"></i> ESSIEN BERNARD</h1>
-          <div class="tagline">Network Administrator · IT Support Specialist</div>
-          <p>
-            Networking Engineer with 5+ years of hands-on experience managing network infrastructure,
-            troubleshooting complex connectivity issues, and supporting enterprise IT operations.
-          </p>
+          <h1><i class="fas fa-user-tie"></i> <span data-translate-key="heroTitle">ESSIEN BERNARD</span></h1>
+          <div class="tagline" data-translate-key="heroTagline">Network Administrator · IT Support Specialist</div>
+          <p data-translate-key="heroDesc">Networking Engineer with 5+ years of hands-on experience managing network infrastructure, troubleshooting complex connectivity issues, and supporting enterprise IT operations.</p>
           <div class="btn-group">
-            <a href="#" class="btn" data-page="contact"><i class="fas fa-envelope"></i> Get in touch</a>
-            <a href="#" class="btn btn-outline" data-page="about"><i class="fas fa-user"></i> About me</a>
+            <a href="#" class="btn" data-page="contact"><i class="fas fa-envelope"></i> <span data-translate-key="heroBtnContact">Get in touch</span></a>
+            <a href="#" class="btn btn-outline" data-page="about"><i class="fas fa-user"></i> <span data-translate-key="heroBtnAbout">About me</span></a>
           </div>
         </div>
         <div class="hero-image">
           <i class="fas fa-server"></i>
-          <p>Network Infrastructure</p>
-          <span>99.9% uptime</span>
+          <p data-translate-key="heroImageText">Network Infrastructure</p>
+          <span data-translate-key="heroImageSpan">99.9% uptime</span>
         </div>
       </div>
 
-      <!-- expertise -->
-      <div class="section-title"><i class="fas fa-cogs"></i> Areas of Expertise</div>
+      <div class="section-title"><i class="fas fa-cogs"></i> <span data-translate-key="expertiseTitle">Areas of Expertise</span></div>
       <div class="card-grid">
-        <div class="card"><i class="fas fa-network-wired"></i><h3>Network Management</h3><p>Router/firewall configuration, server administration, and network security fundamentals.</p></div>
-        <div class="card"><i class="fas fa-server"></i><h3>Server Administration</h3><p>Physical and virtual server maintenance, backup & data recovery, and ERP deployment.</p></div>
-        <div class="card"><i class="fas fa-tools"></i><h3>IT Support</h3><p>Hardware/software troubleshooting, end-user support, and IT service management.</p></div>
+        <div class="card"><i class="fas fa-network-wired"></i><h3 data-translate-key="cardNetworkTitle">Network Management</h3><p data-translate-key="cardNetworkDesc">Router/firewall configuration, server administration, and network security fundamentals.</p></div>
+        <div class="card"><i class="fas fa-server"></i><h3 data-translate-key="cardServerTitle">Server Administration</h3><p data-translate-key="cardServerDesc">Physical and virtual server maintenance, backup & data recovery, and ERP deployment.</p></div>
+        <div class="card"><i class="fas fa-tools"></i><h3 data-translate-key="cardSupportTitle">IT Support</h3><p data-translate-key="cardSupportDesc">Hardware/software troubleshooting, end-user support, and IT service management.</p></div>
       </div>
 
-      <!-- quick stat -->
       <div class="stats-bar">
-        <div><strong>5+</strong> <span>Years Experience</span></div>
-        <div><strong>20+</strong> <span>Branch Deployments</span></div>
-        <div><strong>99.9%</strong> <span>Server Uptime</span></div>
+        <div><strong>5+</strong> <span data-translate-key="statsExperience">Years Experience</span></div>
+        <div><strong>20+</strong> <span data-translate-key="statsBranches">Branch Deployments</span></div>
+        <div><strong>99.9%</strong> <span data-translate-key="statsUptime">Server Uptime</span></div>
       </div>
     </div>
 
-    <!-- ========== ABOUT ========== -->
     <div id="about" class="page">
-      <div class="section-title"><i class="fas fa-user"></i> About Me</div>
-
-      <!-- Profile Picture Section -->
+      <div class="section-title"><i class="fas fa-user"></i> <span data-translate-key="aboutTitle">About Me</span></div>
       <div class="profile-section">
         <div class="profile-pic">
           <img src="https://res.cloudinary.com/dk10jtsv9/image/upload/f_auto,q_auto/t_edegrp" alt="Essien Bernard" />
           <i class="fas fa-user-circle fallback-icon"></i>
         </div>
         <div class="profile-text">
-          <p>I'm <strong>Essien Bernard</strong>, a Network Administrator and IT Support Specialist based in Accra, Ghana.
-            I hold a <strong>Bachelor of Technology in Networking</strong> from Takoradi Technical University and have hands-on experience
-            managing network infrastructure, deploying ERP systems across 20+ branches, and maintaining 99.9% server uptime.
-            I'm passionate about delivering secure, high-performance networks that drive business productivity.</p>
+          <p data-translate-key="aboutProfileText">I'm <strong>Essien Bernard</strong>, a Network Administrator and IT Support Specialist based in Accra, Ghana. I hold a <strong>Bachelor of Technology in Networking</strong> from Takoradi Technical University and have hands-on experience managing network infrastructure, deploying ERP systems across 20+ branches, and maintaining 99.9% server uptime. I'm passionate about delivering secure, high-performance networks that drive business productivity.</p>
         </div>
       </div>
 
       <div class="about-grid">
         <div class="about-card">
-          <h3><i class="fas fa-cog"></i> Skills & Tools</h3>
+          <h3><i class="fas fa-cog"></i> <span data-translate-key="skillsTitle">Skills & Tools</span></h3>
           <div>
-            <span class="skill-tag">Network Management</span>
-            <span class="skill-tag">Server Administration</span>
-            <span class="skill-tag">Firewall Configuration</span>
-            <span class="skill-tag">Backup & Recovery</span>
-            <span class="skill-tag">Microsoft 365</span>
-            <span class="skill-tag">ERP Deployment</span>
-            <span class="skill-tag">Hardware Troubleshooting</span>
-            <span class="skill-tag">IT Service Management</span>
-            <span class="skill-tag">Web Development</span>
-            <span class="skill-tag">Graphic Design</span>
-            <span class="skill-tag">Advanced Excel</span>
-            <span class="skill-tag">Root Cause Analysis</span>
+            <span class="skill-tag" data-translate-key="skillNetworkMgmt">Network Management</span>
+            <span class="skill-tag" data-translate-key="skillServerAdmin">Server Administration</span>
+            <span class="skill-tag" data-translate-key="skillFirewall">Firewall Configuration</span>
+            <span class="skill-tag" data-translate-key="skillBackup">Backup & Recovery</span>
+            <span class="skill-tag" data-translate-key="skillM365">Microsoft 365</span>
+            <span class="skill-tag" data-translate-key="skillERP">ERP Deployment</span>
+            <span class="skill-tag" data-translate-key="skillHardware">Hardware Troubleshooting</span>
+            <span class="skill-tag" data-translate-key="skillITSM">IT Service Management</span>
+            <span class="skill-tag" data-translate-key="skillWeb">Web Development</span>
+            <span class="skill-tag" data-translate-key="skillGraphic">Graphic Design</span>
+            <span class="skill-tag" data-translate-key="skillExcel">Advanced Excel</span>
+            <span class="skill-tag" data-translate-key="skillRCA">Root Cause Analysis</span>
           </div>
         </div>
         <div class="about-card">
-          <h3><i class="fas fa-briefcase"></i> Experience</h3>
+          <h3><i class="fas fa-briefcase"></i> <span data-translate-key="experienceTitle">Experience</span></h3>
           <div class="timeline-item">
             <span class="timeline-year">May 2025 – Present</span>
-            <span class="timeline-detail"><strong>Network Administrator</strong> · Melcom Group of Companies</span>
+            <span class="timeline-detail" data-translate-key="exp1"><strong>Network Administrator</strong> · Melcom Group of Companies</span>
           </div>
           <div class="timeline-item">
             <span class="timeline-year">Jun 2024 – Nov 2024</span>
-            <span class="timeline-detail"><strong>Network Admin (Intern)</strong> · Takoradi Technical University</span>
+            <span class="timeline-detail" data-translate-key="exp2"><strong>Network Admin (Intern)</strong> · Takoradi Technical University</span>
           </div>
           <div class="timeline-item">
             <span class="timeline-year">Aug 2022 – Nov 2022</span>
-            <span class="timeline-detail"><strong>IT Support Specialist</strong> · Cocoa Clinic</span>
+            <span class="timeline-detail" data-translate-key="exp3"><strong>IT Support Specialist</strong> · Cocoa Clinic</span>
           </div>
         </div>
       </div>
 
-      <!-- Education -->
       <div class="about-card" style="margin-top:0.5rem;">
-        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+        <h3><i class="fas fa-graduation-cap"></i> <span data-translate-key="educationTitle">Education</span></h3>
         <div class="timeline-item">
           <span class="timeline-year">2023 – 2025</span>
-          <span class="timeline-detail"><strong>B.Tech in Networking</strong> · Takoradi Technical University <span style="color:var(--blue-dark);font-weight:500;">(Second Class Upper)</span></span>
+          <span class="timeline-detail" data-translate-key="edu1"><strong>B.Tech in Networking</strong> · Takoradi Technical University <span style="color:var(--blue-dark);font-weight:500;">(Second Class Upper)</span></span>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">2019 – 2023</span>
-          <span class="timeline-detail"><strong>HND in Information Technology</strong> · Takoradi Technical University <span style="color:var(--blue-dark);font-weight:500;">(Second Class Upper)</span></span>
+          <span class="timeline-detail" data-translate-key="edu2"><strong>HND in Information Technology</strong> · Takoradi Technical University <span style="color:var(--blue-dark);font-weight:500;">(Second Class Upper)</span></span>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">2023/2024</span>
-          <span class="timeline-detail"><strong>National Service</strong> · Takoradi Technical University <span style="color:var(--text-muted);font-size:0.85rem;">(NSSGTP2536823)</span></span>
+          <span class="timeline-detail" data-translate-key="edu3"><strong>National Service</strong> · Takoradi Technical University <span style="color:var(--text-muted);font-size:0.85rem;">(NSSGTP2536823)</span></span>
         </div>
       </div>
 
-      <!-- Values -->
       <div class="value-pills">
-        <span class="value-pill"><i class="fas fa-water"></i> sustainability</span>
-        <span class="value-pill"><i class="fas fa-hand-holding-heart"></i> empathy</span>
-        <span class="value-pill"><i class="fas fa-feather"></i> craft</span>
+        <span class="value-pill" data-translate-key="valueSustainability"><i class="fas fa-water"></i> sustainability</span>
+        <span class="value-pill" data-translate-key="valueEmpathy"><i class="fas fa-hand-holding-heart"></i> empathy</span>
+        <span class="value-pill" data-translate-key="valueCraft"><i class="fas fa-feather"></i> craft</span>
       </div>
     </div>
 
-    <!-- ========== CERTIFICATIONS ========== -->
     <div id="certifications" class="page">
-      <div class="section-title"><i class="fas fa-certificate"></i> Certifications & Credentials</div>
-
+      <div class="section-title"><i class="fas fa-certificate"></i> <span data-translate-key="certTitle">Certifications & Credentials</span></div>
       <div class="cert-grid">
         <div class="cert-card">
           <i class="fas fa-graduation-cap"></i>
-          <h4>B.Tech in Networking</h4>
-          <div class="issuer">Takoradi Technical University · 2025</div>
-          <div class="highlight">Second Class Upper</div>
+          <h4 data-translate-key="cert1Title">B.Tech in Networking</h4>
+          <div class="issuer" data-translate-key="cert1Issuer">Takoradi Technical University · 2025</div>
+          <div class="highlight" data-translate-key="cert1Highlight">Second Class Upper</div>
         </div>
         <div class="cert-card">
           <i class="fas fa-diploma"></i>
-          <h4>Higher National Diploma</h4>
-          <div class="issuer">Takoradi Technical University · 2023</div>
-          <div class="highlight">Second Class Upper</div>
+          <h4 data-translate-key="cert2Title">Higher National Diploma</h4>
+          <div class="issuer" data-translate-key="cert2Issuer">Takoradi Technical University · 2023</div>
+          <div class="highlight" data-translate-key="cert2Highlight">Second Class Upper</div>
         </div>
         <div class="cert-card">
           <i class="fas fa-id-card"></i>
-          <h4>National Service Certificate</h4>
-          <div class="issuer">NSS · 2023/2024</div>
+          <h4 data-translate-key="cert3Title">National Service Certificate</h4>
+          <div class="issuer" data-translate-key="cert3Issuer">NSS · 2023/2024</div>
           <div style="font-size:0.8rem;color:var(--text-muted);margin-top:0.2rem;">NSSGTP2536823</div>
         </div>
       </div>
 
-      <!-- Static PDF certificate links -->
       <div class="pdf-preview-grid">
         <a href="https://jgygufwgethdhbphpogg.supabase.co/storage/v1/object/public/files/certs/BTECH%20CERT.pdf" target="_blank" class="pdf-preview-item">
           <i class="fas fa-file-pdf"></i>
@@ -1623,66 +931,47 @@
           <div class="file-size">PDF</div>
         </a>
       </div>
-      <p style="margin-top: 0.2rem; color: var(--text-muted); font-size: clamp(0.8rem,1vw,0.9rem);">
-        <i class="fas fa-arrow-right" style="color:var(--blue-primary);"></i>
-        Click any PDF card to open the certificate in a new tab.
+      <p style="margin-top: 0.2rem; color: var(--text-muted); font-size: clamp(0.8rem,1vw,0.9rem);" data-translate-key="pdfText">
+        <i class="fas fa-arrow-right" style="color:var(--blue-primary);"></i> Click any PDF card to open the certificate in a new tab.
       </p>
     </div>
 
-    <!-- ========== CONTACT ========== -->
     <div id="contact" class="page">
-      <div class="section-title"><i class="fas fa-paper-plane"></i> Get in Touch</div>
+      <div class="section-title"><i class="fas fa-paper-plane"></i> <span data-translate-key="contactTitle">Get in Touch</span></div>
       <div class="contact-wrap">
         <div class="contact-info">
-          <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span>North Kaneshie, Accra, Ghana</span></div>
-          <div class="info-item"><i class="fas fa-phone"></i> <span>+233 24 939 0949</span></div>
-          <div class="info-item">
-            <i class="fas fa-envelope"></i> 
-            <a href="mailto:essienbernard8@gmail.com">essienbernard8@gmail.com</a>
-          </div>
-          <div class="info-item">
-            <a href="https://www.linkedin.com/in/bernardessien2799" target="_blank">
-              <i class="fab fa-linkedin-in"></i> <span>linkedin.com/in/bernardessien2799</span>
-            </a>
-          </div>
-          <div class="info-item">
-            <a href="https://wa.link/tz54vw" target="_blank">
-              <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
-            </a>
-          </div>
-          <div class="availability-badge">
-            <i class="fas fa-clock" style="color:var(--blue-primary);margin-right:6px;"></i> Available for freelance & full-time
-          </div>
+          <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span data-translate-key="infoAddress">North Kaneshie, Accra, Ghana</span></div>
+          <div class="info-item"><i class="fas fa-phone"></i> <span data-translate-key="infoPhone">+233 24 939 0949</span></div>
+          <div class="info-item"><i class="fas fa-envelope"></i> <a href="mailto:essienbernard8@gmail.com"><span data-translate-key="infoEmail">essienbernard8@gmail.com</span></a></div>
+          <div class="info-item"><a href="https://www.linkedin.com/in/bernardessien2799" target="_blank"><i class="fab fa-linkedin-in"></i> <span data-translate-key="infoLinkedIn">linkedin.com/in/bernardessien2799</span></a></div>
+          <div class="info-item"><a href="https://wa.link/tz54vw" target="_blank"><i class="fab fa-whatsapp"></i> <span data-translate-key="infoWhatsApp">WhatsApp</span></a></div>
+          <div class="availability-badge"><i class="fas fa-clock" style="color:var(--blue-primary);margin-right:6px;"></i> <span data-translate-key="availabilityBadge">Available for freelance & full-time</span></div>
         </div>
 
         <div class="contact-form">
           <form id="contactForm">
-            <label for="title"><i class="fas fa-user-tag"></i> Title</label>
+            <label for="title"><i class="fas fa-user-tag"></i> <span data-translate-key="formTitle">Title</span></label>
             <select id="title" name="title">
-              <option value="">Select Title</option>
+              <option value=""><span data-translate-key="formTitleSelect">Select Title</span></option>
               <option value="Mr">Mr</option>
               <option value="Mrs">Mrs</option>
               <option value="Miss">Miss</option>
             </select>
-
-            <label for="name"><i class="far fa-user"></i> Full Name</label>
-            <input type="text" id="name" placeholder="Your name" value="" />
-
-            <label for="email"><i class="far fa-envelope"></i> Email</label>
-            <input type="email" id="email" placeholder="you@example.com" value="" />
-
-            <label for="message"><i class="far fa-comment"></i> Message</label>
-            <textarea id="message" placeholder="Tell me about your project..."></textarea>
-
-            <button type="submit" class="btn"><i class="fas fa-feather-alt"></i> Send Message</button>
+            <label for="name"><i class="far fa-user"></i> <span data-translate-key="formFullName">Full Name</span></label>
+            <input type="text" id="name" data-translate-placeholder="formPlaceholderName" placeholder="Your name" />
+            <label for="email"><i class="far fa-envelope"></i> <span data-translate-key="formEmail">Email</span></label>
+            <input type="email" id="email" data-translate-placeholder="formPlaceholderEmail" placeholder="you@example.com" />
+            <label for="message"><i class="far fa-comment"></i> <span data-translate-key="formMessage">Message</span></label>
+            <textarea id="message" data-translate-placeholder="formPlaceholderMessage" placeholder="Tell me about your project..."></textarea>
+            <button type="submit" class="btn"><i class="fas fa-feather-alt"></i> <span data-translate-key="formSend">Send Message</span></button>
             <p style="margin-top:0.4rem; font-size:clamp(0.7rem,1vw,0.8rem); color:var(--text-muted);"></p>
           </form>
         </div>
       </div>
     </div>
-    <!-- footer -->
+
     <footer>
-      <div><i class="fas fa-network-wired" style="color:var(--blue-primary);margin-right:6px;"></i> ESSIEN BERNARD · Professional Portfolio</div>
+      <div><i class="fas fa-network-wired" style="color:var(--blue-primary);margin-right:6px;"></i> <span data-translate-key="footerText">ESSIEN BERNARD · Professional Portfolio</span></div>
       <div class="social">
         <a href="https://www.linkedin.com/in/bernardessien2799" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -1690,45 +979,509 @@
         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
     </footer>
-
   </div>
 
   <script>
     (function() {
-      // ============================================================
-      // SUPABASE CONFIG (kept for contact form)
-      // ============================================================
       const SUPABASE_URL = 'https://jgygufwgethdhbphpogg.supabase.co';
-      const SUPABASE_ANON_KEY =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpneWd1ZndnZXRoZGhicGhwb2dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTA5NjcsImV4cCI6MjA5ODEyNjk2N30.1wU98I2axqPfDiSovrads9thSXlwyhmmMqq6sRl4jKU';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpneWd1ZndnZXRoZGhicGhwb2dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTA5NjcsImV4cCI6MjA5ODEyNjk2N30.1wU98I2axqPfDiSovrads9thSXlwyhmmMqq6sRl4jKU';
 
-      // ============================================================
-      // DOM REFS
-      // ============================================================
+      const translations = {
+        en: {
+          logo: "BERNARD",
+          navHome: "Home",
+          navAbout: "About",
+          navCertifications: "Certifications",
+          navContact: "Contact",
+          pageLabelHome: "Home",
+          pageLabelAbout: "About",
+          pageLabelCertifications: "Certifications",
+          pageLabelContact: "Contact",
+          heroTitle: "ESSIEN BERNARD",
+          heroTagline: "Network Administrator · IT Support Specialist",
+          heroDesc: "Networking Engineer with 5+ years of hands-on experience managing network infrastructure, troubleshooting complex connectivity issues, and supporting enterprise IT operations.",
+          heroBtnContact: "Get in touch",
+          heroBtnAbout: "About me",
+          heroImageText: "Network Infrastructure",
+          heroImageSpan: "99.9% uptime",
+          expertiseTitle: "Areas of Expertise",
+          cardNetworkTitle: "Network Management",
+          cardNetworkDesc: "Router/firewall configuration, server administration, and network security fundamentals.",
+          cardServerTitle: "Server Administration",
+          cardServerDesc: "Physical and virtual server maintenance, backup & data recovery, and ERP deployment.",
+          cardSupportTitle: "IT Support",
+          cardSupportDesc: "Hardware/software troubleshooting, end-user support, and IT service management.",
+          statsExperience: "Years Experience",
+          statsBranches: "Branch Deployments",
+          statsUptime: "Server Uptime",
+          aboutTitle: "About Me",
+          aboutProfileText: "I'm <strong>Essien Bernard</strong>, a Network Administrator and IT Support Specialist based in Accra, Ghana. I hold a <strong>Bachelor of Technology in Networking</strong> from Takoradi Technical University and have hands-on experience managing network infrastructure, deploying ERP systems across 20+ branches, and maintaining 99.9% server uptime. I'm passionate about delivering secure, high-performance networks that drive business productivity.",
+          skillsTitle: "Skills & Tools",
+          skillNetworkMgmt: "Network Management",
+          skillServerAdmin: "Server Administration",
+          skillFirewall: "Firewall Configuration",
+          skillBackup: "Backup & Recovery",
+          skillM365: "Microsoft 365",
+          skillERP: "ERP Deployment",
+          skillHardware: "Hardware Troubleshooting",
+          skillITSM: "IT Service Management",
+          skillWeb: "Web Development",
+          skillGraphic: "Graphic Design",
+          skillExcel: "Advanced Excel",
+          skillRCA: "Root Cause Analysis",
+          experienceTitle: "Experience",
+          exp1: "<strong>Network Administrator</strong> · Melcom Group of Companies",
+          exp2: "<strong>Network Admin (Intern)</strong> · Takoradi Technical University",
+          exp3: "<strong>IT Support Specialist</strong> · Cocoa Clinic",
+          educationTitle: "Education",
+          edu1: "<strong>B.Tech in Networking</strong> · Takoradi Technical University <span style=\"color:var(--blue-dark);font-weight:500;\">(Second Class Upper)</span>",
+          edu2: "<strong>HND in Information Technology</strong> · Takoradi Technical University <span style=\"color:var(--blue-dark);font-weight:500;\">(Second Class Upper)</span>",
+          edu3: "<strong>National Service</strong> · Takoradi Technical University <span style=\"color:var(--text-muted);font-size:0.85rem;\">(NSSGTP2536823)</span>",
+          valueSustainability: "sustainability",
+          valueEmpathy: "empathy",
+          valueCraft: "craft",
+          certTitle: "Certifications & Credentials",
+          cert1Title: "B.Tech in Networking",
+          cert1Issuer: "Takoradi Technical University · 2025",
+          cert1Highlight: "Second Class Upper",
+          cert2Title: "Higher National Diploma",
+          cert2Issuer: "Takoradi Technical University · 2023",
+          cert2Highlight: "Second Class Upper",
+          cert3Title: "National Service Certificate",
+          cert3Issuer: "NSS · 2023/2024",
+          pdfText: "Click any PDF card to open the certificate in a new tab.",
+          contactTitle: "Get in Touch",
+          infoAddress: "North Kaneshie, Accra, Ghana",
+          infoPhone: "+233 24 939 0949",
+          infoEmail: "essienbernard8@gmail.com",
+          infoLinkedIn: "linkedin.com/in/bernardessien2799",
+          infoWhatsApp: "WhatsApp",
+          availabilityBadge: "Available for freelance & full-time",
+          formTitle: "Title",
+          formTitleSelect: "Select Title",
+          formFullName: "Full Name",
+          formEmail: "Email",
+          formMessage: "Message",
+          formSend: "Send Message",
+          formPlaceholderName: "Your name",
+          formPlaceholderEmail: "you@example.com",
+          formPlaceholderMessage: "Tell me about your project...",
+          footerText: "ESSIEN BERNARD · Professional Portfolio",
+          toggleDarkMode: "Toggle dark mode",
+          switchToLight: "Switch to light mode"
+        },
+        fr: {
+          logo: "BERNARD",
+          navHome: "Accueil",
+          navAbout: "À propos",
+          navCertifications: "Certifications",
+          navContact: "Contact",
+          pageLabelHome: "Accueil",
+          pageLabelAbout: "À propos",
+          pageLabelCertifications: "Certifications",
+          pageLabelContact: "Contact",
+          heroTitle: "ESSIEN BERNARD",
+          heroTagline: "Administrateur réseau · Spécialiste support IT",
+          heroDesc: "Ingénieur réseau avec plus de 5 ans d'expérience pratique dans la gestion d'infrastructure réseau, le dépannage de problèmes de connectivité complexes et le support des opérations informatiques d'entreprise.",
+          heroBtnContact: "Contactez-moi",
+          heroBtnAbout: "À propos de moi",
+          heroImageText: "Infrastructure réseau",
+          heroImageSpan: "99,9% de disponibilité",
+          expertiseTitle: "Domaines d'expertise",
+          cardNetworkTitle: "Gestion réseau",
+          cardNetworkDesc: "Configuration routeur/pare-feu, administration serveur et fondamentaux de la sécurité réseau.",
+          cardServerTitle: "Administration serveur",
+          cardServerDesc: "Maintenance des serveurs physiques et virtuels, sauvegarde et récupération de données, déploiement ERP.",
+          cardSupportTitle: "Support informatique",
+          cardSupportDesc: "Dépannage matériel/logiciel, assistance aux utilisateurs finaux et gestion des services IT.",
+          statsExperience: "Années d'expérience",
+          statsBranches: "Déploiements de succursales",
+          statsUptime: "Disponibilité serveur",
+          aboutTitle: "À propos de moi",
+          aboutProfileText: "Je suis <strong>Essien Bernard</strong>, administrateur réseau et spécialiste support IT basé à Accra, Ghana. Je suis titulaire d'un <strong>Bachelor of Technology en réseautique</strong> de l'Université technique de Takoradi et j'ai une expérience pratique de la gestion d'infrastructure réseau, du déploiement de systèmes ERP dans plus de 20 succursales et du maintien d'une disponibilité de 99,9 % des serveurs. Je suis passionné par la fourniture de réseaux sécurisés et performants qui stimulent la productivité des entreprises.",
+          skillsTitle: "Compétences & Outils",
+          skillNetworkMgmt: "Gestion réseau",
+          skillServerAdmin: "Administration serveur",
+          skillFirewall: "Configuration pare-feu",
+          skillBackup: "Sauvegarde & récupération",
+          skillM365: "Microsoft 365",
+          skillERP: "Déploiement ERP",
+          skillHardware: "Dépannage matériel",
+          skillITSM: "Gestion des services IT",
+          skillWeb: "Développement web",
+          skillGraphic: "Design graphique",
+          skillExcel: "Excel avancé",
+          skillRCA: "Analyse des causes racines",
+          experienceTitle: "Expérience",
+          exp1: "<strong>Administrateur réseau</strong> · Melcom Group of Companies",
+          exp2: "<strong>Admin réseau (stagiaire)</strong> · Université technique de Takoradi",
+          exp3: "<strong>Spécialiste support IT</strong> · Cocoa Clinic",
+          educationTitle: "Formation",
+          edu1: "<strong>B.Tech en réseautique</strong> · Université technique de Takoradi <span style=\"color:var(--blue-dark);font-weight:500;\">(Seconde classe supérieure)</span>",
+          edu2: "<strong>HND en informatique</strong> · Université technique de Takoradi <span style=\"color:var(--blue-dark);font-weight:500;\">(Seconde classe supérieure)</span>",
+          edu3: "<strong>Service national</strong> · Université technique de Takoradi <span style=\"color:var(--text-muted);font-size:0.85rem;\">(NSSGTP2536823)</span>",
+          valueSustainability: "durabilité",
+          valueEmpathy: "empathie",
+          valueCraft: "artisanat",
+          certTitle: "Certifications & Diplômes",
+          cert1Title: "B.Tech en réseautique",
+          cert1Issuer: "Université technique de Takoradi · 2025",
+          cert1Highlight: "Seconde classe supérieure",
+          cert2Title: "Diplôme national supérieur",
+          cert2Issuer: "Université technique de Takoradi · 2023",
+          cert2Highlight: "Seconde classe supérieure",
+          cert3Title: "Certificat de service national",
+          cert3Issuer: "NSS · 2023/2024",
+          pdfText: "Cliquez sur une carte PDF pour ouvrir le certificat dans un nouvel onglet.",
+          contactTitle: "Contactez-moi",
+          infoAddress: "North Kaneshie, Accra, Ghana",
+          infoPhone: "+233 24 939 0949",
+          infoEmail: "essienbernard8@gmail.com",
+          infoLinkedIn: "linkedin.com/in/bernardessien2799",
+          infoWhatsApp: "WhatsApp",
+          availabilityBadge: "Disponible pour freelance & temps plein",
+          formTitle: "Titre",
+          formTitleSelect: "Sélectionnez un titre",
+          formFullName: "Nom complet",
+          formEmail: "E-mail",
+          formMessage: "Message",
+          formSend: "Envoyer le message",
+          formPlaceholderName: "Votre nom",
+          formPlaceholderEmail: "vous@exemple.com",
+          formPlaceholderMessage: "Parlez-moi de votre projet...",
+          footerText: "ESSIEN BERNARD · Portfolio professionnel",
+          toggleDarkMode: "Basculer en mode sombre",
+          switchToLight: "Basculer en mode clair"
+        },
+        es: {
+          logo: "BERNARD",
+          navHome: "Inicio",
+          navAbout: "Acerca de",
+          navCertifications: "Certificaciones",
+          navContact: "Contacto",
+          pageLabelHome: "Inicio",
+          pageLabelAbout: "Acerca de",
+          pageLabelCertifications: "Certificaciones",
+          pageLabelContact: "Contacto",
+          heroTitle: "ESSIEN BERNARD",
+          heroTagline: "Administrador de redes · Especialista en soporte TI",
+          heroDesc: "Ingeniero de redes con más de 5 años de experiencia práctica gestionando infraestructura de red, solucionando problemas complejos de conectividad y apoyando operaciones de TI empresariales.",
+          heroBtnContact: "Contactar",
+          heroBtnAbout: "Acerca de mí",
+          heroImageText: "Infraestructura de red",
+          heroImageSpan: "99.9% tiempo activo",
+          expertiseTitle: "Áreas de especialización",
+          cardNetworkTitle: "Gestión de redes",
+          cardNetworkDesc: "Configuración de enrutadores/cortafuegos, administración de servidores y fundamentos de seguridad de red.",
+          cardServerTitle: "Administración de servidores",
+          cardServerDesc: "Mantenimiento de servidores físicos y virtuales, copias de seguridad y recuperación de datos, e implementación de ERP.",
+          cardSupportTitle: "Soporte TI",
+          cardSupportDesc: "Solución de problemas de hardware/software, soporte a usuarios finales y gestión de servicios TI.",
+          statsExperience: "Años de experiencia",
+          statsBranches: "Sucursales desplegadas",
+          statsUptime: "Tiempo activo del servidor",
+          aboutTitle: "Acerca de mí",
+          aboutProfileText: "Soy <strong>Essien Bernard</strong>, administrador de redes y especialista en soporte TI con sede en Acra, Ghana. Tengo un <strong>Bachelor of Technology en redes</strong> de la Universidad Técnica de Takoradi y experiencia práctica en la gestión de infraestructura de red, implementación de sistemas ERP en más de 20 sucursales y mantenimiento del 99.9% de tiempo activo del servidor. Me apasiona ofrecer redes seguras y de alto rendimiento que impulsen la productividad empresarial.",
+          skillsTitle: "Habilidades y herramientas",
+          skillNetworkMgmt: "Gestión de redes",
+          skillServerAdmin: "Administración de servidores",
+          skillFirewall: "Configuración de cortafuegos",
+          skillBackup: "Copia de seguridad y recuperación",
+          skillM365: "Microsoft 365",
+          skillERP: "Implementación de ERP",
+          skillHardware: "Solución de problemas de hardware",
+          skillITSM: "Gestión de servicios TI",
+          skillWeb: "Desarrollo web",
+          skillGraphic: "Diseño gráfico",
+          skillExcel: "Excel avanzado",
+          skillRCA: "Análisis de causa raíz",
+          experienceTitle: "Experiencia",
+          exp1: "<strong>Administrador de redes</strong> · Melcom Group of Companies",
+          exp2: "<strong>Admin. de redes (pasante)</strong> · Universidad Técnica de Takoradi",
+          exp3: "<strong>Especialista en soporte TI</strong> · Cocoa Clinic",
+          educationTitle: "Educación",
+          edu1: "<strong>B.Tech en redes</strong> · Universidad Técnica de Takoradi <span style=\"color:var(--blue-dark);font-weight:500;\">(Segunda clase superior)</span>",
+          edu2: "<strong>HND en tecnología de la información</strong> · Universidad Técnica de Takoradi <span style=\"color:var(--blue-dark);font-weight:500;\">(Segunda clase superior)</span>",
+          edu3: "<strong>Servicio nacional</strong> · Universidad Técnica de Takoradi <span style=\"color:var(--text-muted);font-size:0.85rem;\">(NSSGTP2536823)</span>",
+          valueSustainability: "sostenibilidad",
+          valueEmpathy: "empatía",
+          valueCraft: "artesanía",
+          certTitle: "Certificaciones y credenciales",
+          cert1Title: "B.Tech en redes",
+          cert1Issuer: "Universidad Técnica de Takoradi · 2025",
+          cert1Highlight: "Segunda clase superior",
+          cert2Title: "Diploma Nacional Superior",
+          cert2Issuer: "Universidad Técnica de Takoradi · 2023",
+          cert2Highlight: "Segunda clase superior",
+          cert3Title: "Certificado de Servicio Nacional",
+          cert3Issuer: "NSS · 2023/2024",
+          pdfText: "Haga clic en cualquier tarjeta PDF para abrir el certificado en una pestaña nueva.",
+          contactTitle: "Ponerse en contacto",
+          infoAddress: "North Kaneshie, Accra, Ghana",
+          infoPhone: "+233 24 939 0949",
+          infoEmail: "essienbernard8@gmail.com",
+          infoLinkedIn: "linkedin.com/in/bernardessien2799",
+          infoWhatsApp: "WhatsApp",
+          availabilityBadge: "Disponible para freelance y tiempo completo",
+          formTitle: "Título",
+          formTitleSelect: "Seleccionar título",
+          formFullName: "Nombre completo",
+          formEmail: "Correo electrónico",
+          formMessage: "Mensaje",
+          formSend: "Enviar mensaje",
+          formPlaceholderName: "Tu nombre",
+          formPlaceholderEmail: "tu@ejemplo.com",
+          formPlaceholderMessage: "Cuéntame sobre tu proyecto...",
+          footerText: "ESSIEN BERNARD · Portafolio profesional",
+          toggleDarkMode: "Cambiar a modo oscuro",
+          switchToLight: "Cambiar a modo claro"
+        },
+        de: {
+          logo: "BERNARD",
+          navHome: "Startseite",
+          navAbout: "Über mich",
+          navCertifications: "Zertifikate",
+          navContact: "Kontakt",
+          pageLabelHome: "Startseite",
+          pageLabelAbout: "Über mich",
+          pageLabelCertifications: "Zertifikate",
+          pageLabelContact: "Kontakt",
+          heroTitle: "ESSIEN BERNARD",
+          heroTagline: "Netzwerkadministrator · IT-Support-Spezialist",
+          heroDesc: "Netzwerkingenieur mit über 5 Jahren praktischer Erfahrung in der Verwaltung von Netzwerkinfrastrukturen, der Fehlerbehebung bei komplexen Konnektivitätsproblemen und der Unterstützung von IT-Unternehmensabläufen.",
+          heroBtnContact: "Kontakt aufnehmen",
+          heroBtnAbout: "Über mich",
+          heroImageText: "Netzwerkinfrastruktur",
+          heroImageSpan: "99,9 % Verfügbarkeit",
+          expertiseTitle: "Fachgebiete",
+          cardNetworkTitle: "Netzwerkverwaltung",
+          cardNetworkDesc: "Router-/Firewall-Konfiguration, Serververwaltung und Grundlagen der Netzwerksicherheit.",
+          cardServerTitle: "Serveradministration",
+          cardServerDesc: "Wartung physischer und virtueller Server, Datensicherung und -wiederherstellung sowie ERP-Bereitstellung.",
+          cardSupportTitle: "IT-Support",
+          cardSupportDesc: "Hardware-/Software-Fehlerbehebung, Endbenutzer-Support und IT-Service-Management.",
+          statsExperience: "Jahre Erfahrung",
+          statsBranches: "Filialbereitstellungen",
+          statsUptime: "Serververfügbarkeit",
+          aboutTitle: "Über mich",
+          aboutProfileText: "Ich bin <strong>Essien Bernard</strong>, Netzwerkadministrator und IT-Support-Spezialist mit Sitz in Accra, Ghana. Ich habe einen <strong>Bachelor of Technology in Netzwerktechnik</strong> von der Takoradi Technical University und praktische Erfahrung in der Verwaltung von Netzwerkinfrastrukturen, der Bereitstellung von ERP-Systemen in über 20 Filialen und der Aufrechterhaltung einer Serververfügbarkeit von 99,9 %. Ich bin leidenschaftlich daran interessiert, sichere und leistungsstarke Netzwerke bereitzustellen, die die Geschäftsproduktivität steigern.",
+          skillsTitle: "Fähigkeiten & Werkzeuge",
+          skillNetworkMgmt: "Netzwerkverwaltung",
+          skillServerAdmin: "Serveradministration",
+          skillFirewall: "Firewall-Konfiguration",
+          skillBackup: "Backup & Wiederherstellung",
+          skillM365: "Microsoft 365",
+          skillERP: "ERP-Bereitstellung",
+          skillHardware: "Hardware-Fehlerbehebung",
+          skillITSM: "IT-Service-Management",
+          skillWeb: "Webentwicklung",
+          skillGraphic: "Grafikdesign",
+          skillExcel: "Erweitertes Excel",
+          skillRCA: "Ursachenanalyse",
+          experienceTitle: "Erfahrung",
+          exp1: "<strong>Netzwerkadministrator</strong> · Melcom Group of Companies",
+          exp2: "<strong>Netzwerkadmin (Praktikum)</strong> · Takoradi Technical University",
+          exp3: "<strong>IT-Support-Spezialist</strong> · Cocoa Clinic",
+          educationTitle: "Ausbildung",
+          edu1: "<strong>B.Tech in Netzwerktechnik</strong> · Takoradi Technical University <span style=\"color:var(--blue-dark);font-weight:500;\">(Zweite Klasse oben)</span>",
+          edu2: "<strong>HND in Informationstechnologie</strong> · Takoradi Technical University <span style=\"color:var(--blue-dark);font-weight:500;\">(Zweite Klasse oben)</span>",
+          edu3: "<strong>Nationaldienst</strong> · Takoradi Technical University <span style=\"color:var(--text-muted);font-size:0.85rem;\">(NSSGTP2536823)</span>",
+          valueSustainability: "Nachhaltigkeit",
+          valueEmpathy: "Empathie",
+          valueCraft: "Handwerk",
+          certTitle: "Zertifikate & Qualifikationen",
+          cert1Title: "B.Tech in Netzwerktechnik",
+          cert1Issuer: "Takoradi Technical University · 2025",
+          cert1Highlight: "Zweite Klasse oben",
+          cert2Title: "Higher National Diploma",
+          cert2Issuer: "Takoradi Technical University · 2023",
+          cert2Highlight: "Zweite Klasse oben",
+          cert3Title: "Nationaldienst-Zertifikat",
+          cert3Issuer: "NSS · 2023/2024",
+          pdfText: "Klicken Sie auf eine PDF-Karte, um das Zertifikat in einem neuen Tab zu öffnen.",
+          contactTitle: "Kontaktieren Sie mich",
+          infoAddress: "North Kaneshie, Accra, Ghana",
+          infoPhone: "+233 24 939 0949",
+          infoEmail: "essienbernard8@gmail.com",
+          infoLinkedIn: "linkedin.com/in/bernardessien2799",
+          infoWhatsApp: "WhatsApp",
+          availabilityBadge: "Verfügbar für Freelance & Vollzeit",
+          formTitle: "Titel",
+          formTitleSelect: "Titel auswählen",
+          formFullName: "Vollständiger Name",
+          formEmail: "E-Mail",
+          formMessage: "Nachricht",
+          formSend: "Nachricht senden",
+          formPlaceholderName: "Ihr Name",
+          formPlaceholderEmail: "sie@beispiel.com",
+          formPlaceholderMessage: "Erzählen Sie mir von Ihrem Projekt...",
+          footerText: "ESSIEN BERNARD · Professionelles Portfolio",
+          toggleDarkMode: "Zum dunklen Modus wechseln",
+          switchToLight: "Zum hellen Modus wechseln"
+        },
+        zh: {
+          logo: "BERNARD",
+          navHome: "首页",
+          navAbout: "关于",
+          navCertifications: "证书",
+          navContact: "联系",
+          pageLabelHome: "首页",
+          pageLabelAbout: "关于",
+          pageLabelCertifications: "证书",
+          pageLabelContact: "联系",
+          heroTitle: "ESSIEN BERNARD",
+          heroTagline: "网络管理员 · IT支持专家",
+          heroDesc: "拥有5年以上实践经验的网络工程师，负责管理网络基础设施、排查复杂连接问题并支持企业IT运营。",
+          heroBtnContact: "联系我",
+          heroBtnAbout: "关于我",
+          heroImageText: "网络基础设施",
+          heroImageSpan: "99.9% 正常运行时间",
+          expertiseTitle: "专业领域",
+          cardNetworkTitle: "网络管理",
+          cardNetworkDesc: "路由器/防火墙配置、服务器管理和网络安全基础知识。",
+          cardServerTitle: "服务器管理",
+          cardServerDesc: "物理和虚拟服务器维护、备份与数据恢复以及ERP部署。",
+          cardSupportTitle: "IT支持",
+          cardSupportDesc: "硬件/软件故障排除、最终用户支持和IT服务管理。",
+          statsExperience: "年经验",
+          statsBranches: "分支机构部署",
+          statsUptime: "服务器正常运行时间",
+          aboutTitle: "关于我",
+          aboutProfileText: "我是<strong>Essien Bernard</strong>，一名驻加纳阿克拉的网络管理员和IT支持专家。我拥有塔科拉迪技术大学的<strong>网络技术学士学位</strong>，并具有管理网络基础设施、在20多个分支机构部署ERP系统以及保持99.9%服务器正常运行时间的实践经验。我热衷于提供安全、高性能的网络，以推动企业生产力。",
+          skillsTitle: "技能与工具",
+          skillNetworkMgmt: "网络管理",
+          skillServerAdmin: "服务器管理",
+          skillFirewall: "防火墙配置",
+          skillBackup: "备份与恢复",
+          skillM365: "Microsoft 365",
+          skillERP: "ERP部署",
+          skillHardware: "硬件故障排除",
+          skillITSM: "IT服务管理",
+          skillWeb: "网页开发",
+          skillGraphic: "平面设计",
+          skillExcel: "高级Excel",
+          skillRCA: "根本原因分析",
+          experienceTitle: "工作经历",
+          exp1: "<strong>网络管理员</strong> · Melcom 集团公司",
+          exp2: "<strong>网络管理员（实习）</strong> · 塔科拉迪技术大学",
+          exp3: "<strong>IT支持专家</strong> · Cocoa Clinic",
+          educationTitle: "教育背景",
+          edu1: "<strong>网络技术学士</strong> · 塔科拉迪技术大学 <span style=\"color:var(--blue-dark);font-weight:500;\">(二级上等)</span>",
+          edu2: "<strong>信息技术高级国家文凭</strong> · 塔科拉迪技术大学 <span style=\"color:var(--blue-dark);font-weight:500;\">(二级上等)</span>",
+          edu3: "<strong>国家服务</strong> · 塔科拉迪技术大学 <span style=\"color:var(--text-muted);font-size:0.85rem;\">(NSSGTP2536823)</span>",
+          valueSustainability: "可持续性",
+          valueEmpathy: "同理心",
+          valueCraft: "工艺",
+          certTitle: "证书与资质",
+          cert1Title: "网络技术学士",
+          cert1Issuer: "塔科拉迪技术大学 · 2025",
+          cert1Highlight: "二级上等",
+          cert2Title: "高级国家文凭",
+          cert2Issuer: "塔科拉迪技术大学 · 2023",
+          cert2Highlight: "二级上等",
+          cert3Title: "国家服务证书",
+          cert3Issuer: "NSS · 2023/2024",
+          pdfText: "点击任何PDF卡片可在新标签页中打开证书。",
+          contactTitle: "联系我",
+          infoAddress: "加纳阿克拉北卡内希",
+          infoPhone: "+233 24 939 0949",
+          infoEmail: "essienbernard8@gmail.com",
+          infoLinkedIn: "linkedin.com/in/bernardessien2799",
+          infoWhatsApp: "WhatsApp",
+          availabilityBadge: "可接受自由职业和全职工作",
+          formTitle: "称呼",
+          formTitleSelect: "选择称呼",
+          formFullName: "全名",
+          formEmail: "电子邮件",
+          formMessage: "信息",
+          formSend: "发送消息",
+          formPlaceholderName: "您的姓名",
+          formPlaceholderEmail: "您@example.com",
+          formPlaceholderMessage: "告诉我您的项目...",
+          footerText: "ESSIEN BERNARD · 专业作品集",
+          toggleDarkMode: "切换深色模式",
+          switchToLight: "切换浅色模式"
+        }
+      };
+
       const pages = {
         home: document.getElementById('home'),
         about: document.getElementById('about'),
         certifications: document.getElementById('certifications'),
         contact: document.getElementById('contact')
       };
-
       const navLinks = document.querySelectorAll('.nav-links a');
       const pageLabel = document.getElementById('pageLabel');
       const allPageLinks = document.querySelectorAll('[data-page]');
-
-      // Slider elements
       const themeSlider = document.getElementById('themeSlider');
       const sliderThumb = document.getElementById('sliderThumb');
-
       const contactForm = document.getElementById('contactForm');
-      const titleSelect = document.getElementById('title');
-      const nameInput = document.getElementById('name');
-      const emailInput = document.getElementById('email');
-      const messageInput = document.getElementById('message');
+      const langBtn = document.getElementById('langBtn');
+      const langDropdown = document.getElementById('langDropdown');
+      const currentLangCode = document.getElementById('currentLangCode');
+      let currentLang = localStorage.getItem('lang') || 'en';
 
-      // ============================================================
-      // THEME TOGGLE (slider)
-      // ============================================================
+      function t(key, lang = currentLang) {
+        return (translations[lang] && translations[lang][key]) || translations.en[key] || key;
+      }
+
+      function applyLanguage(lang) {
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+        currentLangCode.textContent = lang.toUpperCase();
+
+        document.querySelectorAll('[data-translate-key]').forEach(el => {
+          const key = el.getAttribute('data-translate-key');
+          el.innerHTML = t(key, lang);
+        });
+
+        document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-translate-placeholder');
+          el.placeholder = t(key, lang);
+        });
+
+        updatePageLabel();
+        updateNavLinksText();
+
+        const isDark = document.body.classList.contains('dark-mode');
+        const sliderLabel = t(isDark ? 'switchToLight' : 'toggleDarkMode', lang);
+        themeSlider.setAttribute('aria-label', sliderLabel);
+      }
+
+      function updatePageLabel() {
+        const activePageId = document.querySelector('.page.active-page')?.id || 'home';
+        const key = 'pageLabel' + activePageId.charAt(0).toUpperCase() + activePageId.slice(1);
+        pageLabel.innerHTML = `<i class="fas fa-circle" style="color:var(--blue-primary);font-size:0.5rem;vertical-align:middle;"></i> <span data-translate-key="${key}">${t(key)}</span>`;
+      }
+
+      function updateNavLinksText() {
+        navLinks.forEach(link => {
+          const page = link.dataset.page;
+          const key = 'nav' + page.charAt(0).toUpperCase() + page.slice(1);
+          link.innerHTML = `<span data-translate-key="${key}">${t(key)}</span>`;
+        });
+      }
+
+      function switchPage(pageId) {
+        Object.values(pages).forEach(p => p.classList.remove('active-page'));
+        if (pages[pageId]) pages[pageId].classList.add('active-page');
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.dataset.page === pageId) link.classList.add('active');
+        });
+        updatePageLabel();
+        window.location.hash = pageId;
+      }
+
+      function toggleTheme() {
+        const isDark = document.body.classList.contains('dark-mode');
+        document.body.classList.toggle('dark-mode');
+        const theme = isDark ? 'light' : 'dark';
+        localStorage.setItem('theme', theme);
+        const sliderLabel = t(theme === 'dark' ? 'switchToLight' : 'toggleDarkMode');
+        themeSlider.setAttribute('aria-label', sliderLabel);
+      }
+
       function getPreferredTheme() {
         const stored = localStorage.getItem('theme');
         if (stored === 'dark' || stored === 'light') return stored;
@@ -1739,17 +1492,12 @@
         if (theme === 'dark') {
           document.body.classList.add('dark-mode');
           localStorage.setItem('theme', 'dark');
+          themeSlider.setAttribute('aria-label', t('switchToLight'));
         } else {
           document.body.classList.remove('dark-mode');
           localStorage.setItem('theme', 'light');
+          themeSlider.setAttribute('aria-label', t('toggleDarkMode'));
         }
-        themeSlider.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      }
-
-      function toggleTheme() {
-        const isDark = document.body.classList.contains('dark-mode');
-        setTheme(isDark ? 'light' : 'dark');
-        sliderThumb.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease';
       }
 
       themeSlider.addEventListener('click', toggleTheme);
@@ -1761,26 +1509,6 @@
       });
 
       setTheme(getPreferredTheme());
-
-      // ============================================================
-      // PAGE SWITCHING
-      // ============================================================
-      function switchPage(pageId) {
-        Object.values(pages).forEach(p => p.classList.remove('active-page'));
-        if (pages[pageId]) {
-          pages[pageId].classList.add('active-page');
-        }
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.dataset.page === pageId) {
-            link.classList.add('active');
-          }
-        });
-        const names = { home: 'Home', about: 'About', certifications: 'Certifications', contact: 'Contact' };
-        pageLabel.innerHTML =
-          `<i class="fas fa-circle" style="color:var(--blue-primary);font-size:0.5rem;vertical-align:middle;"></i> ${names[pageId] || 'Home'}`;
-        window.location.hash = pageId;
-      }
 
       navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -1808,20 +1536,29 @@
           switchPage('home');
         }
       }
-
       window.addEventListener('hashchange', checkHash);
 
-      // ============================================================
-      // SEND MESSAGE → INSERT INTO "messages" TABLE
-      // ============================================================
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('show');
+      });
+
+      document.addEventListener('click', () => {
+        langDropdown.classList.remove('show');
+      });
+
+      langDropdown.addEventListener('click', (e) => {
+        const li = e.target.closest('li');
+        if (li) {
+          const lang = li.dataset.lang;
+          applyLanguage(lang);
+          langDropdown.classList.remove('show');
+        }
+      });
+
       async function sendMessage(senderName, email, message, title) {
         const fullName = title ? `${title} ${senderName}` : senderName;
-        const payload = {
-          sender_name: fullName,
-          email: email,
-          message: message
-        };
-
+        const payload = { sender_name: fullName, email: email, message: message };
         const response = await fetch(`${SUPABASE_URL}/rest/v1/messages`, {
           method: 'POST',
           headers: {
@@ -1832,7 +1569,6 @@
           },
           body: JSON.stringify(payload)
         });
-
         if (!response.ok) {
           const errorText = await response.text();
           throw new Error(`Insert failed: ${response.status} ${errorText}`);
@@ -1840,48 +1576,39 @@
         return true;
       }
 
-      // ============================================================
-      // CONTACT FORM HANDLER
-      // ============================================================
       contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
+        const title = document.getElementById('title').value;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
 
-        const title = titleSelect.value;
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const message = messageInput.value.trim();
+        const alerts = {
+          en: { title: '⚠️ Please select a title.', name: '⚠️ Please enter your full name.', email: '⚠️ Please enter your email.', message: '⚠️ Please enter a message.', success: '✅ Message sent successfully!', fail: '❌ Failed to send message.' },
+          fr: { title: '⚠️ Veuillez sélectionner un titre.', name: '⚠️ Veuillez entrer votre nom complet.', email: '⚠️ Veuillez entrer votre email.', message: '⚠️ Veuillez entrer un message.', success: '✅ Message envoyé avec succès !', fail: '❌ Échec de l\'envoi du message.' },
+          es: { title: '⚠️ Por favor seleccione un título.', name: '⚠️ Por favor ingrese su nombre completo.', email: '⚠️ Por favor ingrese su correo electrónico.', message: '⚠️ Por favor ingrese un mensaje.', success: '✅ ¡Mensaje enviado con éxito!', fail: '❌ Error al enviar el mensaje.' },
+          de: { title: '⚠️ Bitte wählen Sie einen Titel.', name: '⚠️ Bitte geben Sie Ihren vollständigen Namen ein.', email: '⚠️ Bitte geben Sie Ihre E-Mail ein.', message: '⚠️ Bitte geben Sie eine Nachricht ein.', success: '✅ Nachricht erfolgreich gesendet!', fail: '❌ Nachricht konnte nicht gesendet werden.' },
+          zh: { title: '⚠️ 请选择称呼。', name: '⚠️ 请输入您的全名。', email: '⚠️ 请输入您的电子邮件。', message: '⚠️ 请输入消息。', success: '✅ 消息发送成功！', fail: '❌ 消息发送失败。' }
+        };
+        const a = alerts[currentLang] || alerts.en;
 
-        if (!title) {
-          alert('⚠️ Please select a title.');
-          return;
-        }
-        if (!name) {
-          alert('⚠️ Please enter your full name.');
-          return;
-        }
-        if (!email) {
-          alert('⚠️ Please enter your email.');
-          return;
-        }
-        if (!message) {
-          alert('⚠️ Please enter a message.');
-          return;
-        }
+        if (!title) return alert(a.title);
+        if (!name) return alert(a.name);
+        if (!email) return alert(a.email);
+        if (!message) return alert(a.message);
 
         try {
           await sendMessage(name, email, message, title);
-          alert('✅ Message sent successfully!');
+          alert(a.success);
         } catch (error) {
-          console.error('Send message error:', error);
-          alert('❌ Failed to send message. Please check console for details.');
+          console.error(error);
+          alert(a.fail);
         }
       });
 
-      // ============================================================
-      // INIT
-      // ============================================================
+      applyLanguage(currentLang);
       checkHash();
-      console.log('✅ Portfolio ready — all green replaced with blue, rotating network icon.');
+      console.log('✅ Portfolio ready — blue palette, language selector active.');
     })();
   </script>
 </body>
